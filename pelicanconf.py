@@ -24,7 +24,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-    ("Web Archive", "https://web.archive.org/web/20250000000000*/environmentnepal.com.np")
+    ("Web Archive", "https://web.archive.org/web/20250000000000*/environmentnepal.com.np"),
     ("Pelican", "https://getpelican.com/"),
 )
 
