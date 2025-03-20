@@ -1,6 +1,7 @@
 AUTHOR = 'environmentnepal'
 SITENAME = 'EnvironmentNEPAL'
-SITEURL = ""
+SITEURL = "https://environmentnepal.com.np"
+# THEME = "themes/zurb-F5-basic"
 
 PATH = "content"
 
@@ -31,5 +32,6 @@ SOCIAL = (
 
 DEFAULT_PAGINATION = 10
 
+NEWEST_FIRST_ARCHIVES = True
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
