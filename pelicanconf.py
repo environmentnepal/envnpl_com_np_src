@@ -1,6 +1,6 @@
 AUTHOR = 'environmentnepal'
 SITENAME = 'EnvironmentNEPAL'
-SITEURL = ""
+SITEURL = "https://environmentnepal.com.np"
 THEME = "themes/zurb-F5-basic"
 
 PATH = "content"
@@ -24,6 +24,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
+    ("Web Archive", "'https://web.archive.org/web/20250000000000*/environmentnepal.com.np")
     ("Pelican", "https://getpelican.com/"),
 )
 
