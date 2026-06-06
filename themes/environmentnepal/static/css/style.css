@@ -700,3 +700,67 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* === Book Banner === */
+.book-banner {
+    background: #f0fdf4;
+    border-bottom: 1px solid #d1fae5;
+    padding: 1.25rem 2rem;
+}
+.book-banner-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.book-banner-cover {
+    width: 80px;
+    height: 110px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #d1fae5;
+}
+.book-banner-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.book-cover-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--green);
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 700;
+}
+.book-banner-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+.book-banner-text h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.15rem;
+}
+.book-banner-author {
+    font-size: 0.9rem;
+    color: var(--meta);
+    margin-bottom: 0.5rem;
+}
+.book-banner-link {
+    font-size: 0.9rem;
+    color: var(--green);
+    font-weight: 600;
+}
+.book-banner-link:hover {
+    text-decoration: underline;
+}

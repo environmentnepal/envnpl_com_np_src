@@ -29,7 +29,27 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Book Banner -->
+    {% set books = articles | selectattr('category', 'equalto', 'Books') | list %}
+    {% if books %}
+    <div class="book-banner">
+        <div class="book-banner-inner">
+            <div class="book-banner-cover">
+                {% if books[0].cover %}
+                <img src="{{ SITEURL }}/{{ books[0].cover }}" alt="{{ books[0].title }}" />
+                {% else %}
+                <div class="book-cover-placeholder">{{ books[0].title[:1] }}</div>
+                {% endif %}
+            </div>
+            <div class="book-banner-text">
+                <p class="book-banner-label">Book of the Month</p>
+                <h3>{{ books[0].title }}</h3>
+                <p class="book-banner-author">by {{ books[0].author }}</p>
+                <a href="{{ SITEURL }}/{{ books[0].url }}" class="book-banner-link">Read review &rarr;</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
     <main>
         {% block content %}{% endblock %}
     </main>
