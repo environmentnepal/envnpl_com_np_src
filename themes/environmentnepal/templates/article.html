@@ -7,7 +7,7 @@
         <h1>{{ article.title }}</h1>
         {% if article.source and article.category != 'Books' %}
         <p class="article-source">
-            <a href="{{ article.url }}" target="_blank" rel="noopener">Read full article at {{ article.source }} &rarr;</a>
+            <a href="{{ article.source_url }}" target="_blank" rel="noopener">Read full article at {{ article.source }} &rarr;</a>
         </p>
         {% endif %}
     </header>
@@ -27,7 +27,7 @@
 
     {% if article.category != 'Books' %}
     <p class="read-more">
-        <a href="{{ article.url }}" target="_blank" rel="noopener">Read more at {{ article.source }} &rarr;</a>
+        <a href="{{ article.source_url }}" target="_blank" rel="noopener">Read more at {{ article.source }} &rarr;</a>
     </p>
     {% endif %}
 

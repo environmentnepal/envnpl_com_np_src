@@ -80,7 +80,7 @@ def main():
             continue
 
         fm_text = fm_match.group(1)
-        url_match = re.search(r"^URL:\s*(.+)$", fm_text, re.MULTILINE)
+        url_match = re.search(r"^Source_URL:", fm_text, re.MULTILINE\s*(.+)$", fm_text, re.MULTILINE)
         source_match = re.search(r"^Source:\s*(.+)$", fm_text, re.MULTILINE)
 
         if not url_match or not source_match:

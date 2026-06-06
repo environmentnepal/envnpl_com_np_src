@@ -134,7 +134,7 @@ def create_markdown(article):
 Date: {ds}
 Category: {article.get('category','climate')}
 Source: {article['source_name']}
-URL: {article['url']}
+Source_URL: {article['url']}
 Slug: {slug}
 Snippet: {article.get('snippet','')[:200]}
 Summary: {article.get('snippet','')[:200]}\n---\n"""
