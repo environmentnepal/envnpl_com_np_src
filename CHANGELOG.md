@@ -1,101 +1,120 @@
 # EnvironmentNEPAL — Development Log
 
-## Phase Status (2026-06-06)
-
-| Phase | Status | Key Deliverables |
-|-------|--------|------------------|
-| **0 — Repo Setup** | ✓ Done | LICENSE (MIT), .gitignore, requirements.txt, venv, config fix |
-| **1 — Custom Theme** | ✓ Done | base.html, index.html, article.html, page.html, category.html, archives.html, style.css |
-| **2 — Static Content** | ✓ Done | 12 national parks (Commons images + credits), 5 pages (about-us, privacy, dmca, contact, advertise) |
-| **3 — Scraper** | ✓ Done | sources.yaml (7 sources), dedupe.py, scraper.py, fetch_content.py, fetch_images.py |
-| **4 — CI/CD** | ✓ Done | deploy.yml (GitHub Actions → GitHub Pages) |
-| **5 — Books** | ✓ Done | Snow Leopard review, books category grid (3-col with covers) |
-| **6 — AQI Dashboard** | ✓ Done | /pages/aqi.html with client-side JS |
-| **7 — Podcast** | ✓ Done | /pages/podcast.html with 4 episodes |
-| **8 — API/MCP** | ⏳ Post-launch | Deferred |
+## Site: https://environmentnepal.com.np/
+## Last updated: 2026-06-06
 
 ---
 
-## Completed Tasks (by commit order)
+## Phase Completion
 
-1. **Phase 0-2** (`refactor phase 1-2`)
-   - Created theme with left-aligned header, hero 1+2, event section, 4×2 coverage grid, podcast grid, footer
-   - 12 national parks with metadata
-   - Static pages with content
-   - Moved sample content to news/ with proper categories
-   - Layout: left-aligned header, hero (1+2), event section, 4x2 coverage grid, podcast section, footer
+| Phase | Status | What was built |
+|-------|--------|----------------|
+| 0 | ✓ | LICENSE (MIT), .gitignore, requirements.txt, virtual environment |
+| 1 | ✓ | 6 Pelican templates (base, index, article, page, category, archives), style.css |
+| 2 | ✓ | 12 national park pages, 5 static pages (about-us, privacy, dmca, contact, advertise) |
+| 3 | ✓ | Scraping engine: sources.yaml (7 sources), dedupe.py, scraper.py |
+| 4 | ✓ | GitHub Actions deploys to GitHub Pages on push |
+| 5 | ✓ | Book of the Month (The Snow Leopard), 3-col books grid |
+| 6 | ✓ | AQI Dashboard page with client-side JavaScript |
+| 7 | ✓ | Podcast page with 4 hardcoded episodes |
+| 8 | ⏳ | Post-launch: API + MCP endpoints |
 
-2. **CSS Cache Fix** (`fix: bust Cloudflare CSS cache, use publishconf.py for deploy`)
-   - Added `?v=2` to CSS link
-   - Switched deploy workflow from pelicanconf.py to publishconf.py
+---
 
-3. **Protected Areas** (`feat: Protected Areas section with random parks + Commons images`)
-   - Protected Areas section below podcasts (4 parks per row)
-   - Wikimedia Commons images for all 12 parks with CC credits
-   - image_credit display on park detail pages
+## Features Built (Beyond Original Spec)
 
-4. **Protected Areas Grid Fix** (`fix: Protected Areas grid - remove JS that broke CSS grid layout`)
-   - Removed JS shuffle that broke CSS grid
+These emerged during implementation and are NOT in `specs/handoff.md`:
 
-5. **Phase 3 — Scraper** (`feat: Phase 3 - news scraping engine`)
-   - scripts/sources.yaml: 7 Nepal news sources
-   - scripts/dedupe.py: URL hash + title similarity + content fingerprint
-   - scripts/scraper.py: fetch, categorize, dedupe, generate Markdown
+### Homepage
+- **Featured Section** — Black full-width section between hero and coverage. Pulls the article with `Featured: True` in frontmatter. Shows image (left) + title + summary + "Read full article →" link. Currently: "Shadows Over the Sky Caves" (Super El Niño 2026).
+- **Protected Areas Section** — 4-column grid below podcasts showing 4 parks with Commons images, titles, establishment years. Links to `/category/parks.html`.
+- **Article images on cards** — Hero and coverage cards show background images extracted from source article `og:image` meta tags.
 
-6. **Phases 5-7** (`feat: Phases 5-7 — Books, AQI Dashboard, Podcast`)
-   - Book of the Month (The Snow Leopard) with banner
-   - AQI Dashboard with client-side JS
-   - Podcast page with 4 episodes
+### Article Pages
+- **Full article body** — Each news article has ~2000 chars of content fetched from the original source (via `scripts/fetch_content.py`).
+- **Article images** — Extracted from source `og:image` metadata (via `scripts/fetch_images.py`). Stored in `Image:` frontmatter.
+- **"Read more at [source] →"** — External link at bottom of article pages, opens in new tab.
+- **Park image credits** — All 12 parks have Wikimedia Commons images with CC attribution displayed on detail pages.
 
-7. **Real News Content** (`feat: pulled 22 real news articles from Ratopati and Kathmandu Post`)
-   - 22 articles from Ratopati English + Kathmandu Post
-   - Added 'links' extractor for React sites
-   - Fixed @href string handling
+### Archives (`/archives.html`)
+- Articles grouped by date (e.g., "06 June 2026" header → list of articles below)
+- Paginated: 20 items per page
+- Filters out Parks and Books categories
 
-8. **Major Fixes** (`fix: nav 404s, article content, book cover, read-more links`)
-   - Fixed nav links: Parks, Books, Data → correct Pelican paths
-   - Fixed frontmatter `---` delimiters (all 22 files were missing them)
-   - Added article body content (~2000 chars via fetch_content.py)
-   - "Read more at [source]" links with target="_blank"
-   - Book review shows "Review by EnvironmentNEPAL"
-   - Book cover from OpenLibrary
-   - Rewrote scraper.py clean after corruption
+### Books (`/category/books.html`)
+- 3-column grid with book cover thumbnails (200px), title, author, year
+- Book detail images constrained to 300px max-width
+- Review credit: "Review by EnvironmentNEPAL"
 
-9. **Book Banner Removal + URL Fix** (`fix: news article URLs, remove book banner from homepage`)
-   - Renamed URL: → Source_URL: in frontmatter
-   - Article internal URLs now correct (not external source URLs)
-   - Removed book banner from base.html
+### Navigation
+- Home → `/`
+- News → `/archives.html` (all articles by date)
+- Parks → `/category/parks.html` (3-col grid)
+- Books → `/category/books.html` (3-col grid)
+- Data → `/pages/aqi.html` (AQI dashboard)
 
-10. **Books Grid + Image Size** (`fix: Books page 3-col grid with covers, constrain book detail images`)
-    - /category/books.html: 3-col grid with covers
-    - Book detail images constrained to 300px
+### Technical
+- **Source_URL rename** — Frontmatter `URL:` renamed to `Source_URL:` to prevent Pelican from treating external URLs as article permalinks.
+- **Cloudflare cache bust** — CSS served with `?v=2` query param.
+- **Links extractor** — `scraper.py` has a `links` extractor type for React-rendered sites (Kathmandu Post) that scrape flat `<a>` tag lists.
 
-11. **Archives + Images** (`feat: archives pagination, article images, section widths`)
-    - Custom archives.html: grouped by date, 20 items/page, pagination
-    - fetch_images.py: extracts og:image from source pages
-    - 20/22 articles with real images
-    - All sections constrained to 1280px
+---
 
-12. **Featured Section** (`feat: featured section replaces event, Super El Niño article`)
-    - Renamed event-section → feature-section
-    - Featured section pulls article with Featured: True metadata
-    - "Shadows Over the Sky Caves" — Super El Niño 2026 deep-dive
-    - 2 NOAA climate images (ENSO, temp anomalies)
+## File Inventory
 
-13. **Featured Image Fix** (`fix: restore Image and Summary fields in featured article`)
-    - Restored accidentally dropped Image + Summary fields
+### Templates (`themes/environmentnepal/templates/`)
+| File | Purpose |
+|------|---------|
+| `base.html` | HTML shell: header (left-aligned), nav, footer |
+| `index.html` | Homepage: hero (1+2), featured, coverage grid, podcasts, protected areas |
+| `article.html` | News/park/book detail page with read-more links |
+| `page.html` | Static pages (about-us, privacy, etc.) |
+| `category.html` | Category listings: parks grid, books grid, news list |
+| `archives.html` | Paginated, date-grouped article listing |
+
+### Scripts (`scripts/`)
+| File | Purpose | Run from |
+|------|---------|----------|
+| `scraper.py` | Main ingestion engine | Local machine (cron) |
+| `dedupe.py` | URL hash + title similarity + fingerprint dedup | Imported by scraper |
+| `sources.yaml` | 7 news sources with CSS/RSS selectors | Read by scraper |
+| `fetch_content.py` | Extract ~2000 chars from article URLs | One-time or periodic |
+| `fetch_images.py` | Extract og:image from source pages | One-time or periodic |
+| `podcast_generator.py` | TTS podcast generation (placeholder) | Manual |
+
+### Content
+| Directory | Count | Description |
+|-----------|-------|-------------|
+| `content/news/` | 23 files | Scraped news articles with full content |
+| `content/parks/` | 12 files | National park pages with Commons images |
+| `content/books/` | 1 file | Monthly book review |
+| `content/pages/` | 7 files | about-us, privacy, dmca, contact, advertise, aqi, podcast |
+
+### Config
+| File | Purpose |
+|------|---------|
+| `pelicanconf.py` | Dev config, SITEURL, theme, pagination (20) |
+| `publishconf.py` | Production config (same SITEURL, RELATIVE_URLS=False) |
+| `.github/workflows/deploy.yml` | GitHub Actions: `pelican content -o output -s publishconf.py` → gh-pages |
 
 ---
 
 ## Current State
 
-- **35 articles**: 22 news + 12 parks + 1 book
+- **35 articles**: 23 news + 12 parks + 1 book
 - **7 pages**: about-us, privacy, dmca, contact, advertise, aqi, podcast
-- **Live at**: https://environmentnepal.com.np/
-- **Scraper**: `python scripts/scraper.py` (run locally from Nepal)
+- **Live**: https://environmentnepal.com.np/
+- **Deploy**: Automatic on push to main (GitHub Actions → GitHub Pages)
 
-## Remaining Work
+## Known Quirks
 
-- Phase 8: API + MCP (post-launch)
-- Scraper cron job setup on operator's machine
-- Source URL/selector verification from within Nepal
+- **Scraper sources**: Rising Nepal, Nepalnews, OnlineKhabar, Himalayan Times time out from outside Nepal. Only Ratopati English and Kathmandu Post work from foreign IPs. URLs and CSS selectors need verification from within Nepal.
+- **Cloudflare cache**: CSS changes may lag. Bump `?v=N` in base.html if styles don't update.
+- **Pelican warning**: Some articles have `{url}` in body text which Pelican tries to process as a template tag — harmless.
+
+## Remaining
+
+- Phase 8: API + MCP endpoints (post-launch)
+- Scraper cron job (`0 */12 * * *`) on operator's machine
+- Source URL/selector tuning from within Nepal
+- Replace hardcoded podcast episodes with AI-generated audio
