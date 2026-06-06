@@ -1,7 +1,7 @@
 AUTHOR = 'environmentnepal'
 SITENAME = 'EnvironmentNEPAL'
 SITEURL = "https://environmentnepal.com.np"
-THEME = "themes/zurb-F5-basic"
+THEME = "themes/environmentnepal"
 
 PATH = "content"
 STATIC_PATHS = ['images', 'static']

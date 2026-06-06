@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }}{% endblock %}
+{% block content %}
+
+{# Filter: news articles exclude Parks category #}
+{% set news = articles | rejectattr('category', 'equalto', 'Parks') | list %}
+{% set parks = articles | selectattr('category', 'equalto', 'Parks') | list %}
+
+<!-- Hero Section: 1 main + 2 sub -->
+<section class="hero">
+    <div class="hero-grid">
+        {% if news and news|length >= 1 %}
+        <!-- Main story (50% width) -->
+        <article class="hero-main">
+            <a href="{{ SITEURL }}/{{ news[0].url }}">
+                {% if news[0].image %}
+                <div class="hero-main-img" style="background-image: url('{{ news[0].image }}');"></div>
+                {% else %}
+                <div class="hero-main-img hero-placeholder"></div>
+                {% endif %}
+                <div class="hero-main-text">
+                    <h2>{{ news[0].title }}</h2>
+                    <p class="meta">{{ news[0].category }} | {{ news[0].type|default('News') }} | {{ news[0].date|strftime('%d %B %Y') }}</p>
+                </div>
+            </a>
+        </article>
+        {% endif %}
+
+        <!-- Sub-stories (25% each) -->
+        <div class="hero-sub">
+            {% for article in news[1:3] %}
+            <article class="hero-sub-card">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    {% if article.image %}
+                    <div class="hero-sub-img" style="background-image: url('{{ article.image }}');"></div>
+                    {% else %}
+                    <div class="hero-sub-img hero-placeholder"></div>
+                    {% endif %}
+                    <div class="hero-sub-text">
+                        <h3>{{ article.title }}</h3>
+                        <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+
+            {# Placeholder sub-cards when < 3 news articles #}
+            {% if news|length < 2 %}
+            <article class="hero-sub-card">
+                <div class="hero-sub-img hero-placeholder"></div>
+                <div class="hero-sub-text">
+                    <h3>More stories coming soon</h3>
+                    <p class="meta">Stay tuned</p>
+                </div>
+            </article>
+            {% endif %}
+            {% if news|length < 3 %}
+            <article class="hero-sub-card">
+                <div class="hero-sub-img hero-placeholder"></div>
+                <div class="hero-sub-text">
+                    <h3>More stories coming soon</h3>
+                    <p class="meta">Stay tuned</p>
+                </div>
+            </article>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Event Section (black background, full width) -->
+<section class="event-section">
+    <div class="event-inner">
+        <div class="event-image">
+            <div class="event-placeholder">
+                <span>Event</span>
+            </div>
+        </div>
+        <div class="event-details">
+            <h2>Decolonise How? The ethics of covering crisis</h2>
+            <p>In the first of our Decolonise How? webinar series, we explore the ethics of crisis reporting and lessons from the Middle East. Join Patrick Gathara with Amal Rad and Sana Sayed.</p>
+            <a href="#" class="event-register">Register</a>
+        </div>
+    </div>
+</section>
+
+<!-- Current Coverage Section (white background) -->
+<section class="coverage-section">
+    <div class="coverage-inner">
+        <h2 class="section-heading">Current coverage</h2>
+        <div class="coverage-grid">
+            {% for article in news[3:11] %}
+            <article class="coverage-card">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    {% if article.image %}
+                    <div class="coverage-card-img" style="background-image: url('{{ article.image }}');">
+                    {% else %}
+                    <div class="coverage-card-img coverage-placeholder">
+                    {% endif %}
+                        <span class="category-tag">{{ article.category }}</span>
+                    </div>
+                    <h3>{{ article.title }}</h3>
+                    <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
+                </a>
+            </article>
+            {% endfor %}
+
+            {# Placeholder cards when < 11 news articles total #}
+            {% set needed = 11 - (news|length) %}
+            {% if needed > 0 and news|length > 3 %}
+                {% set slots = 8 - (news[3:11]|length) %}
+            {% elif news|length <= 3 %}
+                {% set slots = 8 %}
+            {% else %}
+                {% set slots = 0 %}
+            {% endif %}
+            {% for i in range(slots) %}
+                <article class="coverage-card coverage-placeholder-card">
+                    <div class="coverage-card-img coverage-placeholder"></div>
+                    <h3>More stories coming soon</h3>
+                    <p class="meta">Stay tuned</p>
+                </article>
+            {% endfor %}
+        </div>
+        <a href="{{ SITEURL }}/archives.html" class="section-link">All current coverage &rarr;</a>
+    </div>
+</section>
+
+<!-- Podcast Section -->
+<section class="podcast-section">
+    <div class="podcast-inner">
+        <h2 class="section-heading">Latest podcasts</h2>
+        <div class="podcast-grid">
+            {% for i in range(4) %}
+            <article class="podcast-card">
+                <div class="podcast-cover">
+                    <span>Episode {{ i + 1 }}</span>
+                </div>
+                <p class="meta">EnvironmentNEPAL</p>
+                <h3>EnvironmentNEPAL Weekly &mdash; Episode {{ i + 1 }}</h3>
+            </article>
+            {% endfor %}
+        </div>
+        <a href="{{ SITEURL }}/pages/podcast.html" class="section-link">All podcasts &rarr;</a>
+    </div>
+</section>
+
+{% endblock %}

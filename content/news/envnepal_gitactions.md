@@ -1,7 +1,7 @@
 Title: Git Actions Setup
 Date: 2025-03-20 03:46
-Category: blog
-Tags: nepal, environment, web development, revival
+Category: Policy
+Tags: nepal, environment
 Slug: envnepal_gitactions
 Author: environmentnepal
 Status: published

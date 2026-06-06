@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+    {% if FEED_ALL_ATOM %}
+    <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="{{ SITEURL }}/" class="site-logo">{{ SITENAME }}</a>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="{{ SITEURL }}/">Home</a></li>
+                    <li><a href="{{ SITEURL }}/category/news.html">News</a></li>
+                    <li><a href="{{ SITEURL }}/parks.html">Parks</a></li>
+                    <li><a href="{{ SITEURL }}/books.html">Books</a></li>
+                    <li><a href="{{ SITEURL }}/data.html">Data</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="{{ SITEURL }}/pages/about-us.html">About Us</a>
+                <a href="{{ SITEURL }}/pages/privacy.html">Privacy</a>
+                <a href="{{ SITEURL }}/pages/dmca.html">DMCA</a>
+                <a href="{{ SITEURL }}/pages/contact.html">Contact</a>
+                <a href="{{ SITEURL }}/pages/advertise.html">Advertise</a>
+            </div>
+            <p class="footer-copy">&copy; {{ SITENAME }}. Independent coverage of Nepal's environment.</p>
+        </div>
+    </footer>
+</body>
+</html>

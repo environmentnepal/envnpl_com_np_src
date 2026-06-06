@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{{ category }}{% endblock %}
+{% block content %}
+<section class="category-page">
+    <div class="category-inner">
+        <h2 class="section-heading">{{ category }}</h2>
+
+        {% if category == 'Parks' %}
+        <div class="parks-grid">
+            {% for article in articles %}
+            <article class="park-card">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    <div class="park-card-img park-placeholder">
+                        <span>{{ article.title[:2] }}</span>
+                    </div>
+                    <div class="park-card-text">
+                        <h3>{{ article.title }}</h3>
+                        <p class="meta">Established {{ article.date.strftime('%Y') }}</p>
+                        <p class="park-snippet">{{ article.summary }}</p>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="category-list">
+            {% for article in articles %}
+            <article class="category-item">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    <h3>{{ article.title }}</h3>
+                    <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
+                    <p class="category-snippet">{{ article.summary|truncate(200) }}</p>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

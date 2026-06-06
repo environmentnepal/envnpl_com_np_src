@@ -1,7 +1,7 @@
 Title: A Journey Back from the Archives
 Date: 2025-03-20 02:46
-Category: blog
-Tags: nepal, environment, web development, revival
+Category: Climate
+Tags: nepal, environment
 Slug: revival-of-envnepal
 Author: environmentnepal
 Status: published
