@@ -60,13 +60,29 @@ These emerged during implementation and are NOT in `specs/handoff.md`:
 
 ---
 
+## Commit History
+
+1. **Phase 0-2** — Created theme, 12 parks, 5 pages
+2. **CSS Cache Fix** — Cloudflare bust with `?v=2`
+3. **Protected Areas** — 4-park grid below podcasts
+4. **Protected Areas Grid Fix** — Removed JS shuffle
+5. **Phase 3 — Scraper** — sources.yaml, dedupe.py, scraper.py
+6. **Phases 5-7** — Books, AQI Dashboard, Podcast
+7. **Real News** — 22 articles from Ratopati + Kathmandu Post
+8. **Major Fixes** — nav 404s, article content, read-more links
+9. **Book Banner + URL Fix** — Source_URL rename, banner removed
+10. **Books Grid + Image Size** — 3-col grid, 300px detail images
+11. **Archives + Images** — paginated archives, og:image extraction
+12. **Featured Section** — event→feature, Super El Niño article
+13. **Featured Image Fix** — restored dropped Image field
+14. **New Book Review** — Environmental Justice in Nepal (London, Adhikari, Robertson, 2024)
+
 ## File Inventory
 
 ### Templates (`themes/environmentnepal/templates/`)
 | File | Purpose |
 |------|---------|
 | `base.html` | HTML shell: header (left-aligned), nav, footer |
-| `index.html` | Homepage: hero (1+2), featured, coverage grid, podcasts, protected areas |
 | `article.html` | News/park/book detail page with read-more links |
 | `page.html` | Static pages (about-us, privacy, etc.) |
 | `category.html` | Category listings: parks grid, books grid, news list |
@@ -87,7 +103,7 @@ These emerged during implementation and are NOT in `specs/handoff.md`:
 |-----------|-------|-------------|
 | `content/news/` | 23 files | Scraped news articles with full content |
 | `content/parks/` | 12 files | National park pages with Commons images |
-| `content/books/` | 1 file | Monthly book review |
+| `content/books/` | 2 files | Monthly book reviews (Snow Leopard, Environmental Justice) |
 | `content/pages/` | 7 files | about-us, privacy, dmca, contact, advertise, aqi, podcast |
 
 ### Config
@@ -98,10 +114,11 @@ These emerged during implementation and are NOT in `specs/handoff.md`:
 | `.github/workflows/deploy.yml` | GitHub Actions: `pelican content -o output -s publishconf.py` → gh-pages |
 
 ---
+- **36 articles**: 23 news + 12 parks + 2 books
 
 ## Current State
 
-- **35 articles**: 23 news + 12 parks + 1 book
+- **36 articles**: 23 news + 12 parks + 2 books
 - **7 pages**: about-us, privacy, dmca, contact, advertise, aqi, podcast
 - **Live**: https://environmentnepal.com.np/
 - **Deploy**: Automatic on push to main (GitHub Actions → GitHub Pages)
