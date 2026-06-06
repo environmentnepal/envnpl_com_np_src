@@ -3,18 +3,16 @@ Date: 2026-06-06
 Category: climate
 Featured: True
 Slug: super-el-nino-nepal-2026
-Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/El_Nino_Regional_Impacts.gif/800px-El_Nino_Regional_Impacts.gif
-Image_Credit: NOAA / Public Domain
+Image: https://www.severe-weather.eu/wp-content/gallery/andrej-news/super-el-nino-forecast-2026-velocity-potential-anomaly-june-atmospheric-circulation-impact-summer-united-states-canada.png
+Image_Credit: Severe Weather Europe
 Summary: The 2026 Super El Niño threatens Nepal's monsoon, agriculture, hydropower, and daily life — from glacial retreat to food security.
 
-
-# Shadows Over the Sky Caves: How the 2026 'Super El Niño' is Rewriting Life in Nepal
 
 As global climate models solidify their projections for the tail end of 2026, the World Meteorological Organization (WMO) has issued a sobering warning: the planet is transitioning into a powerful climate phase that experts fear will peak as a "Super El Niño"—an abnormal warming of Pacific Ocean surface temperatures by more than 2°C (WMO, 2026).
 
 While this atmospheric disruption originates thousands of miles away in the tropical Pacific, its ripples are moving directly toward the Indian subcontinent. For Nepal, a nation tightly bound to the rhythms of its annual monsoon, this oceanic anomaly is not a distant scientific data point. It is a looming restructuring of daily survival, stretching from the ice-capped peaks of the Himalayas down to the sub-tropical flatlands of the Terai.
 
----
+
 
 ## 1. Weather & Environment: The Scorched Continuum
 
@@ -36,7 +34,7 @@ In the high-altitude alpine zones, El Niño acts as a climate accelerator. Risin
 
 As the high-altitude snowpack thins, western river basins like the Karnali, Bheri, and Mahakali are facing historically low streamflows. The natural storage systems—the mountain wetlands, high springs, and village wells—are failing to recharge.
 
----
+
 
 ## 2. Agriculture: Cracks in the Granary
 
@@ -51,7 +49,7 @@ The memory of the 2025 monsoon—where severe dry spells forced the government t
 
 Compounding the lack of water, global geopolitical tensions have kept fertilizer and agricultural fuel prices volatile, leaving smallholders with fewer options to mitigate the dry spells with diesel-powered pumps.
 
----
+
 
 ## 3. Socio-Economics: Energy Truncated and Food Secured?
 
@@ -74,7 +72,7 @@ When domestic rice production plummets, food prices climb. For subsistence house
 | **Mid-Hills** | Drying springs, pest migration | Cash crop declines (citrus/mandarin), local food insecurity |
 | **Terai (Plains)** | Failed monsoons, extreme heat waves | Massive reduction in rice yields, heat stroke, economic migration |
 
----
+
 
 ## 4. Lifestyle & The Human Element: Changing Everyday Rhythms
 
@@ -86,7 +84,7 @@ In the Terai and inner Madhesh valleys, the summer has become an exercise in end
 * **The Domestic Water Burden:** As village springs (known locally as *kuwas*) dry up in the mid-hills, the daily task of fetching water—traditionally borne by women and children—has doubled in duration. Walks that once took thirty minutes now stretch into multi-hour treks down deep ravines where the water table hasn't completely dropped.
 * **Ecosystem Shifts:** The unusual heat is driving pests and diseases into higher altitudes. Citrus orchards in the mid-hills are seeing unprecedented infestations of insects that previously could not survive the cooler mountain air, threatening generational livelihoods like mandarin orange farming.
 
----
+
 
 ## 5. Anticipatory Action: Fighting the Horizon
 
@@ -100,7 +98,7 @@ Nepal is no longer treating El Niño as an unpreventable natural disaster, but r
 
 The climate reality of 2026 has made one thing clear: the Pacific Ocean and the Himalayas are deeply intertwined. As the warming waters of the tropics distort global air currents, the farmers of the Terai and the herders of the mountains find themselves on the front lines of an interconnected world, rewriting their ancient ways of life to match the volatile rhythms of a changing planet.
 
----
+
 
 ### References
 
