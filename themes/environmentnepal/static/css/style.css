@@ -151,14 +151,14 @@ img {
 }
 
 /* === Event Section (Black Background) === */
-.event-section {
+.feature-section {
     background: var(--black);
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     padding: 3rem 2rem;
 }
 
-.event-inner {
+.feature-inner {
     max-width: 1280px;
     margin: 0 auto;
     display: grid;
@@ -167,7 +167,7 @@ img {
     align-items: center;
 }
 
-.event-placeholder {
+.feature-placeholder {
     width: 100%;
     aspect-ratio: 1;
     background: #333;
@@ -179,7 +179,7 @@ img {
     border-radius: 4px;
 }
 
-.event-details h2 {
+.feature-details h2 {
     font-size: 2rem;
     font-weight: 700;
     color: var(--white);
@@ -187,14 +187,14 @@ img {
     line-height: 1.2;
 }
 
-.event-details p {
+.feature-details p {
     color: #d1d5db;
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
     line-height: 1.6;
 }
 
-.event-register {
+.feature-link {
     display: inline-block;
     background: var(--green);
     color: var(--white);
@@ -205,7 +205,7 @@ img {
     transition: background 0.15s;
 }
 
-.event-register:hover {
+.feature-link:hover {
     background: #1e5a3a;
 }
 
@@ -516,7 +516,7 @@ img {
         flex-direction: row;
     }
 
-    .event-inner {
+    .feature-inner {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
@@ -572,11 +572,11 @@ img {
         padding: 0 1rem;
     }
 
-    .event-inner {
+    .feature-inner {
         grid-template-columns: 1fr;
     }
 
-    .event-details h2 {
+    .feature-details h2 {
         font-size: 1.5rem;
     }
 
@@ -908,4 +908,13 @@ img {
 .pagination-info {
     color: var(--meta);
     font-size: 0.9rem;
+}
+
+.feature-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
 }

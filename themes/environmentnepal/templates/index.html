@@ -67,21 +67,27 @@
     </div>
 </section>
 
-<!-- Event Section (black background, full width) -->
-<section class="event-section">
-    <div class="event-inner">
-        <div class="event-image">
-            <div class="event-placeholder">
-                <span>Event</span>
-            </div>
+<!-- Featured Section (black background, full width) -->
+{% set featured = articles | selectattr('featured', 'equalto', 'True') | list %}
+{% if featured %}
+<section class="feature-section">
+    <div class="feature-inner">
+        <div class="feature-image">
+            {% if featured[0].image %}
+            <img src="{{ featured[0].image }}" alt="{{ featured[0].title }}" />
+            {% else %}
+            <div class="feature-placeholder"><span>Featured</span></div>
+            {% endif %}
         </div>
-        <div class="event-details">
-            <h2>Decolonise How? The ethics of covering crisis</h2>
-            <p>In the first of our Decolonise How? webinar series, we explore the ethics of crisis reporting and lessons from the Middle East. Join Patrick Gathara with Amal Rad and Sana Sayed.</p>
-            <a href="#" class="event-register">Register</a>
+        <div class="feature-details">
+            <p class="feature-label">Featured</p>
+            <h2><a href="{{ SITEURL }}/{{ featured[0].url }}">{{ featured[0].title }}</a></h2>
+            <p>{{ featured[0].summary[:250] }}</p>
+            <a href="{{ SITEURL }}/{{ featured[0].url }}" class="feature-link">Read full article &rarr;</a>
         </div>
     </div>
 </section>
+{% endif %}
 
 <!-- Current Coverage Section (white background) -->
 <section class="coverage-section">
@@ -141,6 +147,9 @@
             {% endfor %}
         </div>
         <a href="{{ SITEURL }}/pages/podcast.html" class="section-link">All podcasts &rarr;</a>
+    </div>
+</section>
+
 <!-- Protected Areas Section -->
 <section class="protected-section">
     <div class="protected-inner">
