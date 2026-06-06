@@ -26,6 +26,26 @@
             </article>
             {% endfor %}
         </div>
+        {% elif category == 'Books' %}
+        <div class="books-grid">
+            {% for article in articles %}
+            <article class="book-card">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    {% if article.cover %}
+                    <div class="book-card-cover"><img src="{{ article.cover }}" alt="{{ article.title }}" /></div>
+                    {% else %}
+                    <div class="book-card-cover book-cover-placeholder">
+                        <span>{{ article.title[:1] }}</span>
+                    </div>
+                    {% endif %}
+                    <div class="book-card-text">
+                        <h3>{{ article.title }}</h3>
+                        <p class="meta">{{ article.author }} | {{ article.date.strftime('%Y') }}</p>
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
         {% else %}
         <div class="category-list">
             {% for article in articles %}
