@@ -1,6 +1,6 @@
 ---
 Title: Diesel-run public vehicles are driving Kathmandu’s air pollution
-Date: 2026-06-06
+Date: 2026-04-03
 Category: pollution
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2026/04/03/diesel-run-public-vehicles-are-driving-kathmandu-s-air-pollution

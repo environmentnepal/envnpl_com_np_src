@@ -1,6 +1,6 @@
 ---
 Title: UN weather agency confirms hottest decade on record
-Date: 2026-06-06
+Date: 2026-03-23
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2026/03/23/un-weather-agency-confirms-hottest-decade-on-record

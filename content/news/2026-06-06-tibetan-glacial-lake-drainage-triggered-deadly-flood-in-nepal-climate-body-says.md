@@ -1,6 +1,6 @@
 ---
 Title: Tibetan glacial lake drainage triggered deadly flood in Nepal, climate body says
-Date: 2026-06-06
+Date: 2025-07-10
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/07/10/tibetan-glacial-lake-drainage-triggered-deadly-flood-in-nepal-climate-body-says

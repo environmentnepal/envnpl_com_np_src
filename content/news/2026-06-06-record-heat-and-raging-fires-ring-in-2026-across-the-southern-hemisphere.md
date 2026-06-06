@@ -1,6 +1,6 @@
 ---
 Title: Record heat and raging fires ring in 2026 across the Southern Hemisphere
-Date: 2026-06-06
+Date: 2026-02-11
 Category: disaster
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2026/02/11/record-heat-and-raging-fires-ring-in-2026-across-the-southern-hemisphere

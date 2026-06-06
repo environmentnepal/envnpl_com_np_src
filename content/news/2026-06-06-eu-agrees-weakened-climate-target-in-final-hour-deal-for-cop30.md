@@ -1,6 +1,6 @@
 ---
 Title: EU agrees weakened climate target in final-hour deal for COP30
-Date: 2026-06-06
+Date: 2025-11-05
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/11/05/eu-agrees-weakened-climate-target-in-final-hour-deal-for-cop30

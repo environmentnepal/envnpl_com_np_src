@@ -1,6 +1,6 @@
 ---
 Title: As smog season looms, experts urge early action on air pollution
-Date: 2026-06-06
+Date: 2025-10-24
 Category: pollution
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/10/24/as-smog-season-looms-experts-urge-early-action-on-air-pollution

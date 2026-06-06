@@ -1,6 +1,6 @@
 ---
 Title: PM’s aerial tour brings no relief to parched Madhesh
-Date: 2026-06-06
+Date: 2025-07-25
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/07/25/pm-s-aerial-tour-brings-no-relief-to-parched-madhesh

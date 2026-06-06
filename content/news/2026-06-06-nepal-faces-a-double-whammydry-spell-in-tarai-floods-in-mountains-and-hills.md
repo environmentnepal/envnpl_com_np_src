@@ -1,6 +1,6 @@
 ---
 Title: Nepal faces a double whammy—dry spell in Tarai, floods in mountains and hills
-Date: 2026-06-06
+Date: 2025-07-17
 Category: water
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/07/17/nepal-faces-a-double-whammy-dry-spell-in-tarai-floods-in-mountains-and-hills

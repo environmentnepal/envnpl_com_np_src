@@ -1,6 +1,6 @@
 ---
 Title: Global temperatures to reach near-record highs in next five years, report finds
-Date: 2026-06-06
+Date: 2026-05-28
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2026/05/28/global-temperatures-to-reach-near-record-highs-in-next-five-years-report-finds

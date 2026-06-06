@@ -1,6 +1,6 @@
 ---
 Title: Rasuwagadhi flooding exposes gaps in neighbourly data-sharing
-Date: 2026-06-06
+Date: 2025-07-09
 Category: water
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/07/09/rasuwagadhi-flooding-exposes-gaps-in-neighbourly-data-sharing

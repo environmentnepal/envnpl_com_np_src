@@ -1,6 +1,6 @@
 ---
 Title: Drizzle fails to wash away Kathmandu Valley’s haze
-Date: 2026-06-06
+Date: 2026-01-28
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2026/01/28/drizzle-fails-to-wash-away-kathmandu-valley-s-haze

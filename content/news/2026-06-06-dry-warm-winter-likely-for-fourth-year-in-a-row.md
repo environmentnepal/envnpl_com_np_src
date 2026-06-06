@@ -1,6 +1,6 @@
 ---
 Title: Dry, warm winter likely for fourth year in a row
-Date: 2026-06-06
+Date: 2025-12-08
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/12/08/dry-warm-winter-likely-for-fourth-year-in-a-row

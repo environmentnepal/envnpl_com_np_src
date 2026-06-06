@@ -1,6 +1,6 @@
 ---
 Title: Erratic monsoon frustrates forecasters and farmers alike
-Date: 2026-06-06
+Date: 2025-07-10
 Category: climate
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/07/10/erratic-monsoon-frustrates-forecasters-and-farmers-alike
