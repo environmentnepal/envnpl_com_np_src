@@ -1,6 +1,7 @@
 # EnvironmentNEPAL - Master Handoff Document
 
-> **Purpose:** This document captures all decisions, architecture, layout specifications, and task lists for EnvironmentNEPAL. Any DeepSeek instance (local or web) reading this should continue development without asking for重复 information.
+> **Purpose:** This document captures all decisions, architecture, layout specifications, and task lists for EnvironmentNEPAL.
+> **Development Log**: See `CHANGELOG.md` for commit-by-commit progress.
 
 > **Project Domain:** environmentnepal.com.np
 > **Launch Target:** June 4, 2026 (World Environment Day)
