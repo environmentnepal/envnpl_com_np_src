@@ -1,6 +1,8 @@
 Title: Bardiya National Park
 Date: 1988-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/2/25/Bardiya_National_Park.jpg
+Image_Credit: Sanoj-photography / CC BY-SA 4.0, via Wikimedia Commons
 Slug: bardiya
 Summary: Bardiya National Park — established 1988. Home to Bengal tiger.
 

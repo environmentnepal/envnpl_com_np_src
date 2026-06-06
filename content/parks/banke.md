@@ -1,6 +1,8 @@
 Title: Banke National Park
 Date: 2010-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/3/32/Banke_National_Park.jpg
+Image_Credit: Hopingyousuf / CC BY-SA 4.0, via Wikimedia Commons
 Slug: banke
 Summary: Banke National Park — established 2010. Home to Bengal tiger.
 

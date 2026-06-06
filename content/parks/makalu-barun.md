@@ -1,6 +1,8 @@
 Title: Makalu Barun National Park
 Date: 1992-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/5/56/Makalu_Barun_National_Park.jpg
+Image_Credit: Bms.subash / CC BY-SA 4.0, via Wikimedia Commons
 Slug: makalu-barun
 Summary: Makalu Barun National Park — established 1992. Home to Snow leopard.
 

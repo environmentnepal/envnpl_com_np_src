@@ -1,6 +1,8 @@
 Title: Sagarmatha National Park
 Date: 1976-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/0/07/Sagarmatha_National_Park.jpg
+Image_Credit: DARIO SEVERI / CC BY-SA 4.0, via Wikimedia Commons
 Slug: sagarmatha
 Summary: Sagarmatha National Park — established 1976. Home to Snow leopard.
 

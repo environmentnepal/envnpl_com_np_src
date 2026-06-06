@@ -10,9 +10,13 @@
             {% for article in articles %}
             <article class="park-card">
                 <a href="{{ SITEURL }}/{{ article.url }}">
+                    {% if article.image %}
+                    <div class="park-card-img" style="background-image: url('{{ article.image }}');"></div>
+                    {% else %}
                     <div class="park-card-img park-placeholder">
                         <span>{{ article.title[:2] }}</span>
                     </div>
+                    {% endif %}
                     <div class="park-card-text">
                         <h3>{{ article.title }}</h3>
                         <p class="meta">Established {{ article.date.strftime('%Y') }}</p>

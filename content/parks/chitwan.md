@@ -1,6 +1,8 @@
 Title: Chitwan National Park
 Date: 1973-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/f/f5/Chitwan_National_Park.jpg
+Image_Credit: Binaya marahatha / CC BY-SA 4.0, via Wikimedia Commons
 Slug: chitwan
 Summary: Chitwan National Park — established 1973. Home to Bengal tiger.
 

@@ -1,6 +1,8 @@
 Title: Langtang National Park
 Date: 1976-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/1/10/Langtang_National_Park.jpg
+Image_Credit: Bharat2 / CC BY-SA 4.0, via Wikimedia Commons
 Slug: langtang
 Summary: Langtang National Park — established 1976. Home to Red panda.
 

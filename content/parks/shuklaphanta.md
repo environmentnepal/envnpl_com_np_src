@@ -1,6 +1,8 @@
 Title: Shuklaphanta National Park
 Date: 1976-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/5/55/Ranitaal1.JPG
+Image_Credit: Wikimedia Commons / CC BY-SA 4.0
 Slug: shuklaphanta
 Summary: Shuklaphanta National Park — established 1976. Home to Swamp deer (largest herd in world).
 

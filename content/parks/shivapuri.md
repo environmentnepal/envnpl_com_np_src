@@ -1,6 +1,8 @@
 Title: Shivapuri Nagarjun National Park
 Date: 2002-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/d/d4/Shivapuri_Nagarjun_National_Park.jpg
+Image_Credit: Bigyan Gautam / CC BY-SA 4.0, via Wikimedia Commons
 Slug: shivapuri
 Summary: Shivapuri Nagarjun National Park — established 2002. Home to Leopard.
 

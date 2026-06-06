@@ -1,6 +1,8 @@
 Title: Shey Phoksundo National Park
 Date: 1984-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/e/e7/Phoksundo%2C_Dolpo%2C_Nepal.JPG
+Image_Credit: Wikimedia Commons / CC BY-SA 4.0
 Slug: shey-phoksundo
 Summary: Shey Phoksundo National Park — established 1984. Home to Snow leopard.
 

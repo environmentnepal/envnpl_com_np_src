@@ -1,6 +1,8 @@
 Title: Rara National Park
 Date: 1976-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/9/9f/Rara_Lake.jpg
+Image_Credit: Ajay Rana Bhat / CC BY-SA 4.0, via Wikimedia Commons
 Slug: rara
 Summary: Rara National Park — established 1976. Home to Himalayan black bear.
 

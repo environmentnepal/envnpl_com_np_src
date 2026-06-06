@@ -1,6 +1,8 @@
 Title: Khaptad National Park
 Date: 1984-01-01
 Category: Parks
+Image: https://upload.wikimedia.org/wikipedia/commons/1/12/Khaptad_National_Park.JPG
+Image_Credit: Wikimedia Commons / CC BY-SA 4.0
 Slug: khaptad
 Summary: Khaptad National Park — established 1984. Home to Leopard.
 

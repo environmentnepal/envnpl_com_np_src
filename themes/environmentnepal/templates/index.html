@@ -141,7 +141,31 @@
             {% endfor %}
         </div>
         <a href="{{ SITEURL }}/pages/podcast.html" class="section-link">All podcasts &rarr;</a>
+<!-- Protected Areas Section -->
+<section class="protected-section">
+    <div class="protected-inner">
+        <h2 class="section-heading">Protected Areas</h2>
+        <div class="protected-grid" id="protected-grid">
+            {% for park in parks %}
+            <article class="protected-card">
+                <a href="{{ SITEURL }}/{{ park.url }}">
+                    {% if park.image %}
+                    <div class="protected-card-img" style="background-image: url('{{ park.image }}');"></div>
+                    {% else %}
+                    <div class="protected-card-img protected-placeholder"></div>
+                    {% endif %}
+                    <h3>{{ park.title }}</h3>
+                    <p class="meta">Established {{ park.date.strftime('%Y') }}</p>
+                </a>
+            </article>
+            {% endfor %}
+        </div>
+        <a href="{{ SITEURL }}/category/parks.html" class="section-link">All protected areas &rarr;</a>
     </div>
 </section>
+
+<script>
+(function(){var c=document.getElementById('protected-grid');var d=c.querySelectorAll('.protected-card');var a=Array.from(d).sort(function(){return Math.random()-0.5});a.forEach(function(e,i){e.style.display=i<4?'':'none'});})();
+</script>
 
 {% endblock %}
