@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/04/03/diesel-run-
 Slug: diesel-run-public-vehicles-are-driving-kathmandus-air-pollution
 Snippet: Diesel-run public vehicles are driving Kathmandu’s air pollution
 Summary: Diesel-run public vehicles are driving Kathmandu’s air pollution
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/third-party/thumb34-1775229958.jpg
 ---
 
 The Kathmandu Metropolitan City (KMC) has resumed random emission testing of vehicles since Wednesday, and early results show that around 75 percent of diesel-fuelled vehicles—buses, micro-buses and pick-up trucks—are emitting black smoke beyond permissible levels.

@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/07/25/pm-s-aerial
 Slug: pms-aerial-tour-brings-no-relief-to-parched-madhesh
 Snippet: PM’s aerial tour brings no relief to parched Madhesh
 Summary: PM’s aerial tour brings no relief to parched Madhesh
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/thumb2-1753501660.jpg
 ---
 
 As drought grips the country’s southern plains, farmers hoping for rain may instead face a windstorm on Friday evening in parts of Madhesh and Koshi provinces, as meteorologists warn that chances of heavy or continuous rainfall remain slim.

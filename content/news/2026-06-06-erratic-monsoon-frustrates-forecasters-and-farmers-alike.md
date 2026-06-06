@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/07/10/erratic-mon
 Slug: erratic-monsoon-frustrates-forecasters-and-farmers-alike
 Snippet: Erratic monsoon frustrates forecasters and farmers alike
 Summary: Erratic monsoon frustrates forecasters and farmers alike
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/NGSunsari4Z9B8193-1752108450.jpg
 ---
 
 Every day, an elderly man from Kapilvastu district dials the landline number of the Meteorological Forecasting Division to inquire about rain updates. The office had forecast above-normal rainfall for the ongoing monsoon.

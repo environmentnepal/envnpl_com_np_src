@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/02/11/record-heat
 Slug: record-heat-and-raging-fires-ring-in-2026-across-the-southern-hemisphere
 Snippet: Record heat and raging fires ring in 2026 across the Southern Hemisphere
 Summary: Record heat and raging fires ring in 2026 across the Southern Hemisphere
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/world/forestfire-1770813008.jpg
 ---
 
 From Argentina to Australia to South Africa, record heat and raging wildfires are rampaging through the Southern Hemisphere at the start of 2026, with scientists predicting that even more extreme temperatures could lie ahead - and possibly another global annual high - after three of the hottest years on record.

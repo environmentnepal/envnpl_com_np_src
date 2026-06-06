@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/07/10/tibetan-gla
 Slug: tibetan-glacial-lake-drainage-triggered-deadly-flood-in-nepal-climate-body-says
 Snippet: Tibetan glacial lake drainage triggered deadly flood in Nepal, climate body says
 Summary: Tibetan glacial lake drainage triggered deadly flood in Nepal, climate body says
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/world/20250710T053544Z1LYNXMPEL69059RTROPTP4ASIAWEATHERNEPALCHINA-1752127294.jpg
 ---
 
 The deadly flood in Nepal’s Bhote Koshi River that killed at least nine people and left more than two dozen missing this week was triggered by the draining of a supraglacial lake in the Tibet region of China, a regional climate monitoring body said on Wednesday.

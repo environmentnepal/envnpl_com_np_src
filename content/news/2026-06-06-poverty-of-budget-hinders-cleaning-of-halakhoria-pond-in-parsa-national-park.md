@@ -7,6 +7,7 @@ Source_URL: https://english.ratopati.com/story/65716/halkhoriya-daha-in-parsa-na
 Slug: poverty-of-budget-hinders-cleaning-of-halakhoria-pond-in-parsa-national-park
 Snippet: 
 Summary:
+Image: https://npcdn.ratopati.com/media/news/halkhoriya-daha_kxMlGLb6Hp.jpg
 ---
 
 *Read more at [{source}]({url})*

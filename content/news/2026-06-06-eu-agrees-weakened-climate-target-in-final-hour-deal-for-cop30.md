@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/11/05/eu-agrees-w
 Slug: eu-agrees-weakened-climate-target-in-final-hour-deal-for-cop30
 Snippet: EU agrees weakened climate target in final-hour deal for COP30
 Summary: EU agrees weakened climate target in final-hour deal for COP30
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/world/larsAAgaard-1762344891.jpg
 ---
 
 EU climate ministers agreed a 2040 climate change target in the early hours of Wednesday after watering down the goal in last-minute negotiations, as they raced to clinch the deal before the UN COP30 summit in Brazil.

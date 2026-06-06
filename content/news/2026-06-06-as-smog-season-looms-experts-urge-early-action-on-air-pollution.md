@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/10/24/as-smog-sea
 Slug: as-smog-season-looms-experts-urge-early-action-on-air-pollution
 Snippet: As smog season looms, experts urge early action on air pollution
 Summary: As smog season looms, experts urge early action on air pollution
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/main1743569434-1761311819.jpg
 ---
 
 Operation of long-distance vehicles was suspended for three days in the first week of October, in view of the forecast of excessive rainfall and the risk of floods, landslides and inundation.

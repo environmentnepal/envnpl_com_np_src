@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/11/15/cop30-stews
 Slug: cop30-stews-over-fossil-fuels-and-final-deal-as-indigenous-fight-for-forest
 Snippet: COP30 stews over fossil fuels and final deal as Indigenous fight for forest
 Summary: COP30 stews over fossil fuels and final deal as Indigenous fight for forest
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/world/COP301-1763184694.jpg
 ---
 
 UN climate talks were nearing a midway point on Friday, with countries still wrangling over which issues they might be able to rally around in a final summit deal – and whether such a deal is even possible.

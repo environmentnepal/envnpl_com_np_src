@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/01/28/drizzle-fai
 Slug: drizzle-fails-to-wash-away-kathmandu-valleys-haze
 Snippet: Drizzle fails to wash away Kathmandu Valley’s haze
 Summary: Drizzle fails to wash away Kathmandu Valley’s haze
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/news/Rain20260128331copy-1769650344.jpg
 ---
 
 Kathmandu Valley witnessed dangerously high air pollution on Wednesday, with air quality hovering at very unhealthy and hazardous levels throughout the day. At 1 pm, the capital city also ranked third globally for air pollution on Wednesday, behind only Cairo, Egypt, and New Delhi, India.

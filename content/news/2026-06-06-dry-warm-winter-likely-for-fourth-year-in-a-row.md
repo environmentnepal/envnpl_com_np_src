@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/12/08/dry-warm-wi
 Slug: dry-warm-winter-likely-for-fourth-year-in-a-row
 Snippet: Dry, warm winter likely for fourth year in a row
 Summary: Dry, warm winter likely for fourth year in a row
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/thumb1-1765195405.jpg
 ---
 
 Nepal is likely bracing a dry and warmer-than normal winter this year, marking the fourth consecutive year of such conditions.

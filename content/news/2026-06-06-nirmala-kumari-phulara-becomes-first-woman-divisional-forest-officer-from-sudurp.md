@@ -7,6 +7,7 @@ Source_URL: https://english.ratopati.com/story/65672/nirmala-becomes-the-first-f
 Slug: nirmala-kumari-phulara-becomes-first-woman-divisional-forest-officer-from-sudurp
 Snippet: 
 Summary:
+Image: https://npcdn.ratopati.com/media/news/nirmala_pu6a0FQeT1.jpg
 ---
 
 *Read more at [{source}]({url})*

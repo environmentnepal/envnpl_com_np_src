@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/06/02/an-unusuall
 Slug: an-unusually-rainy-spring-a-drier-monsoon-ahead-whats-happening-to-nepals-weathe
 Snippet: An unusually rainy spring, a drier monsoon ahead: What’s happening to Nepal’s weather?
 Summary: An unusually rainy spring, a drier monsoon ahead: What’s happening to Nepal’s weather?
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/news/rasuwa-1780362150.jpg
 ---
 
 Frequent rainfall, thunderstorms and cloudy skies have marked an unusually active pre-monsoon season across much of Nepal. Climate experts say this weather pattern is being driven by a combination of local atmospheric conditions and global climate systems.

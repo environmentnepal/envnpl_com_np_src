@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/03/23/un-weather-
 Slug: un-weather-agency-confirms-hottest-decade-on-record
 Snippet: UN weather agency confirms hottest decade on record
 Summary: UN weather agency confirms hottest decade on record
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/world/LBYSVXA4BZMH7NZJYNFRMBGYWQ-1774245132.jpg
 ---
 
 The years between 2015 and 2025 have been the hottest since records began, ​the UN weather agency said on Monday, ‌with 2025 ranking either second or third overall.

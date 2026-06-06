@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - Archives{% endblock %}
+{% block content %}
+<section class="archives-page">
+    <div class="archives-inner">
+        <h2 class="section-heading">News Archives</h2>
+
+        {% set ns = namespace(current_date='') %}
+        {% for article in articles_page.object_list if article.category != 'Parks' and article.category != 'Books' %}
+            {% set article_date = article.date.strftime('%d %B %Y') %}
+            {% if article_date != ns.current_date %}
+                {% if ns.current_date != '' %}
+                    </ul>
+                </div>
+                {% endif %}
+                <div class="archive-day">
+                <h3 class="archive-date">{{ article_date }}</h3>
+                <ul class="archive-list">
+                {% set ns.current_date = article_date %}
+            {% endif %}
+            <li class="archive-item">
+                <a href="{{ SITEURL }}/{{ article.url }}">
+                    <span class="archive-title">{{ article.title }}</span>
+                    {% if article.source %}
+                    <span class="archive-source">&mdash; {{ article.source }}</span>
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+        {% if ns.current_date != '' %}
+            </ul>
+        </div>
+        {% endif %}
+
+        {% if articles_page.has_other_pages() %}
+        <nav class="pagination">
+            {% if articles_page.has_previous() %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="pagination-prev">&larr; Newer</a>
+            {% endif %}
+            <span class="pagination-info">Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+            {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="pagination-next">Older &rarr;</a>
+            {% endif %}
+        </nav>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/11/01/brazil-offe
 Slug: brazil-offers-free-cruise-cabins-as-poorer-nations-struggle-for-rooms-at-cop30
 Snippet: Brazil offers free cruise cabins as poorer nations struggle for rooms at COP30
 Summary: Brazil offers free cruise cabins as poorer nations struggle for rooms at COP30
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/world/BRASILIANFOREST1-1762008449.jpg
 ---
 
 Dozens of countries have yet to secure accommodation for their delegations at the COP30 climate summit just a week before it opens, with host Brazil offering free cabins on cruise ships to poorer nations in a last-minute bid to ensure they can attend.

@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/07/09/rasuwagadhi
 Slug: rasuwagadhi-flooding-exposes-gaps-in-neighbourly-data-sharing
 Snippet: Rasuwagadhi flooding exposes gaps in neighbourly data-sharing
 Summary: Rasuwagadhi flooding exposes gaps in neighbourly data-sharing
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/bhotekoshi08720251039211000x0-1751975320.jpg
 ---
 
 Officials at the Flood Forecasting Division under the Department of Hydrology and Meteorology were unaware of the flood in the Bhotekoshi river until 6 o’clock on Tuesday morning. This lack of knowledge caused deaths and widespread devastation in the Trishuli river basin.

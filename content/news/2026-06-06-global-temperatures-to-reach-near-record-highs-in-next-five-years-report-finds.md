@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/05/28/global-temp
 Slug: global-temperatures-to-reach-near-record-highs-in-next-five-years-report-finds
 Snippet: Global temperatures to reach near-record highs in next five years, report finds
 Summary: Global temperatures to reach near-record highs in next five years, report finds
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/world/OINXY6375VI37CMYYBTXUYURQY-1779961758.jpg
 ---
 
 Average global temperatures are forecast to reach near-record levels in the next five years, ‌with Arctic temperatures expected to warm faster than other regions, a report by the U.N. weather agency and the UK’s Met Office said on Thursday.

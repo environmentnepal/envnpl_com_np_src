@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/06/05/spcc-cimex-
 Slug: spcc-cimex-byd-join-hands-under-everest-1-initiative-to-protect-himalayan-ecosys
 Snippet: SPCC, Cimex BYD join hands under Everest 1° Initiative to protect Himalayan ecosystem
 Summary: SPCC, Cimex BYD join hands under Everest 1° Initiative to protect Himalayan ecosystem
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/news/everestpostphoto-1780662447.jpg
 ---
 
 On the occasion of World Environment Day 2026, the Sagarmatha Pollution Control Committee (SPCC) and the Cimex BYD Charity Foundation (CBCF) have partnered under the Everest 1° Initiative, a long-term environmental programme aimed at protecting the fragile Himalayan ecosystem through sustainable waste management, climate resilience, clean energy and environmental stewardship.

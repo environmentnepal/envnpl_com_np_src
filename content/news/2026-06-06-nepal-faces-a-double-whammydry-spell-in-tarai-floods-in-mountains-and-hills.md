@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/07/17/nepal-faces
 Slug: nepal-faces-a-double-whammydry-spell-in-tarai-floods-in-mountains-and-hills
 Snippet: Nepal faces a double whammy—dry spell in Tarai, floods in mountains and hills
 Summary: Nepal faces a double whammy—dry spell in Tarai, floods in mountains and hills
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/third-party/91752124220-1752714722.jpg
 ---
 
 Seven out of the eight deep borings installed for irrigation in ward 4 of Bara’s Pheta Rural Municipality have dried up due to a prolonged dry spell during the mid-monsoon. The transformer of one of the borewells, which was functioning, was stolen.

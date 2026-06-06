@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2026/01/15/smog-alert-
 Slug: smog-alert-nearly-1200-brick-kilns-nationwide-start-firing-today
 Snippet: Smog alert! Nearly 1,200 brick kilns nationwide start firing today
 Summary: Smog alert! Nearly 1,200 brick kilns nationwide start firing today
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2026/news/brick-1768440885.jpg
 ---
 
 Nearly 1,200 brick kiln operators across the country are set to start seasonal firing on Thursday, further exacerbating air quality, which is already worsening every day.
