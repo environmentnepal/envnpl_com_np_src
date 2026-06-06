@@ -36,7 +36,7 @@
         <div class="book-banner-inner">
             <div class="book-banner-cover">
                 {% if books[0].cover %}
-                <img src="{{ SITEURL }}/{{ books[0].cover }}" alt="{{ books[0].title }}" />
+                <img src="{% if 'http' in books[0].cover|string %}{{ books[0].cover }}{% else %}{{ SITEURL }}/{{ books[0].cover }}{% endif %}" alt="{{ books[0].title }}" />
                 {% else %}
                 <div class="book-cover-placeholder">{{ books[0].title[:1] }}</div>
                 {% endif %}

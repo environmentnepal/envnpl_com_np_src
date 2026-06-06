@@ -3,7 +3,6 @@ Author: Peter Matthiessen
 Date: 2026-06-01
 Category: Books
 Slug: snow-leopard
-Cover: images/snow-leopard.jpg
 Cover: https://covers.openlibrary.org/b/id/914727-L.jpg
 
 # The Snow Leopard
