@@ -1,4 +1,6 @@
 pelican[markdown]
 requests
 beautifulsoup4
+lxml
+pyyaml
 python-frontmatter

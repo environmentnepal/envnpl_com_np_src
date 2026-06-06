@@ -1,0 +1,135 @@
+# EnvironmentNEPAL — News source configuration
+#
+# Sources are tested from within Nepal. URLs and CSS selectors may need
+# local adjustment. Use --dry flag with scraper.py to verify first.
+
+sources:
+  - name: "The Rising Nepal"
+    url: "https://risingnepaldaily.com/category/environment"
+    note: "Connects from Nepal only — may redirect to old.risingnepaldaily.com"
+    type: dynamic
+    check_frequency_hours: 12
+    extractor: css
+    selector: "article"
+    fields:
+      title: "h2 a, h3 a"
+      url: "h2 a@href, h3 a@href"
+      snippet: "p"
+      date: "time, .date"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "irrigation", "drinking"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage", "toxic", "chemical"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire", "storm"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty"]
+        category: policy
+
+  - name: "Nepalnews"
+    url: "https://www.nepalnews.com/s/environment"
+    type: dynamic
+    check_frequency_hours: 12
+    extractor: css
+    selector: "article, .news-list article"
+    fields:
+      title: "h3 a, h2 a"
+      url: "h3 a@href, h2 a@href"
+      snippet: "p, .excerpt"
+      date: "time, .date"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "irrigation", "drinking"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage", "toxic", "chemical"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire", "storm"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty"]
+        category: policy
+
+  - name: "OnlineKhabar"
+    url: "https://www.onlinekhabar.com/category/environment"
+    type: dynamic
+    check_frequency_hours: 12
+    extractor: css
+    selector: "article, .news-list .item"
+    fields:
+      title: "h2 a, h3 a"
+      url: "h2 a@href, h3 a@href"
+      snippet: "p, .excerpt"
+      date: "time, .date"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government"]
+        category: policy
+
+  - name: "The Himalayan Times"
+    url: "https://thehimalayantimes.com/category/environment"
+    type: dynamic
+    check_frequency_hours: 12
+    extractor: css
+    selector: "article, .news-item"
+    fields:
+      title: "h2 a, h3 a"
+      url: "h2 a@href, h3 a@href"
+      snippet: "p, .summary"
+      date: "time, .date"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry"]
+        category: policy
+
+  - name: "Mongabay Nepal"
+    url: "https://news.mongabay.com/list/nepal/"
+    type: rss
+    check_frequency_hours: 12
+    extractor: rss
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government"]
+        category: policy
