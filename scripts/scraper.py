@@ -109,16 +109,20 @@ def scrape_css(source: dict) -> list[dict]:
         snippet_el = _css_first(element, fields.get("snippet", "p"))
         date_el = _css_first(element, fields.get("date", "time"))
 
-        title = title_el.get_text(strip=True) if title_el else ""
-        link = url_el.get("href", "") if url_el else ""
-        if isinstance(url_el, str):
-            link = url_el
-        snippet = snippet_el.get_text(strip=True) if snippet_el else ""
-        raw_date = date_el.get_text(strip=True) if date_el else ""
+        title_el = _css_first(element, fields.get("title", "h2 a"))
+        url_val = _css_first(element, fields.get("url", "a@href"))
+        snippet_el = _css_first(element, fields.get("snippet", "p"))
+        date_el = _css_first(element, fields.get("date", "time"))
 
-        if not title or not link:
-            continue
+        # url_val may be string (from @href) or element; handle both
+        if isinstance(url_val, str):
+            link = url_val
+        else:
+            link = url_val.get("href", "") if url_val else ""
 
+        title = title_el.get_text(strip=True) if hasattr(title_el, 'get_text') else ""
+        snippet = snippet_el.get_text(strip=True) if hasattr(snippet_el, 'get_text') else (snippet_el if isinstance(snippet_el, str) else "")
+        raw_date = date_el.get_text(strip=True) if hasattr(date_el, 'get_text') else (date_el if isinstance(date_el, str) else "")
         # Make relative URLs absolute
         if link and not link.startswith("http"):
             link = urljoin(url, link)
@@ -172,16 +176,55 @@ def scrape_rss(source: dict) -> list[dict]:
     return articles
 
 
+def scrape_links(source: dict) -> list[dict]:
+    """Scrape articles from a page where content is in flat <a> tag lists (React sites)."""
+    url = source["url"]
+    print(f"  Fetching: {url}")
+    resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=30)
+    resp.raise_for_status()
+    soup = BeautifulSoup(resp.text, "html.parser")
+
+    base = source.get("base_url", "")
+    link_pattern = source.get("link_pattern", source["url"])
+    articles = []
+    seen = set()
+
+    for link in soup.find_all("a", href=True):
+        href = link["href"]
+        if link_pattern not in href:
+            continue
+        title = link.get_text(strip=True)
+        if len(title) < 10 or href in seen:
+            continue
+        seen.add(href)
+
+        # Make relative URLs absolute
+        if href.startswith("/"):
+            href = urljoin(base or url, href)
+        elif not href.startswith("http"):
+            href = urljoin(url, href)
+
+        # Extract date from URL
+        date_match = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", href)
+        date_str = f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}" if date_match else datetime.now().strftime("%Y-%m-%d")
+
+        articles.append({
+            "title": title,
+            "url": href,
+            "snippet": title,
+            "date_raw": date_str,
+            "source_name": source["name"],
+        })
+
+    print(f"    Found {len(articles)} articles")
+    return articles
+
+
 def _css_first(element, selector: str):
-    """Select first matching element, return it or None.
-    
-    Handles @href special syntax: "a@href" selects the href attr directly."""
+    """Select first matching element; returns Element, string attr value, or None."""
     if not selector:
         return None
-
-    # Handle multiple comma-separated selectors (try first, then fallback)
     for sel in [s.strip() for s in selector.split(",")]:
-        # @attr syntax: "a@href" -> element is <a>, attribute is href
         if "@" in sel and not sel.startswith("@"):
             tag_part, _, attr = sel.partition("@")
             el = element.select_one(tag_part)
@@ -194,8 +237,6 @@ def _css_first(element, selector: str):
             if el:
                 return el
     return None
-
-
 def create_markdown(article: dict) -> Path:
     """Write a Pelican-compatible Markdown file and return its path."""
     date_str = article.get("date", datetime.now().strftime("%Y-%m-%d"))
@@ -252,6 +293,8 @@ def main(dry_run: bool = False) -> None:
             extractor = source.get("extractor", "css")
             if extractor == "rss":
                 articles = scrape_rss(source)
+            elif extractor == "links":
+                articles = scrape_links(source)
             else:
                 articles = scrape_css(source)
 

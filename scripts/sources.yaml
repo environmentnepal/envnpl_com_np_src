@@ -4,6 +4,61 @@
 # local adjustment. Use --dry flag with scraper.py to verify first.
 
 sources:
+  - name: "Ratopati English"
+    url: "https://english.ratopati.com"
+    type: dynamic
+    check_frequency_hours: 12
+    extractor: css
+    selector: "article.post-card__primary"
+    fields:
+      title: "h3 a"
+      url: "h3 a@href"
+      snippet: "p"
+      date: "time"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission", "greenhouse"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity", "habitat", "park", "parsa", "chitwan", "conservation"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation", "logging"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "pond", "irrigation", "drinking", "flood"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage", "toxic", "chemical", "emission"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire", "storm", "drought"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty", "budget"]
+        category: policy
+  - name: "Kathmandu Post"
+    url: "https://kathmandupost.com/climate-environment"
+    type: dynamic
+    check_frequency_hours: 12
+    extractor: links
+    selector: ""  # not used for link scraping
+    link_pattern: "/climate-environment/"
+    base_url: "https://kathmandupost.com"
+    fields:  # not used for link scraping
+      title: ""
+      url: ""
+      snippet: ""
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission", "greenhouse", "monsoon", "el nino", "la nina"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity", "habitat", "conservation", "ecosystem"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation", "logging"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "irrigation", "drinking", "flood", "hydropower"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage", "toxic", "chemical", "emission"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire", "storm", "drought"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty"]
+        category: policy
+
+
   - name: "The Rising Nepal"
     url: "https://risingnepaldaily.com/category/environment"
     note: "Connects from Nepal only — may redirect to old.risingnepaldaily.com"
