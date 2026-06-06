@@ -3,8 +3,10 @@ Date: 2026-06-06
 Category: climate
 Featured: True
 Slug: super-el-nino-nepal-2026
+Image: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/El_Nino_Regional_Impacts.gif/800px-El_Nino_Regional_Impacts.gif
 Image_Credit: NOAA / Public Domain
 Summary: The 2026 Super El Niño threatens Nepal's monsoon, agriculture, hydropower, and daily life — from glacial retreat to food security.
+
 
 # Shadows Over the Sky Caves: How the 2026 'Super El Niño' is Rewriting Life in Nepal
 
