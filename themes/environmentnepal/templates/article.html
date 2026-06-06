@@ -5,14 +5,16 @@
     <header class="article-header">
         <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
         <h1>{{ article.title }}</h1>
+        {% if article.source and article.category != 'Books' %}
         <p class="article-source">
-            Source: <a href="{{ article.source }}" target="_blank" rel="noopener">{{ article.source }}</a>
+            <a href="{{ article.url }}" target="_blank" rel="noopener">Read full article at {{ article.source }} &rarr;</a>
         </p>
+        {% endif %}
     </header>
 
-    {% if article.image %}
+    {% if article.image or article.cover %}
     <div class="article-image">
-        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" />
+        <img src="{{ article.image or article.cover }}" alt="{{ article.title|striptags }}" />
         {% if article.image_credit %}
         <p class="image-credit">Image: {{ article.image_credit }}</p>
         {% endif %}
@@ -22,5 +24,16 @@
     <div class="article-body">
         {{ article.content }}
     </div>
+
+    {% if article.category != 'Books' %}
+    <p class="read-more">
+        <a href="{{ article.url }}" target="_blank" rel="noopener">Read more at {{ article.source }} &rarr;</a>
+    </p>
+    {% endif %}
+
+    {% if article.category == 'Books' %}
+    <p class="read-more">Review by EnvironmentNEPAL</p>
+    {% endif %}
 </article>
+
 {% endblock %}

@@ -4,7 +4,7 @@ Date: 2026-06-01
 Category: Books
 Slug: snow-leopard
 Cover: images/snow-leopard.jpg
-Summary: Peter Matthiessen's classic account of a journey into the Himalayas in search of the elusive snow leopard — a meditation on nature, Buddhism, and the human spirit.
+Cover: https://covers.openlibrary.org/b/id/914727-L.jpg
 
 # The Snow Leopard
 

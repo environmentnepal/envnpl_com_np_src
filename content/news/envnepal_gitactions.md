@@ -1,3 +1,4 @@
+---
 Title: Git Actions Setup
 Date: 2025-03-20 03:46
 Category: Policy
@@ -20,3 +21,4 @@ We’re also exploring ways to make environmentnepal.com.np a hub for community 
 So, what’s next? In the short term, expect a few new posts spotlighting recent environmental developments in Nepal—think climate resilience projects or wildlife preservation efforts. Longer term, we’re dreaming big: partnerships with local organizations, multimedia content like photo essays or short videos, and maybe even a Nepali-language version of the site to reach a broader audience. None of this would be possible without the streamlined backbone we’ve just put in place.
 
 We’d love for you to be part of this journey. Whether you’ve got a suggestion for a blog topic, a question about Nepal’s environmental challenges, or just want to say hello, drop us a line through the contact page or reply to this post. Environmentnepal.com.np is more than a website—it’s a growing community, and your voice matters. Stay tuned for more, and let’s keep pushing forward together!
+---
