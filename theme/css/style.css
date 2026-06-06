@@ -839,3 +839,73 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+/* === Archives Page === */
+.archives-page {
+    padding: 3rem 2rem;
+}
+.archives-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.archive-day {
+    margin-bottom: 2rem;
+}
+.archive-date {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+.archive-list {
+    list-style: none;
+    padding: 0;
+}
+.archive-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.archive-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.archive-title {
+    font-weight: 500;
+}
+.archive-source {
+    font-size: 0.8rem;
+    color: var(--meta);
+    white-space: nowrap;
+}
+.archive-item a:hover .archive-title {
+    color: var(--green);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+.pagination-prev,
+.pagination-next {
+    color: var(--green);
+    font-weight: 600;
+}
+.pagination-prev:hover,
+.pagination-next:hover {
+    text-decoration: underline;
+}
+.pagination-info {
+    color: var(--meta);
+    font-size: 0.9rem;
+}
