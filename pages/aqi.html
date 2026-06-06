@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
+    <title>Air Quality Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -43,35 +43,78 @@
     </div>
     <main>
 <article class="static-page">
-    <h1>About Us</h1>
+    <h1>Air Quality Dashboard</h1>
     <div class="page-body">
-        <h1>About EnvironmentNEPAL</h1>
-<h2>Our Mission</h2>
-<p>EnvironmentNEPAL provides independent, free coverage of Nepal's environment. We aggregate news from trusted sources, document the country's national parks, recommend environmental books, and present environmental data in accessible formats.</p>
-<h2>What We Cover</h2>
-<ul>
-<li><strong>News</strong> — Curated headlines and snippets from Nepal's leading newspapers and environmental outlets. We link to original sources with full attribution.</li>
-<li><strong>National Parks</strong> — Detailed guides to all 12 of Nepal's national parks, including wildlife, fees, seasons, and how to reach them.</li>
-<li><strong>Books</strong> — Monthly featured book on environment, conservation, or nature writing, with original reviews.</li>
-<li><strong>Data</strong> — Live air quality data for major Nepali cities via the AQI Dashboard.</li>
-</ul>
-<h2>Editorial Principles</h2>
-<ul>
-<li><strong>Content Integrity</strong> — We never republish full articles. Only headlines, 1-2 sentence snippets, source links, and attribution.</li>
-<li><strong>No Membership</strong> — No sign-up, login, or user accounts. Everything is public and free.</li>
-<li><strong>Ethical Aggregation</strong> — We respect robots.txt, use reasonable delays, and identify our user-agent.</li>
-<li><strong>No AI-Generated Content</strong> — All editorial content is human-curated. We use AI only for podcast audio generation (clearly labeled).</li>
-</ul>
-<h2>Team</h2>
-<p>EnvironmentNEPAL is an independent project by environmental journalists and technologists in Nepal. For inquiries: contact@environmentnepal.com.np.</p>
-<h2>Our Sources</h2>
-<p>We monitor and aggregate from:
-- The Rising Nepal
-- Nepalnews
-- Mongabay Nepal
-- OnlineKhabar
-- The Himalayan Times
-- Additional sources as available</p>
+        <h1>Air Quality Dashboard</h1>
+<div id="aqi-dashboard" style="max-width: 900px; margin: 2rem auto;">
+  <div id="aqi-loading">Loading air quality data...</div>
+  <div id="aqi-cards" style="display:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem;"></div>
+  <p style="font-size:0.8rem; color:#6b7280; margin-top:1rem;">Data source: IQAir. Updates hourly. API key stored server-side.</p>
+</div>
+
+<script>
+(function() {
+  const CITIES = [
+    { name: "Kathmandu", lat: 27.7172, lon: 85.3240 },
+    { name: "Pokhara", lat: 28.2096, lon: 83.9856 },
+    { name: "Bharatpur", lat: 27.6833, lon: 84.4333 },
+  ];
+
+  const AQI_COLORS = [
+    { max: 50, color: "#00e400", label: "Good" },
+    { max: 100, color: "#ffff00", label: "Moderate" },
+    { max: 150, color: "#ff7e00", label: "Unhealthy for Sensitive" },
+    { max: 200, color: "#ff0000", label: "Unhealthy" },
+    { max: 300, color: "#8f3f97", label: "Very Unhealthy" },
+    { max: Infinity, color: "#7e0023", label: "Hazardous" },
+  ];
+
+  function getAqiInfo(aqi) {
+    for (let i = 0; i < AQI_COLORS.length; i++) {
+      if (aqi <= AQI_COLORS[i].max) return AQI_COLORS[i];
+    }
+    return AQI_COLORS[AQI_COLORS.length - 1];
+  }
+
+  function renderCard(city, aqi) {
+    if (aqi === null) {
+      return `<div class="aqi-card" style="background:#f3f4f6;border-radius:8px;padding:1.5rem;text-align:center;">
+        <h3>${city.name}</h3>
+        <p style="color:#6b7280;">Data unavailable</p>
+      </div>`;
+    }
+    const info = getAqiInfo(aqi);
+    return `<div class="aqi-card" style="background:${info.color}22;border-left:4px solid ${info.color};border-radius:8px;padding:1.5rem;">
+      <h3 style="margin:0 0 0.75rem;">${city.name}</h3>
+      <div style="font-size:3rem;font-weight:700;color:${info.color};">${aqi}</div>
+      <p style="font-weight:600;color:${info.color};">${info.label}</p>
+      <p style="font-size:0.8rem;color:#6b7280;">AQI (US)</p>
+    </div>`;
+  }
+
+  async function fetchAqi() {
+    const container = document.getElementById("aqi-cards");
+    const loading = document.getElementById("aqi-loading");
+    try {
+      const res = await fetch("/api/aqi");
+      const data = res.ok ? await res.json() : null;
+      let html = "";
+      for (const city of CITIES) {
+        const val = data ? data[city.name] || null : null;
+        html += renderCard(city, val);
+      }
+      container.innerHTML = html;
+    } catch (e) {
+      container.innerHTML = CITIES.map(c => renderCard(c, null)).join("");
+    }
+    loading.style.display = "none";
+    container.style.display = "grid";
+  }
+
+  fetchAqi();
+  setInterval(fetchAqi, 3600000);
+})();
+</script>
     </div>
 </article>
     </main>
