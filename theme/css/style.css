@@ -780,3 +780,62 @@ img {
 .read-more a:hover {
     text-decoration: underline;
 }
+
+/* === Books Grid === */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+.book-card {
+    text-align: center;
+}
+.book-card-cover {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.book-card-cover img {
+    width: 100%;
+    display: block;
+}
+.book-card-text h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.book-card-text .meta {
+    font-size: 0.85rem;
+    color: var(--meta);
+}
+.book-cover-placeholder {
+    aspect-ratio: 2/3;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* Book detail page — constrain image */
+.full-article .article-image img {
+    max-width: 300px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 1199px) {
+    .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 767px) {
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+}
