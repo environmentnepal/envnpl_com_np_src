@@ -1,6 +1,6 @@
 Title: Environmental Justice in Nepal
 Author: Edited by Jonathan K London, Jagannath Adhikari, Thomas Robertson
-Date: 2026-07-01
+Date: 2026-05-31
 Category: Books
 Slug: environmental-justice-nepal
 Cover: https://images.tandf.co.uk/common/jackets/crclarge/978100337/9781003371175.jpg

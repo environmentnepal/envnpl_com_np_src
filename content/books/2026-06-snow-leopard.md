@@ -1,6 +1,6 @@
 Title: The Snow Leopard
 Author: Peter Matthiessen
-Date: 2026-06-01
+Date: 2026-04-30
 Category: Books
 Slug: snow-leopard
 Cover: https://covers.openlibrary.org/b/id/914727-L.jpg
