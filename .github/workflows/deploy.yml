@@ -20,7 +20,7 @@ jobs:
           # Add other dependencies if needed (e.g., pelican-plugins)
 
       - name: Generate site
-        run: pelican content -o output -s pelicanconf.py
+        run: pelican content -o output -s publishconf.py
 
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4.6.1
