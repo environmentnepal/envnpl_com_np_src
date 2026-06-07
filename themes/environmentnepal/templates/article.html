@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
 {% block content %}
-<article class="full-article">
+<article class="{% if article.category == 'Books' %}book-review{% else %}full-article{% endif %}">
     <header class="article-header">
         <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
         <h1>{{ article.title }}</h1>
