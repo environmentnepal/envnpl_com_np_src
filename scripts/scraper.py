@@ -130,14 +130,7 @@ def create_markdown(article):
     try: ds = datetime.fromisoformat(ds).strftime("%Y-%m-%d")
     except: ds = datetime.now().strftime("%Y-%m-%d")
     slug = slugify(article["title"])
-    fm = f"---\nTitle: {article['title']}
-Date: {ds}
-Category: {article.get('category','climate')}
-Source: {article['source_name']}
-Source_URL: {article['url']}
-Slug: {slug}
-Snippet: {article.get('snippet','')[:200]}
-Summary: {article.get('snippet','')[:200]}\n---\n"""
+    fm = f"""---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\nSnippet: {article.get('snippet','')[:200]}\nSummary: {article.get('snippet','')[:200]}\n---\n"""
     (NEWS_DIR / f"{ds}-{slug}.md").write_text(fm + "\n")
     return f"{ds}-{slug}.md"
 
