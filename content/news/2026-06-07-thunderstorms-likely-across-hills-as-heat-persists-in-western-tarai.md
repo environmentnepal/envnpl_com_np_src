@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/thunderstorms-likely-across-hills-as-heat-persists-in-western-tarai
 Slug: thunderstorms-likely-across-hills-as-heat-persists-in-western-tarai
-Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/05/28/48517.jpg
 Snippet: Thunderstorms likely across hills as heat persists in western Tarai
 Summary: Thunderstorms likely across hills as heat persists in western Tarai
 ---

@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/rain-likely-in-several-provinces-heat-wave-to-persist-in-western-terai
 Slug: rain-likely-in-several-provinces-heat-wave-to-persist-in-western-terai
-Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/05/27/48502.jpg
 Snippet: Rain likely in several provinces, heat wave to persist in western Terai
 Summary: Rain likely in several provinces, heat wave to persist in western Terai
 ---

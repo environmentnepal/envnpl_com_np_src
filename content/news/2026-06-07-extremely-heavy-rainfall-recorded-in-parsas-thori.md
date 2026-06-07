@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/extremely-heavy-rainfall-recorded-in-parsas-thori
 Slug: extremely-heavy-rainfall-recorded-in-parsas-thori
-Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/05/30/48560.jpg
 Snippet: Extremely heavy rainfall recorded in Parsa's Thori
 Summary: Extremely heavy rainfall recorded in Parsa's Thori
 ---

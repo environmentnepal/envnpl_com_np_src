@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/western-terai-to-remain-under-heat-wave-conditions
 Slug: western-terai-to-remain-under-heat-wave-conditions
-Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/05/25/48470.jpg
 Snippet: Western Terai to remain under heat wave conditions
 Summary: Western Terai to remain under heat wave conditions
 ---
