@@ -216,4 +216,16 @@ sources:
       - keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
         category: disaster
       - keywords: ["policy", "regulation", "law", "government", "ministry"]
-        category: policy
+
+  - name: "MyRepublica"
+    url: "https://myrepublica.nagariknetwork.com/news/environment"
+    note: "JS-rendered — add article slugs to scripts/myrepublica_slugs.json"
+    type: dynamic
+    check_frequency_hours: 24
+    extractor: css
+    selector: "h2 a, h3 a"
+    fields:
+      title: "a"
+      url: "a@href"
+      snippet: ""
+      date: ""

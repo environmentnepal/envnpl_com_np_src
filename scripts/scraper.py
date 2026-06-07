@@ -191,7 +191,6 @@ def main(dry_run=False):
     for source in sources:
         name = source["name"]
         if not is_due(source, last_run):
-            print(f"[SKIP] {name}")
             continue
         print(f"[FETCH] {name}")
         try:
