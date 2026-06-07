@@ -1,7 +1,6 @@
 # EnvironmentNEPAL — News source configuration
-#
-# Sources are tested from within Nepal. URLs and CSS selectors may need
-# local adjustment. Use --dry flag with scraper.py to verify first.
+# Sources tested from within Nepal. URLs/selectors may need local tuning.
+
 sources:
   - name: "Nepali Times"
     url: "https://nepalitimes.com"
@@ -24,6 +23,34 @@ sources:
         category: disaster
       - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty"]
         category: policy
+
+  - name: "Mongabay Nepal"
+    url: "https://news.mongabay.com/list/nepal/"
+    type: dynamic
+    check_frequency_hours: 24
+    extractor: css
+    selector: ".article--container"
+    fields:
+      title: ".title h3"
+      url: "a@href"
+      snippet: ""
+      date: ".date"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "biodiversity"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government"]
+        category: policy
+
   - name: "Ratopati English"
     url: "https://english.ratopati.com"
     type: dynamic
@@ -50,15 +77,16 @@ sources:
         category: disaster
       - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty", "budget"]
         category: policy
+
   - name: "Kathmandu Post"
     url: "https://kathmandupost.com/climate-environment"
     type: dynamic
     check_frequency_hours: 12
     extractor: links
-    selector: ""  # not used for link scraping
+    selector: ""
     link_pattern: "/climate-environment/"
     base_url: "https://kathmandupost.com"
-    fields:  # not used for link scraping
+    fields:
       title: ""
       url: ""
       snippet: ""
@@ -78,10 +106,9 @@ sources:
       - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty"]
         category: policy
 
-
   - name: "The Rising Nepal"
     url: "https://risingnepaldaily.com/category/environment"
-    note: "Connects from Nepal only — may redirect to old.risingnepaldaily.com"
+    note: "Redirects to old.risingnepaldaily.com — works from Nepal only"
     type: dynamic
     check_frequency_hours: 12
     extractor: css
@@ -109,6 +136,7 @@ sources:
 
   - name: "Nepalnews"
     url: "https://www.nepalnews.com/s/environment"
+    note: "Geo-restricted — works from Nepal only"
     type: dynamic
     check_frequency_hours: 12
     extractor: css
@@ -136,6 +164,7 @@ sources:
 
   - name: "OnlineKhabar"
     url: "https://www.onlinekhabar.com/category/environment"
+    note: "Geo-restricted — works from Nepal only"
     type: dynamic
     check_frequency_hours: 12
     extractor: css
@@ -163,6 +192,7 @@ sources:
 
   - name: "The Himalayan Times"
     url: "https://thehimalayantimes.com/category/environment"
+    note: "URL may need updating — returns 404 from outside Nepal"
     type: dynamic
     check_frequency_hours: 12
     extractor: css
@@ -186,25 +216,4 @@ sources:
       - keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
         category: disaster
       - keywords: ["policy", "regulation", "law", "government", "ministry"]
-        category: policy
-
-  - name: "Mongabay Nepal"
-    url: "https://news.mongabay.com/list/nepal/"
-    type: rss
-    check_frequency_hours: 12
-    extractor: rss
-    category_mapping:
-      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
-        category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species"]
-        category: wildlife
-      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
-        category: forestry
-      - keywords: ["river", "lake", "glacier", "water", "wetland"]
-        category: water
-      - keywords: ["pollution", "air quality", "waste", "plastic"]
-        category: pollution
-      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire"]
-        category: disaster
-      - keywords: ["policy", "regulation", "law", "government"]
         category: policy
