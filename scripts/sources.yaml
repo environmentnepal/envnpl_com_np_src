@@ -190,18 +190,16 @@ sources:
       - keywords: ["policy", "regulation", "law", "government"]
         category: policy
 
-  - name: "The Himalayan Times"
-    url: "https://thehimalayantimes.com/category/environment"
-    note: "URL may need updating — returns 404 from outside Nepal"
+    url: "https://www.onlinekhabar.com/category/environment"
     type: dynamic
     check_frequency_hours: 12
     extractor: css
-    selector: "article, .news-item"
+    selector: "article"
     fields:
       title: "h2 a, h3 a"
       url: "h2 a@href, h3 a@href"
-      snippet: "p, .summary"
-      date: "time, .date"
+      snippet: "h2 a, h3 a"
+      date: ""
     category_mapping:
       - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
         category: climate
@@ -216,7 +214,7 @@ sources:
       - keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
         category: disaster
       - keywords: ["policy", "regulation", "law", "government", "ministry"]
-
+        category: policy
   - name: "MyRepublica"
     url: "https://myrepublica.nagariknetwork.com/news/environment"
     note: "JS-rendered — add article slugs to scripts/myrepublica_slugs.json"
