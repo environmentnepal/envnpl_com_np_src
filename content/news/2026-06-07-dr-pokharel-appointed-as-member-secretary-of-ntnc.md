@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/dr-pokharel-appointed-as-member-secretary-of-ntnc
 Slug: dr-pokharel-appointed-as-member-secretary-of-ntnc
-Image: https://cdnx.premiumread.com/?url=https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&w=30&q=100&f=webp
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&q=100&f=webp
 Snippet: Dr Pokharel appointed as Member Secretary of NTNC
 Summary: Dr Pokharel appointed as Member Secretary of NTNC
 ---

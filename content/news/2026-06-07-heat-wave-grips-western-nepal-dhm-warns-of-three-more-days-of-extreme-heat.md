@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/heat-wave-grips-western-nepal-dhm-warns-of-three-more-days-of-extreme-heat
 Slug: heat-wave-grips-western-nepal-dhm-warns-of-three-more-days-of-extreme-heat
-Image: https://cdnx.premiumread.com/?url=https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&w=30&q=100&f=webp
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&q=100&f=webp
 Snippet: Heat wave grips western Nepal; DHM warns of three more days of extreme heat
 Summary: Heat wave grips western Nepal; DHM warns of three more days of extreme heat
 ---
