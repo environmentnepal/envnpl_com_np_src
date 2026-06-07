@@ -1,6 +1,6 @@
 ---
 Title: Windstorms, lightning expected in parts of country
-Date: 2026-06-07
+Date: 2026-05-16
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/windstorms-lightning-expected-in-parts-of-country

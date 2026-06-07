@@ -1,6 +1,6 @@
 ---
 Title: Excessive excavation in Narayani River draws scrutiny
-Date: 2026-06-07
+Date: 2026-05-22
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/excessive-excavation-in-narayani-river-draws-scrutiny

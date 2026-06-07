@@ -1,6 +1,6 @@
 ---
 Title: Western Terai to remain under heat wave conditions
-Date: 2026-06-07
+Date: 2026-05-25
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/western-terai-to-remain-under-heat-wave-conditions

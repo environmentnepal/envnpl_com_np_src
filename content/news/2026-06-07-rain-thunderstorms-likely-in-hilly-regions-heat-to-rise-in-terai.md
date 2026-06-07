@@ -1,6 +1,6 @@
 ---
 Title: Rain, thunderstorms likely in hilly regions; heat to rise in Terai
-Date: 2026-06-07
+Date: 2026-05-17
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/rain-thunderstorms-likely-in-hilly-regions-heat-to-rise-in-terai

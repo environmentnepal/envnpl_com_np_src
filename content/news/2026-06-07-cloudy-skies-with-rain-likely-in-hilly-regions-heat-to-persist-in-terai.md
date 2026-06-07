@@ -1,6 +1,6 @@
 ---
 Title: Cloudy skies with rain likely in hilly regions; heat to persist in Terai
-Date: 2026-06-07
+Date: 2026-05-18
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/cloudy-skies-with-rain-likely-in-hilly-regions-heat-to-persist-in-terai

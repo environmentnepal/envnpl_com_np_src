@@ -1,6 +1,6 @@
 ---
 Title: WWF Nepal marks 33 years, launches new strategic plan
-Date: 2026-06-07
+Date: 2026-05-19
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/wwf-nepal-marks-33-years-launches-new-strategic-plan

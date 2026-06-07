@@ -1,6 +1,6 @@
 ---
 Title: Heat wave persists in Tarai, rain likely in hilly regions
-Date: 2026-06-07
+Date: 2026-05-19
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/heat-wave-persists-in-tarai-rain-likely-in-hilly-regions

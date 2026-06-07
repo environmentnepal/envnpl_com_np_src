@@ -1,6 +1,6 @@
 ---
 Title: Extremely heavy rainfall recorded in Parsa's Thori
-Date: 2026-06-07
+Date: 2026-05-30
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/extremely-heavy-rainfall-recorded-in-parsas-thori

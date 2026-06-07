@@ -1,6 +1,6 @@
 ---
 Title: Dr Pokharel appointed as Member Secretary of NTNC
-Date: 2026-06-07
+Date: 2026-05-13
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/dr-pokharel-appointed-as-member-secretary-of-ntnc

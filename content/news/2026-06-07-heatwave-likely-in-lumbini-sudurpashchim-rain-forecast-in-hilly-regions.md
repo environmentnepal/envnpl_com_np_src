@@ -1,6 +1,6 @@
 ---
 Title: Heatwave likely in Lumbini, Sudurpashchim; rain forecast in hilly regions
-Date: 2026-06-07
+Date: 2026-05-21
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/heatwave-likely-in-lumbini-sudurpashchim-rain-forecast-in-hilly-regions

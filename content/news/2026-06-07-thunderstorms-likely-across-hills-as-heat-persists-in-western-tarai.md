@@ -1,6 +1,6 @@
 ---
 Title: Thunderstorms likely across hills as heat persists in western Tarai
-Date: 2026-06-07
+Date: 2026-05-28
 Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/thunderstorms-likely-across-hills-as-heat-persists-in-western-tarai
