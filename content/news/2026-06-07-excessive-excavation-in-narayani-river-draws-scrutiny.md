@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/excessive-excavation-in-narayani-river-draws-scrutiny
 Slug: excessive-excavation-in-narayani-river-draws-scrutiny
-Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&q=100&f=webp
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg
 Snippet: Excessive excavation in Narayani River draws scrutiny
 Summary: Excessive excavation in Narayani River draws scrutiny
 ---

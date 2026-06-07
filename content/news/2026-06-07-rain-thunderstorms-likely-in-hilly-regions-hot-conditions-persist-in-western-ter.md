@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/rain-thunderstorms-likely-in-hilly-regions-hot-conditions-persist-in-western-terai
 Slug: rain-thunderstorms-likely-in-hilly-regions-hot-conditions-persist-in-western-ter
-Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&q=100&f=webp
+Image: https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg
 Snippet: Rain, thunderstorms likely in hilly regions; hot conditions persist in western Terai
 Summary: Rain, thunderstorms likely in hilly regions; hot conditions persist in western Terai
 ---
