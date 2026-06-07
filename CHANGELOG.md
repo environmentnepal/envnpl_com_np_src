@@ -1,143 +1,129 @@
 # EnvironmentNEPAL — Development Log
 
 ## Site: https://environmentnepal.com.np/
-## Last updated: 2026-06-06
+## Last updated: 2026-06-07
 
 ---
 
 ## Phase Completion
 
-| Phase | Status | What was built |
-|-------|--------|----------------|
-| 0 | ✓ | LICENSE (MIT), .gitignore, requirements.txt, virtual environment |
-| 1 | ✓ | 6 Pelican templates (base, index, article, page, category, archives), style.css |
-| 2 | ✓ | 12 national park pages, 5 static pages (about-us, privacy, dmca, contact, advertise) |
-| 3 | ✓ | Scraping engine: sources.yaml (7 sources), dedupe.py, scraper.py |
-| 4 | ✓ | GitHub Actions deploys to GitHub Pages on push |
-| 5 | ✓ | Book of the Month (The Snow Leopard), 3-col books grid |
-| 6 | ✓ | AQI Dashboard page with client-side JavaScript |
-| 7 | ✓ | Podcast page with 4 hardcoded episodes |
-| 8 | ⏳ | Post-launch: API + MCP endpoints |
+| Phase | Status | Deliverables |
+|-------|--------|-------------|
+| 0 — Repo | ✓ | LICENSE (MIT), .gitignore, requirements.txt, venv |
+| 1 — Theme | ✓ | 7 templates (base, index, article, page, category, archives, featured), style.css |
+| 2 — Content | ✓ | 12 national parks (Commons images), 5 static pages |
+| 3 — Scraper | ✓ | sources.yaml (8 sources), dedupe.py, scraper.py, fetch_content.py, fetch_images.py |
+| 4 — CI/CD | ✓ | GitHub Actions → GitHub Pages on push |
+| 5 — Books | ✓ | 2 book reviews, 3-col grid |
+| 6 — AQI | ✓ | Client-side AQI dashboard |
+| 7 — Podcast | ✓ | 4 placeholder episodes |
+| 8 — API/MCP | ⏳ | Post-launch |
 
 ---
 
-## Features Built (Beyond Original Spec)
+## Current State
 
-These emerged during implementation and are NOT in `specs/handoff.md`:
+- **65 news articles**: Mongabay (26) + Kathmandu Post (22) + Himalayan Times (14) + Nepalitimes (2) + Ratopati (1)
+- **12 national parks** with Commons images
+- **2 book reviews** (Snow Leopard, Environmental Justice in Nepal)
+- **7 pages**: about-us, privacy, dmca, contact, advertise, aqi, podcast
+- **Live**: https://environmentnepal.com.np/
+- **Deploy**: Automatic on push to main
+
+---
+
+## News Sources
+
+| Source | Articles | Method | Status |
+|--------|----------|--------|--------|
+| Mongabay Nepal | 26 | CSS (`.article--container`) | ✓ Working |
+| Kathmandu Post | 22 | Links scraper (`/climate-environment/`) | ✓ Working |
+| Himalayan Times | 14 | CSS (`article`) | ✓ Working |
+| Nepalitimes | 2 | JSON API (`/api/article/{slug}`) | ✓ Needs more slugs |
+| Ratopati English | 1 | CSS (`article.post-card__primary`) | ⚠ Keyword filter needed |
+| Rising Nepal | — | CSS | ⚠ Nepal-only |
+| Nepalnews | — | CSS | ⚠ Nepal-only / selector issue |
+| MyRepublica | — | JS-rendered | ✗ Needs browser automation |
+
+---
+
+## Features Built
 
 ### Homepage
-- **Featured Section** — Black full-width section between hero and coverage. Pulls the article with `Featured: True` in frontmatter. Shows image (left) + title + summary + "Read full article →" link. Currently: "Shadows Over the Sky Caves" (Super El Niño 2026).
-- **Protected Areas Section** — 4-column grid below podcasts showing 4 parks with Commons images, titles, establishment years. Links to `/category/parks.html`.
-- **Article images on cards** — Hero and coverage cards show background images extracted from source article `og:image` meta tags.
+- **Header**: Left-aligned "EnvironmentNEPAL" with nav (Home, News, Parks, Books, Data)
+- **Hero**: 1 main article (50%) + 2 sub-articles (25% each) with images
+- **Featured Section**: Black full-width section pulling article with `Featured: True`
+- **Coverage Grid**: 8 articles in 4×2 grid with images
+- **Protected Areas**: 4 random parks in 4-column grid
+- **Podcasts**: 4 hardcoded episodes in 4-column grid
+- **Footer**: About Us, Privacy, DMCA, Contact, Advertise
 
 ### Article Pages
-- **Full article body** — Each news article has ~2000 chars of content fetched from the original source (via `scripts/fetch_content.py`).
-- **Article images** — Extracted from source `og:image` metadata (via `scripts/fetch_images.py`). Stored in `Image:` frontmatter.
-- **"Read more at [source] →"** — External link at bottom of article pages, opens in new tab.
-- **Park image credits** — All 12 parks have Wikimedia Commons images with CC attribution displayed on detail pages.
+- Full body content (~2000 chars) from source scraping
+- Article images from source or Commons
+- "Read more at [source] →" links opening in new tab
+- Image credits on park pages
 
 ### Archives (`/archives.html`)
-- Articles grouped by date (e.g., "06 June 2026" header → list of articles below)
-- Paginated: 20 items per page
-- Filters out Parks and Books categories
+- Grouped by date, 20 items per page, paginated
 
 ### Books (`/category/books.html`)
-- 3-column grid with book cover thumbnails (200px), title, author, year
-- Book detail images constrained to 300px max-width
-- Review credit: "Review by EnvironmentNEPAL"
+- 3-column grid with cover thumbnails, title, author, year
 
-### Navigation
-- Home → `/`
-- News → `/archives.html` (all articles by date)
-- Parks → `/category/parks.html` (3-col grid)
-- Books → `/category/books.html` (3-col grid)
-- Data → `/pages/aqi.html` (AQI dashboard)
-
-### Technical
-- **Source_URL rename** — Frontmatter `URL:` renamed to `Source_URL:` to prevent Pelican from treating external URLs as article permalinks.
-- **Cloudflare cache bust** — CSS served with `?v=2` query param.
-- **Links extractor** — `scraper.py` has a `links` extractor type for React-rendered sites (Kathmandu Post) that scrape flat `<a>` tag lists.
+### Parks (`/category/parks.html`)
+- 3-column grid with Commons images and credits
 
 ---
 
-## Commit History
+## Scraper Architecture
 
-1. **Phase 0-2** — Created theme, 12 parks, 5 pages
-2. **CSS Cache Fix** — Cloudflare bust with `?v=2`
-3. **Protected Areas** — 4-park grid below podcasts
-4. **Protected Areas Grid Fix** — Removed JS shuffle
-5. **Phase 3 — Scraper** — sources.yaml, dedupe.py, scraper.py
-6. **Phases 5-7** — Books, AQI Dashboard, Podcast
-7. **Real News** — 22 articles from Ratopati + Kathmandu Post
-8. **Major Fixes** — nav 404s, article content, read-more links
-9. **Book Banner + URL Fix** — Source_URL rename, banner removed
-10. **Books Grid + Image Size** — 3-col grid, 300px detail images
-11. **Archives + Images** — paginated archives, og:image extraction
-12. **Featured Section** — event→feature, Super El Niño article
-13. **Featured Image Fix** — restored dropped Image field
-14. **New Book Review** — Environmental Justice in Nepal (London, Adhikari, Robertson, 2024)
+| Script | Purpose |
+|--------|---------|
+| `scraper.py` | Main engine — 4 extractors (css, rss, links, nepalitimes_api) |
+| `dedupe.py` | URL hash + 85% title similarity + 200-char content fingerprint |
+| `sources.yaml` | 8 sources with CSS selectors, keyword mappings, check frequency |
+| `fetch_content.py` | Extracts ~2000 chars of article body from source pages |
+| `fetch_images.py` | Extracts og:image from article pages |
+
+**Extractor types:**
+- `css` — Standard HTML scraping with CSS selectors (Mongabay, Himalayan Times, Ratopati)
+- `links` — Flat `<a>` tag list scraping for JS-rendered pages (Kathmandu Post)
+- `rss` — XML feed parsing (not currently used)
+- `nepalitimes_api` — Per-article JSON API with slug list
+
+**Keyword categories:** climate, wildlife, forestry, water, pollution, disaster, policy
+**Default fallback:** "environment" (when no keywords match)
+**Date filter:** Articles before 2026-01-01 excluded
+
+---
 
 ## File Inventory
 
 ### Templates (`themes/environmentnepal/templates/`)
 | File | Purpose |
 |------|---------|
-| `base.html` | HTML shell: header (left-aligned), nav, footer |
-| `article.html` | News/park/book detail page with read-more links |
-| `page.html` | Static pages (about-us, privacy, etc.) |
-
-15. **Nepalitimes Source** — API-based extractor using per-article JSON endpoints
-16. **Mongabay Fix** — Changed from RSS to CSS scraper (`.article--container`), pulled 26 articles
-17. **Himalayan Times Fix** — Fixed URL from `/category/environment` to `/environment`, 14 articles with unique images
-18. **MyRepublica Added** — JS-rendered, needs browser automation or manual slugs
-### Templates (`themes/environmentnepal/templates/`)
-| File | Purpose |
-|------|---------|
-| `base.html` | HTML shell: header (left-aligned), nav, footer |
-| `index.html` | Homepage: hero (1+2), featured, coverage, podcasts, protected areas |
-| `article.html` | News/park/book detail page with read-more links |
+| `base.html` | Shell: header, nav, footer |
+| `index.html` | Homepage with all sections |
+| `article.html` | Article detail with read-more links |
 | `page.html` | Static pages |
-| `category.html` | Category listings: parks grid, books grid, news list |
-| `archives.html` | Paginated, date-grouped article listing |
-| `dedupe.py` | URL hash + title similarity + fingerprint dedup | Imported by scraper |
-| `sources.yaml` | 7 news sources with CSS/RSS selectors | Read by scraper |
-| `fetch_content.py` | Extract ~2000 chars from article URLs | One-time or periodic |
-| `fetch_images.py` | Extract og:image from source pages | One-time or periodic |
-| `podcast_generator.py` | TTS podcast generation (placeholder) | Manual |
+| `category.html` | Parks grid, books grid, news list |
+| `archives.html` | Date-grouped, paginated news listing |
 
 ### Content
-| Directory | Count | Description |
-|-----------|-------|-------------|
-| `content/news/` | 23 files | Scraped news articles with full content |
-| `content/parks/` | 12 files | National park pages with Commons images |
-| `content/books/` | 2 files | Monthly book reviews (Snow Leopard, Environmental Justice) |
-| `content/pages/` | 7 files | about-us, privacy, dmca, contact, advertise, aqi, podcast |
-
-### Config
-| File | Purpose |
-|------|---------|
-| `pelicanconf.py` | Dev config, SITEURL, theme, pagination (20) |
-| `publishconf.py` | Production config (same SITEURL, RELATIVE_URLS=False) |
-| `.github/workflows/deploy.yml` | GitHub Actions: `pelican content -o output -s publishconf.py` → gh-pages |
+| Directory | Count |
+|-----------|-------|
+| `content/news/` | 65 |
+| `content/parks/` | 12 |
+| `content/books/` | 2 |
+| `content/pages/` | 7 |
 
 ---
-- **36 articles**: 23 news + 12 parks + 2 books
-
-## Current State
-- **65 news articles**: Mongabay (26) + Kathmandu Post (22) + Himalayan Times (14) + Nepalitimes (2) + Ratopati (1)
-- **7 pages**: about-us, privacy, dmca, contact, advertise, aqi, podcast
-- **Live**: https://environmentnepal.com.np/
-- **Deploy**: Automatic on push to main (GitHub Actions → GitHub Pages)
 
 ## Known Quirks
 
-- **Scraper sources**: Rising Nepal, Nepalnews, OnlineKhabar, Himalayan Times time out from outside Nepal. Only Ratopati English and Kathmandu Post work from foreign IPs. URLs and CSS selectors need verification from within Nepal.
-- **Cloudflare cache**: CSS changes may lag. Bump `?v=N` in base.html if styles don't update.
-- **Pelican warning**: Some articles have `{url}` in body text which Pelican tries to process as a template tag — harmless.
-
-## Remaining
-
-- Phase 8: API + MCP endpoints (post-launch)
-- Scraper cron job (`0 */12 * * *`) on operator's machine
-- Source URL/selector tuning from within Nepal
-- Replace hardcoded podcast episodes with AI-generated audio
+- **{url} warning**: Pelican tries to process `{url}` in article body as template tag — harmless
+- **Cloudflare cache**: CSS changes may lag. Bump `?v=N` in base.html if needed
+- **Geo-restricted sources**: Rising Nepal, Nepalnews, OnlineKhabar accessible only from Nepal
+- **Himalayan Times images**: CDN serves tiny thumbnails (w=30) — scraper now extracts direct URLs
+- **MyRepublica**: Fully JS-rendered — needs Puppeteer/Playwright or manual slug collection
+- **Nepalitimes slugs**: Stored in `scripts/nepalitimes_slugs.json` — manually add new article slugs
