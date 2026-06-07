@@ -85,13 +85,20 @@ These emerged during implementation and are NOT in `specs/handoff.md`:
 | `base.html` | HTML shell: header (left-aligned), nav, footer |
 | `article.html` | News/park/book detail page with read-more links |
 | `page.html` | Static pages (about-us, privacy, etc.) |
+
+15. **Nepalitimes Source** — API-based extractor using per-article JSON endpoints
+16. **Mongabay Fix** — Changed from RSS to CSS scraper (`.article--container`), pulled 26 articles
+17. **Himalayan Times Fix** — Fixed URL from `/category/environment` to `/environment`, 14 articles with unique images
+18. **MyRepublica Added** — JS-rendered, needs browser automation or manual slugs
+### Templates (`themes/environmentnepal/templates/`)
+| File | Purpose |
+|------|---------|
+| `base.html` | HTML shell: header (left-aligned), nav, footer |
+| `index.html` | Homepage: hero (1+2), featured, coverage, podcasts, protected areas |
+| `article.html` | News/park/book detail page with read-more links |
+| `page.html` | Static pages |
 | `category.html` | Category listings: parks grid, books grid, news list |
 | `archives.html` | Paginated, date-grouped article listing |
-
-### Scripts (`scripts/`)
-| File | Purpose | Run from |
-|------|---------|----------|
-| `scraper.py` | Main ingestion engine | Local machine (cron) |
 | `dedupe.py` | URL hash + title similarity + fingerprint dedup | Imported by scraper |
 | `sources.yaml` | 7 news sources with CSS/RSS selectors | Read by scraper |
 | `fetch_content.py` | Extract ~2000 chars from article URLs | One-time or periodic |
@@ -117,8 +124,7 @@ These emerged during implementation and are NOT in `specs/handoff.md`:
 - **36 articles**: 23 news + 12 parks + 2 books
 
 ## Current State
-
-- **36 articles**: 23 news + 12 parks + 2 books
+- **65 news articles**: Mongabay (26) + Kathmandu Post (22) + Himalayan Times (14) + Nepalitimes (2) + Ratopati (1)
 - **7 pages**: about-us, privacy, dmca, contact, advertise, aqi, podcast
 - **Live**: https://environmentnepal.com.np/
 - **Deploy**: Automatic on push to main (GitHub Actions → GitHub Pages)

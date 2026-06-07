@@ -41,7 +41,7 @@ def extract_category(title, snippet, mapping):
     for rule in mapping:
         for kw in rule["keywords"]:
             if kw.lower() in text: return rule["category"]
-    return "climate"
+    return "environment"
 
 def slugify(title):
     s = re.sub(r"[^\w\s-]", "", title.lower().strip())
