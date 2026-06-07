@@ -15,6 +15,7 @@ PROJECT_DIR = SCRIPTS_DIR.parent
 SOURCES_YAML = SCRIPTS_DIR / "sources.yaml"
 LAST_RUN_FILE = SCRIPTS_DIR / ".last_run.json"
 NEWS_DIR = PROJECT_DIR / "content" / "news"
+MIN_DATE = datetime(2026, 1, 1, tzinfo=timezone.utc)
 
 def load_sources():
     with open(SOURCES_YAML) as f: return yaml.safe_load(f)
@@ -125,13 +126,55 @@ def scrape_links(source):
     print(f"    Found {len(articles)} articles")
     return articles
 
+def scrape_nepalitimes_api(source):
+    slug_file = Path(source.get("slug_file", "scripts/nepalitimes_slugs.json"))
+    if not slug_file.exists():
+        print(f"    Slug file not found: {slug_file}")
+        return []
+    slugs = json.loads(slug_file.read_text())
+    print(f"  Checking {len(slugs)} Nepali Times slugs...")
+    articles = []
+    for slug in slugs:
+        api_url = f"https://nepalitimes.com/api/article/{slug}"
+        try:
+            resp = requests.get(api_url, headers={"User-Agent": USER_AGENT}, timeout=15)
+            if resp.status_code != 200: continue
+            data = json.loads(resp.text)
+            pub = data.get("publishedAt", "")
+            if pub:
+                try:
+                    pub_date = datetime.fromisoformat(pub.replace("Z", "+00:00"))
+                    if pub_date < MIN_DATE: continue
+                except: pass
+            title = data.get("title", "")
+            if not title: continue
+            excerpt = data.get("excerpt", "")
+            content_html = data.get("content", "")
+            hdr = data.get("headerImage", "") or data.get("featureImage", "")
+            plain = BeautifulSoup(content_html or "", "html.parser").get_text(strip=True)[:2000] if content_html else excerpt
+            articles.append({
+                "title": title, "url": f"https://nepalitimes.com/news/{slug}",
+                "snippet": excerpt[:300], "body": plain,
+                "date_raw": pub[:10] if pub else datetime.now().strftime("%Y-%m-%d"),
+                "source_name": "Nepali Times",
+                "image": hdr, "image_credit": data.get("headerImageCaption", "") or "Nepali Times",
+            })
+        except Exception as e: print(f"    [ERROR] {slug}: {e}")
+        time.sleep(0.5)
+    print(f"    Found {len(articles)} articles")
+    return articles
+
 def create_markdown(article):
     ds = article.get("date", datetime.now().strftime("%Y-%m-%d"))
     try: ds = datetime.fromisoformat(ds).strftime("%Y-%m-%d")
     except: ds = datetime.now().strftime("%Y-%m-%d")
     slug = slugify(article["title"])
-    fm = f"""---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\nSnippet: {article.get('snippet','')[:200]}\nSummary: {article.get('snippet','')[:200]}\n---\n"""
-    (NEWS_DIR / f"{ds}-{slug}.md").write_text(fm + "\n")
+    img_line = f"Image: {article['image']}\n" if article.get("image") else ""
+    body = article.get("body", article.get("snippet", ""))
+    readmore = f"\n\n*Read more at [{article['source_name']}]({article['url']})*"
+    fm = f"---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\n{img_line}Snippet: {article.get('snippet','')[:200]}\nSummary: {article.get('snippet','')[:200]}\n---\n"
+    full = fm + "\n" + body + readmore + "\n"
+    (NEWS_DIR / f"{ds}-{slug}.md").write_text(full)
     return f"{ds}-{slug}.md"
 
 def main(dry_run=False):
@@ -143,7 +186,7 @@ def main(dry_run=False):
     new_count = 0
     now = datetime.now(timezone.utc).isoformat()
     ne = len(list(NEWS_DIR.glob("*.md"))) if NEWS_DIR.exists() else 0
-    print(f"EnvironmentNEPAL Scraper — {datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print(f"EnvironmentNEPAL Scraper - {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print(f"  Sources: {len(sources)}, existing articles: {ne}\n")
     for source in sources:
         name = source["name"]
@@ -155,10 +198,12 @@ def main(dry_run=False):
             ext = source.get("extractor","css")
             if ext == "rss": articles = scrape_rss(source)
             elif ext == "links": articles = scrape_links(source)
+            elif ext == "nepalitimes_api": articles = scrape_nepalitimes_api(source)
             else: articles = scrape_css(source)
             time.sleep(REQUEST_DELAY)
             written = 0
             for a in articles:
+                a["date"] = a.get("date_raw", "")[:10]
                 a["category"] = extract_category(a["title"], a["snippet"], source.get("category_mapping",[]))
                 dup, reason = dedup.is_duplicate(a)
                 if dup: print(f"    [DUP-{reason}] {a['title'][:60]}"); continue
@@ -167,8 +212,8 @@ def main(dry_run=False):
                 else: print(f"    [DRY] {a['title'][:60]} -> {a['category']}")
                 written += 1
             run_ts[name] = now; new_count += written
-            if written: print(f"    → {written} new")
-            else: print(f"    → no new")
+            if written: print(f"    -> {written} new")
+            else: print(f"    -> no new")
         except Exception as e: print(f"    [ERROR] {e}")
         time.sleep(REQUEST_DELAY)
     if not dry_run: save_last_run(run_ts)

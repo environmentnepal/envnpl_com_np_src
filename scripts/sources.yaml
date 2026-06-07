@@ -2,8 +2,28 @@
 #
 # Sources are tested from within Nepal. URLs and CSS selectors may need
 # local adjustment. Use --dry flag with scraper.py to verify first.
-
 sources:
+  - name: "Nepali Times"
+    url: "https://nepalitimes.com"
+    type: api
+    check_frequency_hours: 24
+    extractor: nepalitimes_api
+    slug_file: "scripts/nepalitimes_slugs.json"
+    category_mapping:
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission", "glacier", "monsoon", "el nino"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity", "habitat", "conservation", "park"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation", "logging", "natural capital"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "irrigation", "drinking", "flood", "hydropower"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage", "toxic", "chemical", "smog"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire", "storm", "drought"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry", "act", "agreement", "treaty"]
+        category: policy
   - name: "Ratopati English"
     url: "https://english.ratopati.com"
     type: dynamic
