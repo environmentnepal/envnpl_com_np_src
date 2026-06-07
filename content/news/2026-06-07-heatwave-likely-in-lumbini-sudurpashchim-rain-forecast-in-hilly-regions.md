@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/heatwave-likely-in-lumbini-sudurpashchim-rain-forecast-in-hilly-regions
 Slug: heatwave-likely-in-lumbini-sudurpashchim-rain-forecast-in-hilly-regions
-Image: /theme_himalayantimes/images/layout/icon_facebook.png
+Image: https://cdnx.premiumread.com/?url=https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&w=30&q=100&f=webp
 Snippet: Heatwave likely in Lumbini, Sudurpashchim; rain forecast in hilly regions
 Summary: Heatwave likely in Lumbini, Sudurpashchim; rain forecast in hilly regions
 ---

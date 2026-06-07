@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/wwf-nepal-marks-33-years-launches-new-strategic-plan
 Slug: wwf-nepal-marks-33-years-launches-new-strategic-plan
-Image: /theme_himalayantimes/images/layout/icon_facebook.png
+Image: https://cdnx.premiumread.com/?url=https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&w=30&q=100&f=webp
 Snippet: WWF Nepal marks 33 years, launches new strategic plan
 Summary: WWF Nepal marks 33 years, launches new strategic plan
 ---

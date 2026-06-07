@@ -5,7 +5,7 @@ Category: climate
 Source: The Himalayan Times
 Source_URL: https://thehimalayantimes.com/environment/rain-thunderstorms-likely-in-hilly-regions-heat-to-rise-in-terai
 Slug: rain-thunderstorms-likely-in-hilly-regions-heat-to-rise-in-terai
-Image: /theme_himalayantimes/images/layout/icon_facebook.png
+Image: https://cdnx.premiumread.com/?url=https://thehimalayantimes.com/thehimalayantimes/uploads/images/2026/06/06/48663.jpg&w=30&q=100&f=webp
 Snippet: Rain, thunderstorms likely in hilly regions; heat to rise in Terai
 Summary: Rain, thunderstorms likely in hilly regions; heat to rise in Terai
 ---
