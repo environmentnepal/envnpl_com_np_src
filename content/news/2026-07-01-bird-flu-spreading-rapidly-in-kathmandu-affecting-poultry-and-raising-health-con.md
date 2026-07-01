@@ -5,7 +5,6 @@ Category: wildlife
 Source: Ratopati English
 Source_URL: https://english.ratopati.com/story/68711/fear-of-crow-flu-in-the-valley-is-it-dangerous-to-human-health68711/fear-of-crow-flu-in-the-valley-is-it-dangerous-to-human-health
 Slug: bird-flu-spreading-rapidly-in-kathmandu-affecting-poultry-and-raising-health-con
-Image: 
 Image: https://npcdn.ratopati.com/media/news/bf_U5O4EbFtL4.jpg
 Snippet: Bird Flu Spreading Rapidly in Kathmandu, Affecting Poultry and Raising Health Concerns
 Summary: Bird flu outbreak spreading across Kathmandu Valley poultry farms and wild birds.
