@@ -1,7 +1,7 @@
 # EnvironmentNEPAL — Development Log
-
 ## Site: https://environmentnepal.com.np/
-## Last updated: 2026-06-07
+## Last updated: 2026-07-10
+## Total: 93 articles (79 news + 12 parks + 2 books), 7 pages
 
 ---
 
@@ -23,7 +23,7 @@
 
 ## Current State
 
-- **65 news articles**: Mongabay (26) + Kathmandu Post (22) + Himalayan Times (14) + Nepalitimes (2) + Ratopati (1)
+- **79 news articles**: Mongabay (36) + Kathmandu Post (22) + Himalayan Times (14) + Nepalitimes (2) + Ratopati (2) + Featured (3)
 - **12 national parks** with Commons images
 - **2 book reviews** (Snow Leopard, Environmental Justice in Nepal)
 - **7 pages**: about-us, privacy, dmca, contact, advertise, aqi, podcast
@@ -36,13 +36,13 @@
 
 | Source | Articles | Method | Status |
 |--------|----------|--------|--------|
-| Mongabay Nepal | 26 | CSS (`.article--container`) | ✓ Working |
+| Mongabay Nepal | 36 | CSS (`.article--container`) | ✓ Working |
 | Kathmandu Post | 22 | Links scraper (`/climate-environment/`) | ✓ Working |
 | Himalayan Times | 14 | CSS (`article`) | ✓ Working |
 | Nepalitimes | 2 | JSON API (`/api/article/{slug}`) | ✓ Needs more slugs |
-| Ratopati English | 1 | CSS (`article.post-card__primary`) | ⚠ Keyword filter needed |
+| Ratopati English | 2 | CSS (`article.post-card__primary`) | ⚠ Keyword filter needed |
 | Rising Nepal | — | CSS | ⚠ Nepal-only |
-| Nepalnews | — | CSS | ⚠ Nepal-only / selector issue |
+| Nepalnews | — | CSS | ⚠ Nepal-only |
 | MyRepublica | — | JS-rendered | ✗ Needs browser automation |
 
 ---
@@ -111,8 +111,7 @@
 
 ### Content
 | Directory | Count |
-|-----------|-------|
-| `content/news/` | 65 |
+| `content/news/` | 79 |
 | `content/parks/` | 12 |
 | `content/books/` | 2 |
 | `content/pages/` | 7 |
