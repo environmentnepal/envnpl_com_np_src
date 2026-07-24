@@ -171,9 +171,8 @@ def create_markdown(article):
     slug = slugify(article["title"])
     img_line = f"Image: {article['image']}\n" if article.get("image") else ""
     body = article.get("body", article.get("snippet", ""))
-    readmore = f"\n\n*Read more at [{article['source_name']}]({article['url']})*"
     fm = f"---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\n{img_line}Snippet: {article.get('snippet','')[:200]}\nSummary: {article.get('snippet','')[:200]}\n---\n"
-    full = fm + "\n" + body + readmore + "\n"
+    full = fm + "\n" + body + "\n"
     (NEWS_DIR / f"{ds}-{slug}.md").write_text(full)
     return f"{ds}-{slug}.md"
 
