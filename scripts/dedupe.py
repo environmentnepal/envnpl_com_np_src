@@ -49,7 +49,7 @@ class Deduplicator:
             return
         for md_file in self.news_dir.glob("*.md"):
             frontmatter = self._parse_frontmatter(md_file)
-            url = frontmatter.get("url", "")
+            url = frontmatter.get("url", "") or frontmatter.get("source_url", "")
             snippet = frontmatter.get("snippet", "")
             if url:
                 self.url_hashes.add(url_hash(url))
