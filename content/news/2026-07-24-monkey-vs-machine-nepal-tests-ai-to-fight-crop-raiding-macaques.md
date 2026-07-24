@@ -7,6 +7,7 @@ Source_URL: https://news.mongabay.com/2026/07/monkey-vs-machine-nepal-tests-ai-t
 Slug: monkey-vs-machine-nepal-tests-ai-to-fight-crop-raiding-macaques
 Snippet: 
 Summary: 
+Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/07/13115519/rhesus-macaque-in-nepal.jpg
 ---
 
 KATHMANDU — At dawn in Birta Deurali village of Kavrepalanchok in central Nepal, maize fields aren’t quiet. Farmers stand guard, scanning the trees for movement, but they aren’t the only ones there.

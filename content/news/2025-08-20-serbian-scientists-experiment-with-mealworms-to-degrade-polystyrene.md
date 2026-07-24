@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/08/20/serbian-sci
 Slug: serbian-scientists-experiment-with-mealworms-to-degrade-polystyrene
 Snippet: Serbian scientists experiment with mealworms to degrade polystyrene
 Summary: Serbian scientists experiment with mealworms to degrade polystyrene
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/world/mealworm-1755694280.jpg
 ---
 
 Serbian scientists have been experimenting with mealworms as a way to break down polystyrene.

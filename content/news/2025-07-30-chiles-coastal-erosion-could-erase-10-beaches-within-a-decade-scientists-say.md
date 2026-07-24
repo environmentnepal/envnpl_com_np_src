@@ -7,6 +7,7 @@ Source_URL: https://kathmandupost.com/climate-environment/2025/07/30/chile-s-coa
 Slug: chiles-coastal-erosion-could-erase-10-beaches-within-a-decade-scientists-say
 Snippet: Chile’s coastal erosion could erase 10 beaches within a decade, scientists say
 Summary: Chile’s coastal erosion could erase 10 beaches within a decade, scientists say
+Image: https://assets-cdn.kathmandupost.com/uploads/source/news/2025/world/CHILE-1753874637.jpg
 ---
 
 Chile’s central and southern coastlines are facing erosion that could cause at least 10 beaches to disappear within a decade, according to a team of scientists in the South American country, which stretches for several thousand km (miles) along the Pacific Ocean.

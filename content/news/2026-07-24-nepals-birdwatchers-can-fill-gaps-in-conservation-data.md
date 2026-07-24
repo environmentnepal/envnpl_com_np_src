@@ -7,6 +7,7 @@ Source_URL: https://news.mongabay.com/short-article/2026/07/nepals-birdwatchers-
 Slug: nepals-birdwatchers-can-fill-gaps-in-conservation-data
 Snippet: 
 Summary: 
+Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/07/17042726/nepal-birdwatching.jpg
 ---
 
 Nepal’s expanding birdwatching community offers a vital lifeline for both biodiversity monitoring and ecotourism,reportscontributor Bibek Bhandari for Mongabay.
