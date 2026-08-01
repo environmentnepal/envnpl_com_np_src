@@ -28,6 +28,7 @@ sources:
     url: "https://news.mongabay.com/list/nepal/"
     type: dynamic
     check_frequency_hours: 24
+    env_section: true
     extractor: css
     selector: ".article--container"
     fields:
@@ -82,6 +83,7 @@ sources:
     url: "https://kathmandupost.com/climate-environment"
     type: dynamic
     check_frequency_hours: 12
+    env_section: true
     extractor: links
     selector: ""
     link_pattern: "/climate-environment/"
@@ -111,6 +113,7 @@ sources:
     note: "Redirects to old.risingnepaldaily.com — works from Nepal only"
     type: dynamic
     check_frequency_hours: 12
+    env_section: true
     extractor: css
     selector: "article"
     fields:
@@ -139,6 +142,7 @@ sources:
     note: "Geo-restricted — works from Nepal only"
     type: dynamic
     check_frequency_hours: 12
+    env_section: true
     extractor: css
     selector: "article, .news-list article"
     fields:
@@ -167,6 +171,7 @@ sources:
     note: "Geo-restricted — works from Nepal only"
     type: dynamic
     check_frequency_hours: 12
+    env_section: true
     extractor: css
     selector: "article, .news-list .item"
     fields:
@@ -220,6 +225,7 @@ sources:
     note: "JS-rendered — add article slugs to scripts/myrepublica_slugs.json"
     type: dynamic
     check_frequency_hours: 24
+    env_section: true
     extractor: css
     selector: "h2 a, h3 a"
     fields:

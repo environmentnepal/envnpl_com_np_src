@@ -41,7 +41,10 @@ def extract_category(title, snippet, mapping):
     for rule in mapping:
         for kw in rule["keywords"]:
             if kw.lower() in text: return rule["category"]
-    return "environment"
+    # IMPORTANT: default must NOT be an environment category.
+    # Articles that match no keyword are likely off-topic (politics,
+    # sports, film, crime) — tag them "general" so trim_articles.sh drops them.
+    return "general"
 
 def slugify(title):
     s = re.sub(r"[^\w\s-]", "", title.lower().strip())
@@ -203,6 +206,20 @@ def main(dry_run=False):
             for a in articles:
                 a["date"] = a.get("date_raw", "")[:10]
                 a["category"] = extract_category(a["title"], a["snippet"], source.get("category_mapping",[]))
+                # Relevance gate: skip off-topic articles entirely (politics, sports,
+                # film, crime) — don't even write them to disk.
+                # - env_section sources (Kathmandu Post /climate-environment/, Nepalnews,
+                #   OnlineKhabar, etc.) are pre-filtered by the site: keep everything,
+                #   defaulting unmatched titles to "environment".
+                # - General news sites (Ratopati) rely on keyword matching only; drop
+                #   "general" (no keyword hit = off-topic) and "policy" (too broad).
+                is_env_section = source.get("env_section", False)
+                if a["category"] == "general" and is_env_section:
+                    a["category"] = "environment"
+                elif a["category"] == "general":
+                    print(f"    [SKIP-offtopic] {a['title'][:60]}"); continue
+                if a["category"] == "policy" and not is_env_section:
+                    print(f"    [SKIP-policy] {a['title'][:60]}"); continue
                 dup, reason = dedup.is_duplicate(a)
                 if dup: print(f"    [DUP-{reason}] {a['title'][:60]}"); continue
                 if not dry_run:

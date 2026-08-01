@@ -29,8 +29,8 @@ def fetch_article_body(url: str, source_name: str) -> str:
     paragraphs = []
 
     if "ratopati" in source_name.lower():
-        # Ratopati: .post-content or main article container
-        body = soup.select_one(".post-content, .story-content, main article, article .content")
+        # Ratopati: verified content lives in .content-area / .news__holder
+        body = soup.select_one(".content-area, .news__holder, .post-content, .story-content, main article, article .content")
         if body:
             paragraphs = body.find_all("p")
     elif "kathmandupost" in source_name.lower():
@@ -55,6 +55,13 @@ def fetch_article_body(url: str, source_name: str) -> str:
         txt = p.get_text(strip=True)
         if len(txt) < 20:  # skip short/nav paragraphs
             continue
+        # Skip junk: page numbers, stray artifact text (e.g. "kk6", "22", "Photo: x")
+        if re.fullmatch(r"\d{1,4}", txt):  # bare page numbers
+            continue
+        if re.fullmatch(r"[a-z]{1,4}\d{1,3}", txt, re.IGNORECASE):  # artifact codes like "kk6"
+            continue
+        if txt.lower().startswith(("photo:", "image:", "source:")):
+            continue
         text_parts.append(txt)
         total += len(txt)
         if total > 2000:
@@ -70,8 +77,10 @@ def main():
     for md_file in files:
         content = md_file.read_text()
 
-        # Skip if already has article body
-        if "Read more at" in content:
+        # Skip if already has a properly-formatted article body / read-more link.
+        # (Older broken files contain the literal "[{source}]" placeholder — those
+        # must be re-processed, so only skip when an actual URL is present.)
+        if "Read more at" in content and "](" in content and "{source}" not in content:
             continue
 
         # Extract frontmatter fields
@@ -96,7 +105,7 @@ def main():
             # Add article body after frontmatter + newline
             updated = re.sub(
                 r"(^---\n.*?\n---)",
-                r"\1\n\n" + body + f"\n\n*Read more at [{source}]({url})*",
+                lambda m: m.group(1) + "\n\n" + body + f"\n\n*Read more at [{source}]({url})*",
                 content,
                 count=1,
                 flags=re.DOTALL,
@@ -107,7 +116,7 @@ def main():
             # Fallback: add read-more link with no body
             updated = re.sub(
                 r"(^---\n.*?\n---)",
-                r"\1\n\n*Read more at [{source}]({url})*",
+                lambda m: m.group(1) + f"\n\n*Read more at [{source}]({url})*",
                 content,
                 count=1,
                 flags=re.DOTALL,

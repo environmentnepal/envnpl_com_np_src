@@ -43,9 +43,9 @@ if [ "$KEEP_COUNT" -lt 8 ] && [ -n "$KTM_FILES" ]; then
   while IFS= read -r file; do
     [ -z "$file" ] && continue
     [ "$KEEP_COUNT" -ge 8 ] && break
-    # Check if Ktm Post article is actually environment-related
+    # Ktm Post source URL is /climate-environment/ (pre-filtered), but verify anyway
     CATEGORY=$(grep "^Category:" "$file" | head -1 | cut -d' ' -f2)
-    if [ "$CATEGORY" = "environment" ] || [ "$CATEGORY" = "climate" ] || [ "$CATEGORY" = "water" ] || [ "$CATEGORY" = "conservation" ]; then
+    if [ "$CATEGORY" != "general" ] && [ "$CATEGORY" != "policy" ]; then
       KEEP_FILES="$KEEP_FILES $file"
       KEEP_COUNT=$((KEEP_COUNT + 1))
       echo "[TRIM] KEEP (KtmPost): $(basename "$file")"
@@ -62,8 +62,9 @@ if [ "$KEEP_COUNT" -lt 8 ] && [ -n "$RATOPATI_FILES" ]; then
     [ "$KEEP_COUNT" -ge 8 ] && break
     CATEGORY=$(grep "^Category:" "$file" | head -1 | cut -d' ' -f2)
     TITLE=$(grep "^Title:" "$file" | head -1 | sed 's/^Title: //')
-    # Only keep Ratopati if clearly environment/climate/water/conservation
-    if [ "$CATEGORY" = "environment" ] || [ "$CATEGORY" = "climate" ] || [ "$CATEGORY" = "water" ] || [ "$CATEGORY" = "conservation" ]; then
+    # Only keep Ratopati if clearly environment-related (real env categories only —
+    # "general" = no keyword matched (off-topic), "policy" = too broad on a news site)
+    if [ "$CATEGORY" = "climate" ] || [ "$CATEGORY" = "wildlife" ] || [ "$CATEGORY" = "forestry" ] || [ "$CATEGORY" = "water" ] || [ "$CATEGORY" = "pollution" ] || [ "$CATEGORY" = "disaster" ] || [ "$CATEGORY" = "conservation" ]; then
       KEEP_FILES="$KEEP_FILES $file"
       KEEP_COUNT=$((KEEP_COUNT + 1))
       echo "[TRIM] KEEP (Ratopati-env): $(basename "$file")"
@@ -78,9 +79,15 @@ if [ "$KEEP_COUNT" -lt 8 ] && [ -n "$OTHER_FILES" ]; then
   while IFS= read -r file; do
     [ -z "$file" ] && continue
     [ "$KEEP_COUNT" -ge 8 ] && break
-    KEEP_FILES="$KEEP_FILES $file"
-    KEEP_COUNT=$((KEEP_COUNT + 1))
-    echo "[TRIM] KEEP (Other): $(basename "$file")"
+    CATEGORY=$(grep "^Category:" "$file" | head -1 | cut -d' ' -f2)
+    # Other sources (Mongabay aside) should still be env-related
+    if [ "$CATEGORY" != "general" ] && [ "$CATEGORY" != "policy" ]; then
+      KEEP_FILES="$KEEP_FILES $file"
+      KEEP_COUNT=$((KEEP_COUNT + 1))
+      echo "[TRIM] KEEP (Other): $(basename "$file")"
+    else
+      echo "[TRIM] DROP (Other, non-env): $(basename "$file")"
+    fi
   done <<< "$OTHER_FILES"
 fi
 

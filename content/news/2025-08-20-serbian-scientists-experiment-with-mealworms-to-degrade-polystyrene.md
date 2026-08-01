@@ -1,7 +1,7 @@
 ---
 Title: Serbian scientists experiment with mealworms to degrade polystyrene
 Date: 2025-08-20
-Category: environment
+Category: pollution
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2025/08/20/serbian-scientists-experiment-with-mealworms-to-degrade-polystyrene
 Slug: serbian-scientists-experiment-with-mealworms-to-degrade-polystyrene

@@ -1,7 +1,7 @@
 ---
 Title: Living with leopards in the Himalayas
 Date: 2026-07-31
-Category: environment
+Category: wildlife
 Source: Kathmandu Post
 Source_URL: https://kathmandupost.com/climate-environment/2026/07/31/living-with-leopards-in-the-himalayas
 Slug: living-with-leopards-in-the-himalayas
