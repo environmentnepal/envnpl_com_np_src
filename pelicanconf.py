@@ -38,5 +38,5 @@ DEFAULT_PAGINATION = 10
 NEWEST_FIRST_ARCHIVES = True
 
 
-DEFAULT_PAGINATION = 20
-PAGINATED_TEMPLATES = {'archives': 20, 'index': None, 'category': None, 'tag': None, 'author': None}
+DEFAULT_PAGINATION = 25
+PAGINATED_TEMPLATES = {'archives': 25, 'index': 25, 'category': 25, 'tag': None, 'author': None}

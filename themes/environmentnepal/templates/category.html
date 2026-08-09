@@ -47,8 +47,9 @@
             {% endfor %}
         </div>
         {% else %}
+        {% set cats = articles_page.object_list if articles_page else articles %}
         <div class="category-list">
-            {% for article in articles %}
+            {% for article in cats %}
             {% set link = article.source_url if article.source_url else SITEURL ~ '/' ~ article.url %}
             <article class="category-item">
                 <a href="{{ link }}" target="_blank" rel="noopener nofollow">
@@ -59,6 +60,17 @@
             </article>
             {% endfor %}
         </div>
+        {% if articles_page and articles_page.has_other_pages() %}
+        <nav class="pagination">
+            {% if articles_page.has_previous() %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="pagination-prev">&larr; Newer</a>
+            {% endif %}
+            <span class="pagination-info">Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+            {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="pagination-next">Older &rarr;</a>
+            {% endif %}
+        </nav>
+        {% endif %}
         {% endif %}
     </div>
 </section>

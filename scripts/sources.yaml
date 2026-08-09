@@ -304,6 +304,54 @@ sources:
   # ====================== INTERNATIONAL ADDITIONS ======================
   # global: true + env_section: true → only Nepal/South-Asia-tagged env stories kept.
 
+  - name: "Stimson"
+    url: "https://www.stimson.org/feed/"
+    note: "Stimson Center; environment/energy/climate research. Nepal/South-Asia gate."
+    type: dynamic
+    check_frequency_hours: 24
+    env_section: true
+    global: true
+    extractor: rss
+    selector: ""
+    fields:
+      title: ""
+      url: ""
+      snippet: ""
+      date: ""
+    category_mapping:
+      - category: climate
+        keywords: ["climate", "warming", "carbon", "emission", "glacier", "himalaya", "himalayan", "energy transition", "glacial lake"]
+      - category: water
+        keywords: ["river", "lake", "glacier", "water", "flood", "wetland"]
+      - category: wildlife
+        keywords: ["tiger", "rhino", "elephant", "wildlife", "biodiversity", "conservation"]
+      - category: policy
+        keywords: ["policy", "regulation", "government", "treaty", "agreement", "un climate", "cop"]
+
+  - name: "UNESCO"
+    url: "https://www.unesco.org/en/climate-change"
+    note: "UNESCO climate/nature action; Nepal/South-Asia gate"
+    type: dynamic
+    check_frequency_hours: 24
+    env_section: true
+    global: true
+    extractor: css
+    selector: "article"
+    fields:
+      title: "h2, h3, h4"
+      url: "a@href"
+      snippet: "p"
+      date: "time, .date"
+    category_mapping:
+      - category: climate
+        keywords: ["climate", "warming", "carbon", "emission", "glacier", "adapt", "khumbu", "snow", "water"]
+      - category: wildlife
+        keywords: ["tiger", "rhino", "elephant", "wildlife", "biodiversity", "conservation", "park"]
+      - category: water
+        keywords: ["river", "lake", "glacier", "water", "wetland", "flood"]
+      - category: policy
+        keywords: ["policy", "regulation", "government", "treaty", "agenda", "action"]
+
   - name: "Dialogue Earth"
     url: "https://dialogue.earth/en/rss/"
     note: "Publishes The Third Pole; South Asia / Himalaya climate reporting. Nepal/South-Asia gate."

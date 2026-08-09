@@ -3,14 +3,16 @@
 {% block content %}
 
 {# Feed: all news, exclude Parks/Books static categories #}
-{% set news = articles | rejectattr('category', 'equalto', 'Parks') | rejectattr('category', 'equalto', 'Books') | list %}
+{% set news_all = articles | rejectattr('category', 'equalto', 'Parks') | rejectattr('category', 'equalto', 'Books') | list %}
+{# Current page's articles (paginated at 25) #}
+{% set news = articles_page.object_list | rejectattr('category', 'equalto', 'Parks') | rejectattr('category', 'equalto', 'Books') | list if articles_page else news_all %}
 
 {# Canonical category labels for the filter bar #}
 {% set categories = ['climate', 'wildlife', 'forestry', 'water', 'pollution', 'disaster', 'policy', 'environment'] %}
 
-{# Unique source list for the source dropdown #}
+{# Unique source list for the source dropdown (drawn from ALL news, all pages) #}
 {% set ns = namespace(seen={}, list=[]) %}
-{% for a in news %}{% if a.source and a.source not in ns.seen %}
+{% for a in news_all %}{% if a.source and a.source not in ns.seen %}
 {% set _ = ns.seen.__setitem__(a.source, 1) %}
 {% set _ = ns.list.append(a.source) %}
 {% endif %}{% endfor %}
@@ -75,6 +77,18 @@
             <p class="feed-empty">No news yet. Check back soon.</p>
             {% endif %}
         </div>
+
+        {% if articles_page and articles_page.has_other_pages() %}
+        <nav class="pagination">
+            {% if articles_page.has_previous() %}
+            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}" class="pagination-prev">&larr; Newer</a>
+            {% endif %}
+            <span class="pagination-info">Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}</span>
+            {% if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{{ articles_next_page.url }}" class="pagination-next">Older &rarr;</a>
+            {% endif %}
+        </nav>
+        {% endif %}
     </div>
 </section>
 
