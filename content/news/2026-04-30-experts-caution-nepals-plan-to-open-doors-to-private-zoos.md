@@ -2,7 +2,7 @@
 Title: Experts caution Nepal’s plan to open doors to private zoos
 Date: 2026-04-30
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/04/experts-caution-nepals-plan-to-open-doors-to-private-zoos/
 Slug: experts-caution-nepals-plan-to-open-doors-to-private-zoos
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/04/30145802/481768235_1086437106855534_3058871533111109011_n-350x233.jpg

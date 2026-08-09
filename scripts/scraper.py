@@ -2,6 +2,7 @@
 """EnvironmentNEPAL — News ingestion engine. Usage: python scripts/scraper.py [--dry]"""
 import hashlib, json, re, sys, time
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urljoin
 import requests, yaml
@@ -16,6 +17,52 @@ SOURCES_YAML = SCRIPTS_DIR / "sources.yaml"
 LAST_RUN_FILE = SCRIPTS_DIR / ".last_run.json"
 NEWS_DIR = PROJECT_DIR / "content" / "news"
 MIN_DATE = datetime(2026, 1, 1, tzinfo=timezone.utc)
+
+# Countries/locations that make a global-outlet story Nepal/South-Asia relevant.
+NEPAL_KEYWORDS = [
+    "nepal", "kathmandu", "himalaya", "himalayan", "everest", "pokhara", "chitwan",
+    "lumbini", "bagmati", "gandaki", "koshi", "karnali", "sagarmatha", "annapurna",
+    "langtang", "mustang", "muktinath", "nepali", "south asia", "southasian",
+    "hindukush", "hindu kush", "ganges", "brahmaputra", "bengal", "bhutan", "bangladesh",
+    "sri lanka", "maldives", "pakistan", "india", "afghanistan", "maldives",
+]
+
+
+def is_nepal_relevant(article) -> bool:
+    """True if an article (title+snippet) mentions Nepal / South Asia."""
+    text = f"{article.get('title','')} {article.get('snippet','')}".lower()
+    return any(kw in text for kw in NEPAL_KEYWORDS)
+
+
+def parse_date(raw_date: str):
+    """Best-effort parse of a raw date string into a datetime (or fallback to now)."""
+    raw = (raw_date or "").strip()
+    if not raw:
+        return datetime.now(timezone.utc)
+    # RFC822 / RSS pubDate, e.g. "Thu, 07 Aug 2026 12:00:00 GMT"
+    try:
+        dt = parsedate_to_datetime(raw)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+    except Exception:
+        pass
+    # ISO 8601, e.g. "2026-08-07" or "2026-08-07T12:00:00Z"
+    try:
+        dt = datetime.fromisoformat(raw.replace("Z", "+00:00").split(".")[0])
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt
+    except Exception:
+        pass
+    # Fallback: extract YYYY-MM or YYYY (also matches paths like /2026/07/26/)
+    m = re.search(r"(\d{4})[-/](\d{1,2})(?:[-/](\d{1,2}))?", raw)
+    if m:
+        try:
+            return datetime(int(m.group(1)), int(m.group(2)), int(m.group(3) or 1), tzinfo=timezone.utc)
+        except Exception:
+            pass
+    return datetime.now(timezone.utc)
 
 def load_sources():
     with open(SOURCES_YAML) as f: return yaml.safe_load(f)
@@ -80,7 +127,7 @@ def scrape_css(source):
         link = url_val if isinstance(url_val, str) else (url_val.get("href","") if url_val else "")
         title = title_el.get_text(strip=True) if hasattr(title_el,'get_text') else ""
         snippet = sn_el.get_text(strip=True) if hasattr(sn_el,'get_text') else ""
-        raw_date = dt_el.get_text(strip=True) if hasattr(dt_el,'get_text') else ""
+        raw_date = dt_el if isinstance(dt_el, str) else (dt_el.get_text(strip=True) if hasattr(dt_el,'get_text') else "")
         if not title or not link: continue
         if not link.startswith("http"): link = urljoin(url, link)
         articles.append({"title":title,"url":link,"snippet":snippet[:300],"date_raw":raw_date,"source_name":source["name"]})
@@ -168,16 +215,16 @@ def scrape_nepalitimes_api(source):
     return articles
 
 def create_markdown(article):
-    ds = article.get("date", datetime.now().strftime("%Y-%m-%d"))
-    try: ds = datetime.fromisoformat(ds).strftime("%Y-%m-%d")
-    except: ds = datetime.now().strftime("%Y-%m-%d")
+    parsed = article.get("_parsed_date") or parse_date(article.get("date_raw", ""))
+    ds = parsed.strftime("%Y-%m-%d %H:%M")
     slug = slugify(article["title"])
     img_line = f"Image: {article['image']}\n" if article.get("image") else ""
-    body = article.get("body", article.get("snippet", ""))
-    fm = f"---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\n{img_line}Snippet: {article.get('snippet','')[:200]}\nSummary: {article.get('snippet','')[:200]}\n---\n"
-    full = fm + "\n" + body + "\n"
-    (NEWS_DIR / f"{ds}-{slug}.md").write_text(full)
-    return f"{ds}-{slug}.md"
+    snippet = (article.get("snippet") or "").strip()[:200]
+    fm = f"---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\n{img_line}Snippet: {snippet}\nSummary: {snippet}\n---\n"
+    # Summary-only storage: never write the full article body.
+    full = fm + "\n"
+    (NEWS_DIR / f"{article['date']}-{slug}.md").write_text(full)
+    return f"{article['date']}-{slug}.md"
 
 def main(dry_run=False):
     config = load_sources()
@@ -204,7 +251,8 @@ def main(dry_run=False):
             time.sleep(REQUEST_DELAY)
             written = 0
             for a in articles:
-                a["date"] = a.get("date_raw", "")[:10]
+                a["_parsed_date"] = parse_date(a.get("date_raw", ""))
+                a["date"] = a["_parsed_date"].strftime("%Y-%m-%d")
                 a["category"] = extract_category(a["title"], a["snippet"], source.get("category_mapping",[]))
                 # Relevance gate: skip off-topic articles entirely (politics, sports,
                 # film, crime) — don't even write them to disk.
@@ -220,6 +268,9 @@ def main(dry_run=False):
                     print(f"    [SKIP-offtopic] {a['title'][:60]}"); continue
                 if a["category"] == "policy" and not is_env_section:
                     print(f"    [SKIP-policy] {a['title'][:60]}"); continue
+                # Nepal-relevance gate: global outlets only keep Nepal/South-Asia stories.
+                if source.get("global", False) and not is_nepal_relevant(a):
+                    print(f"    [SKIP-not-nepal] {a['title'][:60]}"); continue
                 dup, reason = dedup.is_duplicate(a)
                 if dup: print(f"    [DUP-{reason}] {a['title'][:60]}"); continue
                 if not dry_run:

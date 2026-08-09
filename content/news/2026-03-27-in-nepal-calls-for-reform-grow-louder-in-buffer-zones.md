@@ -2,7 +2,7 @@
 Title: In Nepal, calls for reform grow louder in buffer zones
 Date: 2026-03-27
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/03/in-nepal-calls-for-reform-grow-louder-in-buffer-zones/
 Slug: in-nepal-calls-for-reform-grow-louder-in-buffer-zones
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/03/27083832/collecting-firewood-350x233.jpg

@@ -2,7 +2,7 @@
 Title: Himalayan pangolin emerges as distinct species, 189 years after first described
 Date: 2026-07-07
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/07/himalayan-pangolin-emerges-as-distinct-species-189-years-after-first-described/
 Slug: himalayan-pangolin-emerges-as-distinct-species-189-years-after-first-described
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/07/07004345/1.-Pangolin-from-Nepal-350x233.jpeg

@@ -2,7 +2,7 @@
 Title: Nepal’s Rhino translocation success in numbers masks habitat struggles
 Date: 2026-07-10
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/07/nepals-rhino-translocation-success-in-numbers-masks-habitat-struggles/
 Slug: nepals-rhino-translocation-success-in-numbers-masks-habitat-struggles
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/07/10060527/Greater_one-horned_rhinoceros_at_Chitwan-350x233.jpg

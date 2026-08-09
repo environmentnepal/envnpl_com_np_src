@@ -2,7 +2,7 @@
 Title: Nepal proposes park for ‘problem’ tigers amid rising conflicts
 Date: 2026-05-21
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/05/nepal-proposes-park-for-problem-tigers-amid-rising-conflicts/
 Slug: nepal-proposes-park-for-problem-tigers-amid-rising-conflicts
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/21040311/Bengal_tiger_in_Sanjay_Dubri_Tiger_Reserve_December_2024_by_Tisha_Mukherjee_-350x233.jpg

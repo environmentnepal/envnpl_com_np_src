@@ -2,7 +2,7 @@
 Title: Rare Chinese pangolin found in a sacred community forest in Nepal
 Date: 2026-06-08
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/06/rare-chinese-pangolin-found-in-a-sacred-community-forest-in-nepal/
 Slug: rare-chinese-pangolin-found-in-a-sacred-community-forest-in-nepal
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/06/08034455/%C2%A9Nature-Conservation-and-Study-Centre-NCSC-350x233.jpg

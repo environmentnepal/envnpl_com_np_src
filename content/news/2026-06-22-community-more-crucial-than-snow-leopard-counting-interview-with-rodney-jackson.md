@@ -2,7 +2,7 @@
 Title: Community more crucial than snow leopard counting: Interview with Rodney Jackson
 Date: 2026-06-22
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/06/community-more-crucial-than-snow-leopard-counting-interview-with-rodney-jackson/
 Slug: community-more-crucial-than-snow-leopard-counting-interview-with-rodney-jackson
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/06/19100316/Snow_leopard_-_Uncia_uncia-350x233.jpg

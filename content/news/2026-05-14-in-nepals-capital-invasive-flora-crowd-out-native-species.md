@@ -2,7 +2,7 @@
 Title: In Nepal’s capital, invasive flora crowd out native species
 Date: 2026-05-14
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/05/in-nepals-capital-invasive-flora-crowd-out-native-species/
 Slug: in-nepals-capital-invasive-flora-crowd-out-native-species
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/14100119/lantana-in-kathmandu-350x233.jpg

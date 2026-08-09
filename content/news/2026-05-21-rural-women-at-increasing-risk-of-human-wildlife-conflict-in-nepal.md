@@ -2,7 +2,7 @@
 Title: Rural women at increasing risk of human-wildlife conflict in Nepal
 Date: 2026-05-21
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/05/rural-women-at-increasing-risk-of-human-wildlife-conflict-in-nepal/
 Slug: rural-women-at-increasing-risk-of-human-wildlife-conflict-in-nepal
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/21041540/women-under-a-tree-e1779336981974-350x233.jpg

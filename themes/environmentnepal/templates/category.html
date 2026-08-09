@@ -49,10 +49,11 @@
         {% else %}
         <div class="category-list">
             {% for article in articles %}
+            {% set link = article.source_url if article.source_url else SITEURL ~ '/' ~ article.url %}
             <article class="category-item">
-                <a href="{{ SITEURL }}/{{ article.url }}">
+                <a href="{{ link }}" target="_blank" rel="noopener nofollow">
                     <h3>{{ article.title }}</h3>
-                    <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
+                    <p class="meta">{{ article.category }} | {{ article.source|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
                     <p class="category-snippet">{{ article.summary|truncate(200) }}</p>
                 </a>
             </article>

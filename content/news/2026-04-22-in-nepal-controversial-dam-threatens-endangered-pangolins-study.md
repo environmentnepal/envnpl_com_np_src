@@ -2,7 +2,7 @@
 Title: In Nepal, controversial dam threatens endangered pangolins: Study
 Date: 2026-04-22
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/04/in-nepal-controversial-dam-threatens-endangered-pangolins-study/
 Slug: in-nepal-controversial-dam-threatens-endangered-pangolins-study
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2025/04/23090420/29054818144_90d7ea0d1c_o-350x233.jpg

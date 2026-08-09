@@ -2,7 +2,7 @@
 Title: World Bank watchdog looks into Nepal cable car project amid Indigenous outcry
 Date: 2026-01-23
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/01/world-bank-watchdog-looks-into-nepal-cable-car-project-amid-indigenous-outcry/
 Slug: world-bank-watchdog-looks-into-nepal-cable-car-project-amid-indigenous-outcry
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2024/07/31141245/Plantation_PotoBy_Prabin-Seling-Sendow-350x233.jpg

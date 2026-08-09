@@ -2,7 +2,7 @@
 Title: ‘Holy river’ carries industrial waste & sewage from Nepal to India
 Date: 2026-01-21
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/01/holy-river-carries-industrial-waste-sewage-from-nepal-to-india/
 Slug: holy-river-carries-industrial-waste-sewage-from-nepal-to-india
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/01/21101217/IMG_20251220_075902-photoaidcom-2x-ai-zoom-350x233.jpg

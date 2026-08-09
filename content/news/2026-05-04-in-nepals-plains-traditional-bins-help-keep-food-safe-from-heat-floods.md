@@ -2,7 +2,7 @@
 Title: In Nepal’s plains, traditional bins help keep food safe from heat, floods
 Date: 2026-05-04
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/05/in-nepals-plains-traditional-bins-help-keep-food-safe-from-heat-floods/
 Slug: in-nepals-plains-traditional-bins-help-keep-food-safe-from-heat-floods
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/04115851/02_Dehari-kitchen-2--350x233.jpg

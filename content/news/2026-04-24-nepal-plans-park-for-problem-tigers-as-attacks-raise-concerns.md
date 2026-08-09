@@ -2,7 +2,7 @@
 Title: Nepal plans park for ‘problem’ tigers as attacks raise concerns
 Date: 2026-04-24
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/04/nepal-plans-park-for-problem-tigers-as-attacks-raise-concerns/
 Slug: nepal-plans-park-for-problem-tigers-as-attacks-raise-concerns
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/04/23161619/tiger-in-bardiya-350x233.jpg

@@ -2,7 +2,7 @@
 Title: Nepal’s Central Zoo faces questions over its bird flu response
 Date: 2026-06-25
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/06/nepals-central-zoo-faces-questions-over-its-bird-flu-response/
 Slug: nepals-central-zoo-faces-questions-over-its-bird-flu-response
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/06/25161349/Sarus_Crane_Central_Zoo_Nepal-350x233.jpg

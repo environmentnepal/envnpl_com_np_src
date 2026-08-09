@@ -195,31 +195,6 @@ sources:
       - keywords: ["policy", "regulation", "law", "government"]
         category: policy
 
-    url: "https://www.onlinekhabar.com/category/environment"
-    type: dynamic
-    check_frequency_hours: 12
-    extractor: css
-    selector: "article"
-    fields:
-      title: "h2 a, h3 a"
-      url: "h2 a@href, h3 a@href"
-      snippet: "h2 a, h3 a"
-      date: ""
-    category_mapping:
-      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
-        category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species"]
-        category: wildlife
-      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
-        category: forestry
-      - keywords: ["river", "lake", "glacier", "water", "wetland"]
-        category: water
-      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
-        category: pollution
-      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
-        category: disaster
-      - keywords: ["policy", "regulation", "law", "government", "ministry"]
-        category: policy
   - name: "MyRepublica"
     url: "https://myrepublica.nagariknetwork.com/news/environment"
     note: "JS-rendered — add article slugs to scripts/myrepublica_slugs.json"
@@ -233,3 +208,180 @@ sources:
       url: "a@href"
       snippet: ""
       date: ""
+
+  # ====================== NATIONAL ADDITIONS ======================
+  # Env-section outlets: keep everything, default unmatched to "environment".
+
+  - name: "The Himalayan Times"
+    url: "https://thehimalayantimes.com/environment"
+    type: dynamic
+    check_frequency_hours: 12
+    env_section: true
+    extractor: css
+    selector: "article"
+    fields:
+      title: "h2 a, h3 a, .title a"
+      url: "h2 a@href, h3 a@href, .title a@href"
+      snippet: "p, .summary, .excerpt"
+      date: "img@src, img@data-src, time, .date, .published"
+    category_mapping:
+      - keywords: ["climate", "weather", "warming", "carbon", "emission", "monsoon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "flood", "hydropower"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry"]
+        category: policy
+
+  - name: "RecordNepal"
+    url: "https://www.recordnepal.com/"
+    note: "Covers climate & mountaineering from Nepal"
+    type: dynamic
+    check_frequency_hours: 24
+    env_section: true
+    extractor: links
+    link_pattern: "/trn/story"
+    base_url: "https://www.recordnepal.com"
+    selector: ""
+    fields:
+      title: ""
+      url: ""
+      snippet: ""
+      date: ""
+    category_mapping:
+      - keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "monsoon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "flood", "hydropower"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "avalanche", "disaster", "fire", "storm"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government", "ministry"]
+        category: policy
+
+  - name: "The Annapurna Express"
+    url: "https://theannapurnaexpress.com/category/environment/"
+    type: dynamic
+    check_frequency_hours: 24
+    env_section: true
+    extractor: links
+    link_pattern: "/story/"
+    base_url: "https://theannapurnaexpress.com"
+    selector: ""
+    fields:
+      title: ""
+      url: ""
+      snippet: ""
+      date: ""
+    category_mapping:
+      - keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "monsoon"]
+        category: climate
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+        category: wildlife
+      - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+        category: forestry
+      - keywords: ["river", "lake", "glacier", "water", "wetland", "flood", "hydropower"]
+        category: water
+      - keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
+        category: pollution
+      - keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
+        category: disaster
+      - keywords: ["policy", "regulation", "law", "government"]
+        category: policy
+
+  # ====================== INTERNATIONAL ADDITIONS ======================
+  # global: true + env_section: true → only Nepal/South-Asia-tagged env stories kept.
+
+  - name: "Dialogue Earth"
+    url: "https://dialogue.earth/en/rss/"
+    note: "Publishes The Third Pole; South Asia / Himalaya climate reporting. Nepal/South-Asia gate."
+    type: dynamic
+    check_frequency_hours: 24
+    env_section: true
+    global: true
+    extractor: rss
+    selector: ""
+    fields:
+      title: ""
+      url: ""
+      snippet: ""
+      date: ""
+    category_mapping:
+      - category: climate
+        keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "monsoon"]
+      - category: wildlife
+        keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+      - category: forestry
+        keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+      - category: water
+        keywords: ["river", "lake", "glacier", "water", "wetland", "flood", "hydropower"]
+      - category: pollution
+        keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
+      - category: disaster
+        keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm"]
+      - category: policy
+        keywords: ["policy", "regulation", "law", "government"]
+
+  - name: "The Guardian Environment"
+    url: "https://www.theguardian.com/environment/rss"
+    note: "Global environment; Nepal/South-Asia gate"
+    type: dynamic
+    check_frequency_hours: 12
+    env_section: true
+    global: true
+    extractor: rss
+    selector: ""
+    fields:
+      title: ""
+      url: ""
+      snippet: ""
+      date: ""
+    category_mapping:
+      - category: climate
+        keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier"]
+      - category: wildlife
+        keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "biodiversity", "conservation"]
+      - category: forestry
+        keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
+      - category: water
+        keywords: ["river", "lake", "glacier", "water", "wetland", "flood"]
+      - category: pollution
+        keywords: ["pollution", "air quality", "waste", "plastic", "sewage"]
+      - category: disaster
+        keywords: ["earthquake", "flood", "landslide", "disaster", "fire", "storm", "drought"]
+      - category: policy
+        keywords: ["policy", "regulation", "law", "government"]
+
+  - name: "Carbon Brief"
+    url: "https://www.carbonbrief.org/feed/"
+    note: "Global climate analysis; Nepal/South-Asia gate"
+    type: dynamic
+    check_frequency_hours: 24
+    env_section: true
+    global: true
+    extractor: rss
+    selector: ""
+    fields:
+      title: ""
+      url: ""
+      snippet: ""
+      date: ""
+    category_mapping:
+      - category: climate
+        keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "hindu kush"]
+      - category: water
+        keywords: ["river", "lake", "glacier", "water", "wetland", "flood"]
+      - category: policy
+        keywords: ["policy", "regulation", "law", "government", "paris", "cop"]

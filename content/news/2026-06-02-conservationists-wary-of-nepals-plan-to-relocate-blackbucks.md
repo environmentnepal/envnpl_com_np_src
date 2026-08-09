@@ -2,7 +2,7 @@
 Title: Conservationists wary of Nepal’s plan to relocate blackbucks
 Date: 2026-06-02
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/06/conservationists-wary-of-nepals-plan-to-relocate-blackbucks/
 Slug: conservationists-wary-of-nepals-plan-to-relocate-blackbucks
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/06/02040424/A_male_blackbuck_photographed_at_Blackbuck_Conservation_Area_Bardiya_Nepal-2-350x233.jpg

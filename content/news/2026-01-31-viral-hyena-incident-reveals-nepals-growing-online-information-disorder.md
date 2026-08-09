@@ -2,7 +2,7 @@
 Title: Viral hyena incident reveals Nepal’s growing online information disorder
 Date: 2026-01-31
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/01/viral-hyena-incident-reveals-nepals-growing-online-information-disorder/
 Slug: viral-hyena-incident-reveals-nepals-growing-online-information-disorder
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2018/11/05193312/tz_2395a-350x233.jpg

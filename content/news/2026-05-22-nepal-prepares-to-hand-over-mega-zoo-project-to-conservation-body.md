@@ -2,7 +2,7 @@
 Title: Nepal prepares to hand over mega zoo project to conservation body
 Date: 2026-05-22
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/05/nepal-prepares-to-hand-over-mega-zoo-project-to-conservation-body/
 Slug: nepal-prepares-to-hand-over-mega-zoo-project-to-conservation-body
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/22143045/525526832_1203197115179532_493804333274095580_n_processed-scaled-e1779460279216-350x233.jpg

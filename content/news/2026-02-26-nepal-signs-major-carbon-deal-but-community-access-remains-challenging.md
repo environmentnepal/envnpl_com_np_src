@@ -2,7 +2,7 @@
 Title: Nepal signs major carbon deal but community access remains challenging
 Date: 2026-02-26
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/02/nepal-signs-major-carbon-deal-but-community-access-remains-challenging/
 Slug: nepal-signs-major-carbon-deal-but-community-access-remains-challenging
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2025/11/05094237/B54E1753-A43D-4A54-905D-88D38E384200-e1772009616560-350x233.jpg

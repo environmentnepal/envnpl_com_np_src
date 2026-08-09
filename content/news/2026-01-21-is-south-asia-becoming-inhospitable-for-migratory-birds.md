@@ -2,7 +2,7 @@
 Title: Is South Asia becoming inhospitable for migratory birds?
 Date: 2026-01-21
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/01/is-south-asia-becoming-inhospitable-for-migratory-birds/
 Slug: is-south-asia-becoming-inhospitable-for-migratory-birds
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/01/21095547/birds-fisherman-bangladesh-350x233.jpg

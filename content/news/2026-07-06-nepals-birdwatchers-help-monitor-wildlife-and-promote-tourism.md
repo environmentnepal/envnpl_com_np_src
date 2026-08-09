@@ -2,7 +2,7 @@
 Title: Nepal’s birdwatchers help monitor wildlife and promote tourism
 Date: 2026-07-06
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/07/nepals-birdwatchers-help-monitor-wildlife-and-promote-tourism/
 Slug: nepals-birdwatchers-help-monitor-wildlife-and-promote-tourism
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/07/06123303/Spiny-Babbler-350x233.jpg

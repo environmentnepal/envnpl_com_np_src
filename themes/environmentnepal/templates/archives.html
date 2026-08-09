@@ -19,10 +19,11 @@
                 {% set ns.current_date = article_date %}
             {% endif %}
             <li class="archive-item">
-                <a href="{{ SITEURL }}/{{ article.url }}">
+                {% set link = article.source_url if article.source_url else SITEURL ~ '/' ~ article.url %}
+                <a href="{{ link }}" target="_blank" rel="noopener nofollow">
                     <span class="archive-title">{{ article.title }}</span>
                     {% if article.source %}
-                    <span class="archive-source">&mdash; {{ article.source }}</span>
+                    <span class="archive-source">{{ article.category|capitalize }} &mdash; {{ article.source }}</span>
                     {% endif %}
                 </a>
             </li>

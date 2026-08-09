@@ -2,7 +2,7 @@
 Title: As Nepal votes, climate change is an elephant in the room for Sherpa community
 Date: 2026-02-24
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/02/as-nepal-votes-climate-change-is-an-elephant-in-the-room-for-sherpa-community/
 Slug: as-nepal-votes-climate-change-is-an-elephant-in-the-room-for-sherpa-community
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/02/24134520/sherpa-nepal-2-350x233.jpg

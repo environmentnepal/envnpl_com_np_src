@@ -2,7 +2,7 @@
 Title: In Nepal polls, political parties root for mega infrastructure
 Date: 2026-02-26
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/02/in-nepal-polls-political-parties-root-for-mega-infrastructure/
 Slug: in-nepal-polls-political-parties-root-for-mega-infrastructure
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/02/25181613/nepal-election-prep-350x233.jpg

@@ -2,7 +2,7 @@
 Title: A dam threatens Nepal’s Indigenous community; they want it on the ballot
 Date: 2026-02-04
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/02/a-dam-threatens-nepals-indigenous-community-they-want-it-on-the-ballot/
 Slug: a-dam-threatens-nepals-indigenous-community-they-want-it-on-the-ballot
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/02/04171911/6-Mulkharka-residents-350x233.jpg

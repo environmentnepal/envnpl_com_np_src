@@ -2,7 +2,7 @@
 Title: Nepal’s tourism growth sparks unchecked liquor concerns involving national flower
 Date: 2026-06-12
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/short-article/2026/06/nepals-tourism-growth-sparks-unchecked-liquor-concerns-involving-national-flower/
 Slug: nepals-tourism-growth-sparks-unchecked-liquor-concerns-involving-national-flower
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/06/12065919/Rhododendron_at_Tinjure_09-2048x1365-1-350x233.jpg

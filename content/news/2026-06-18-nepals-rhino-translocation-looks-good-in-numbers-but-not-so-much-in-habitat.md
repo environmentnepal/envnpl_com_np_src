@@ -2,7 +2,7 @@
 Title: Nepal’s rhino translocation looks good in numbers, but not so much in habitat
 Date: 2026-06-18
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/06/nepals-rhino-translocation-looks-good-in-numbers-but-not-so-much-in-habitat/
 Slug: nepals-rhino-translocation-looks-good-in-numbers-but-not-so-much-in-habitat
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/06/18095407/AP17099508379387-350x233.jpg

@@ -2,7 +2,7 @@
 Title: Nepal’s rhododendron tourism sparks unchecked liquor trade concerns
 Date: 2026-05-26
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/05/nepals-rhododendron-tourism-sparks-unchecked-liquor-trade-concerns/
 Slug: nepals-rhododendron-tourism-sparks-unchecked-liquor-trade-concerns
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/26085236/Dhaulagiri_and_Rhododendron-350x233.jpg

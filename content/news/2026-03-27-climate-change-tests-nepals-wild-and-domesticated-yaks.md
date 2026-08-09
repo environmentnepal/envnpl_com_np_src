@@ -2,7 +2,7 @@
 Title: Climate change tests Nepal’s wild and domesticated yaks
 Date: 2026-03-27
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/03/climate-change-tests-nepals-wild-and-domesticated-yaks/
 Slug: climate-change-tests-nepals-wild-and-domesticated-yaks
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/03/27070859/IMG_9939-e1774595484405-350x233.jpg

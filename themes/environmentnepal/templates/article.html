@@ -1,39 +1,39 @@
 {% extends "base.html" %}
 {% block title %}{{ article.title|striptags }}{% endblock %}
 {% block content %}
-<article class="{% if article.category == 'Books' %}book-review{% else %}full-article{% endif %}">
+<article class="summary-article">
     <header class="article-header">
-        <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
+        <p class="meta">{{ article.category|capitalize }} | {{ article.date|strftime('%d %B %Y') }}</p>
         <h1>{{ article.title }}</h1>
-        {% if article.source and article.category != 'Books' %}
         <p class="article-source">
-            <a href="{{ article.source_url }}" target="_blank" rel="noopener">Read full article at {{ article.source }} &rarr;</a>
+            Source: <strong>{{ article.source|default('EnvironmentNEPAL') }}</strong>
         </p>
-        {% endif %}
     </header>
 
-    {% if article.image or article.cover %}
+    {% if article.image %}
     <div class="article-image">
-        <img src="{{ article.image or article.cover }}" alt="{{ article.title|striptags }}" />
+        <img src="{{ article.image }}" alt="{{ article.title|striptags }}" />
         {% if article.image_credit %}
         <p class="image-credit">Image: {{ article.image_credit }}</p>
         {% endif %}
     </div>
     {% endif %}
 
+    {% if article.summary %}
     <div class="article-body">
-        {{ article.content }}
+        <p>{{ article.summary }}</p>
     </div>
+    {% endif %}
 
-    {% if article.category != 'Books' %}
+    {% if article.source_url and article.category not in ['Books', 'Parks'] %}
     <p class="read-more">
-        <a href="{{ article.source_url }}" target="_blank" rel="noopener">Read more at {{ article.source }} &rarr;</a>
+        <a href="{{ article.source_url }}" target="_blank" rel="noopener nofollow">Read full article at {{ article.source }} &rarr;</a>
     </p>
+    <p class="feed-note">Summary only &mdash; EnvironmentNEPAL does not republish full articles.</p>
     {% endif %}
 
     {% if article.category == 'Books' %}
     <p class="read-more">Review by EnvironmentNEPAL</p>
     {% endif %}
 </article>
-
 {% endblock %}

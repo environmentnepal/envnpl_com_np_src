@@ -2,7 +2,7 @@
 Title: Nepal’s community forests sit on unsold timber
 Date: 2026-02-10
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/02/nepals-community-forests-sit-on-unsold-timber/
 Slug: nepals-community-forests-sit-on-unsold-timber
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/02/10111217/Dolakha-central-Nepal-350x233.jpg

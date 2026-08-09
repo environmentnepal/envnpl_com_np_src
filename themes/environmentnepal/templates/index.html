@@ -2,175 +2,137 @@
 {% block title %}{{ SITENAME }}{% endblock %}
 {% block content %}
 
-{# Filter: news articles exclude Parks category #}
-{% set news = articles | rejectattr('category', 'equalto', 'Parks') | list %}
-{% set parks = articles | selectattr('category', 'equalto', 'Parks') | list %}
+{# Feed: all news, exclude Parks/Books static categories #}
+{% set news = articles | rejectattr('category', 'equalto', 'Parks') | rejectattr('category', 'equalto', 'Books') | list %}
 
-<!-- Hero Section: 1 main + 2 sub -->
-<section class="hero">
-    <div class="hero-grid">
-        {% if news and news|length >= 1 %}
-        <!-- Main story (50% width) -->
-        <article class="hero-main">
-            <a href="{{ SITEURL }}/{{ news[0].url }}">
-                {% if news[0].image %}
-                <div class="hero-main-img" style="background-image: url('{{ news[0].image }}');"></div>
-                {% else %}
-                <div class="hero-main-img hero-placeholder"></div>
-                {% endif %}
-                <div class="hero-main-text">
-                    <h2>{{ news[0].title }}</h2>
-                    <p class="meta">{{ news[0].category }} | {{ news[0].type|default('News') }} | {{ news[0].date|strftime('%d %B %Y') }}</p>
-                </div>
-            </a>
-        </article>
-        {% endif %}
+{# Canonical category labels for the filter bar #}
+{% set categories = ['climate', 'wildlife', 'forestry', 'water', 'pollution', 'disaster', 'policy', 'environment'] %}
 
-        <!-- Sub-stories (25% each) -->
-        <div class="hero-sub">
-            {% for article in news[1:3] %}
-            <article class="hero-sub-card">
-                <a href="{{ SITEURL }}/{{ article.url }}">
-                    {% if article.image %}
-                    <div class="hero-sub-img" style="background-image: url('{{ article.image }}');"></div>
-                    {% else %}
-                    <div class="hero-sub-img hero-placeholder"></div>
-                    {% endif %}
-                    <div class="hero-sub-text">
-                        <h3>{{ article.title }}</h3>
-                        <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
+{# Unique source list for the source dropdown #}
+{% set ns = namespace(seen={}, list=[]) %}
+{% for a in news %}{% if a.source and a.source not in ns.seen %}
+{% set _ = ns.seen.__setitem__(a.source, 1) %}
+{% set _ = ns.list.append(a.source) %}
+{% endif %}{% endfor %}
+{% set src_list = ns.list %}
+
+<section class="feed-page">
+    <div class="feed-inner">
+        <h2 class="section-heading">Environment news</h2>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" id="filter-bar">
+            <div class="filter-cats">
+                <button class="filter-btn active" data-cat="all">All</button>
+                {% for cat in categories %}
+                <button class="filter-btn" data-cat="{{ cat }}">{{ cat|capitalize }}</button>
+                {% endfor %}
+            </div>
+            <div class="filter-source">
+                <label for="source-select">Source</label>
+                <select id="source-select">
+                    <option value="all">All sources</option>
+                    {% for s in src_list %}
+                    <option value="{{ s|e }}">{{ s }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <span class="filter-count" id="filter-count"></span>
+        </div>
+
+        <!-- Feed -->
+        <div class="news-feed" id="news-feed">
+            {% for a in news %}
+            <article class="news-card" data-cat="{{ a.category|lower|e }}" data-source="{{ a.source|default('')|e }}">
+                <a href="{{ a.source_url if a.source_url else SITEURL ~ '/' ~ a.url }}" target="_blank" rel="noopener nofollow" class="news-card-link">
+                    <div class="news-thumb">
+                        {% if a.image %}
+                        <img src="{{ a.image }}" alt="{{ a.title|striptags }}" loading="lazy" onerror="this.parentElement.classList.add('thumb-placeholder');this.remove();" />
+                        {% else %}
+                        <div class="thumb-placeholder"></div>
+                        {% endif %}
+                    </div>
+                    <div class="news-body">
+                        <h3 class="news-title">{{ a.title }}</h3>
+                        {% if a.summary %}
+                        <p class="news-snippet">{{ a.summary }}</p>
+                        {% endif %}
+                        <p class="news-meta">
+                            <span class="news-source">{{ a.source|default('EnvironmentNEPAL') }}</span>
+                            <span class="news-dot">·</span>
+                            {% if a.source_url %}<span class="news-external">view source</span>{% endif %}
+                            <span class="news-dot">·</span>
+                            <span class="news-cat">{{ a.category|capitalize }}</span>
+                            <span class="news-dot">·</span>
+                            <time class="news-time" datetime="{{ a.date|strftime('%Y-%m-%dT%H:%M:%S%z') }}">{{ a.date|strftime('%d %B %Y') }}</time>
+                        </p>
                     </div>
                 </a>
             </article>
             {% endfor %}
 
-            {# Placeholder sub-cards when < 3 news articles #}
-            {% if news|length < 2 %}
-            <article class="hero-sub-card">
-                <div class="hero-sub-img hero-placeholder"></div>
-                <div class="hero-sub-text">
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </div>
-            </article>
-            {% endif %}
-            {% if news|length < 3 %}
-            <article class="hero-sub-card">
-                <div class="hero-sub-img hero-placeholder"></div>
-                <div class="hero-sub-text">
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </div>
-            </article>
+            {% if not news %}
+            <p class="feed-empty">No news yet. Check back soon.</p>
             {% endif %}
         </div>
     </div>
 </section>
 
-<!-- Featured Section (black background, full width) -->
-{% set featured = articles | selectattr('featured', 'equalto', 'True') | list %}
-{% if featured %}
-<section class="feature-section">
-    <div class="feature-inner">
-        <div class="feature-image">
-            {% if featured[0].image %}
-            <img src="{{ featured[0].image }}" alt="{{ featured[0].title }}" />
-            {% else %}
-            <div class="feature-placeholder"><span>Featured</span></div>
-            {% endif %}
-        </div>
-        <div class="feature-details">
-            <p class="feature-label">Featured</p>
-            <h2><a href="{{ SITEURL }}/{{ featured[0].url }}">{{ featured[0].title }}</a></h2>
-            <p>{{ featured[0].summary[:250] }}</p>
-            <a href="{{ SITEURL }}/{{ featured[0].url }}" class="feature-link">Read full article &rarr;</a>
-        </div>
-    </div>
-</section>
-{% endif %}
+<script>
+(function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.news-card'));
+    var countEl = document.getElementById('filter-count');
+    var activeCat = 'all';
+    var activeSrc = 'all';
 
-<!-- Current Coverage Section (white background) -->
-<section class="coverage-section">
-    <div class="coverage-inner">
-        <h2 class="section-heading">Current coverage</h2>
-        <div class="coverage-grid">
-            {% for article in news[3:11] %}
-            <article class="coverage-card">
-                <a href="{{ SITEURL }}/{{ article.url }}">
-                    {% if article.image %}
-                    <div class="coverage-card-img" style="background-image: url('{{ article.image }}');">
-                    {% else %}
-                    <div class="coverage-card-img coverage-placeholder">
-                    {% endif %}
-                        <span class="category-tag">{{ article.category }}</span>
-                    </div>
-                    <h3>{{ article.title }}</h3>
-                    <p class="meta">{{ article.category }} | {{ article.type|default('News') }} | {{ article.date|strftime('%d %B %Y') }}</p>
-                </a>
-            </article>
-            {% endfor %}
+    function applyFilter() {
+        var shown = 0;
+        cards.forEach(function (card) {
+            var cat = card.getAttribute('data-cat');
+            var src = card.getAttribute('data-source');
+            var show = (activeCat === 'all' || cat === activeCat) &&
+                       (activeSrc === 'all' || src === activeSrc);
+            card.style.display = show ? '' : 'none';
+            if (show) shown++;
+        });
+        countEl.textContent = shown + ' story' + (shown === 1 ? '' : 's');
+    }
 
-            {# Placeholder cards when < 11 news articles total #}
-            {% set needed = 11 - (news|length) %}
-            {% if needed > 0 and news|length > 3 %}
-                {% set slots = 8 - (news[3:11]|length) %}
-            {% elif news|length <= 3 %}
-                {% set slots = 8 %}
-            {% else %}
-                {% set slots = 0 %}
-            {% endif %}
-            {% for i in range(slots) %}
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-            {% endfor %}
-        </div>
-        <a href="{{ SITEURL }}/archives.html" class="section-link">All current coverage &rarr;</a>
-    </div>
-</section>
+    document.getElementById('filter-bar').addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        this.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        applyFilter();
+    });
 
-<!-- Podcast Section -->
-<section class="podcast-section">
-    <div class="podcast-inner">
-        <h2 class="section-heading">Latest podcasts</h2>
-        <div class="podcast-grid">
-            {% for i in range(4) %}
-            <article class="podcast-card">
-                <div class="podcast-cover">
-                    <span>Episode {{ i + 1 }}</span>
-                </div>
-                <p class="meta">EnvironmentNEPAL</p>
-                <h3>EnvironmentNEPAL Weekly &mdash; Episode {{ i + 1 }}</h3>
-            </article>
-            {% endfor %}
-        </div>
-        <a href="{{ SITEURL }}/pages/podcast.html" class="section-link">All podcasts &rarr;</a>
-    </div>
-</section>
+    document.getElementById('source-select').addEventListener('change', function () {
+        activeSrc = this.value;
+        applyFilter();
+    });
 
-<!-- Protected Areas Section -->
-<section class="protected-section">
-    <div class="protected-inner">
-        <h2 class="section-heading">Protected Areas</h2>
-        <div class="protected-grid">
-            {% for park in parks[:4] %}
-            <article class="protected-card">
-                <a href="{{ SITEURL }}/{{ park.url }}">
-                    {% if park.image %}
-                    <div class="protected-card-img" style="background-image: url('{{ park.image }}');"></div>
-                    {% else %}
-                    <div class="protected-card-img protected-placeholder"></div>
-                    {% endif %}
-                    <h3>{{ park.title }}</h3>
-                    <p class="meta">Established {{ park.date.strftime('%Y') }}</p>
-                </a>
-            </article>
-            {% endfor %}
-        </div>
-        <a href="{{ SITEURL }}/category/parks.html" class="section-link">All protected areas &rarr;</a>
-    </div>
-</section>
+    applyFilter();
 
+    // Live "time ago" for each card's date.
+    function timeAgo(iso) {
+        var then = new Date(iso);
+        var now = new Date();
+        var sec = Math.floor((now - then) / 1000);
+        if (isNaN(then.getTime()) || sec < 0) return '';
+        if (sec < 60) return 'just now';
+        var min = Math.floor(sec / 60);
+        if (min < 60) return min + 'm ago';
+        var hr = Math.floor(min / 60);
+        if (hr < 24) return hr + 'h ago';
+        var day = Math.floor(hr / 24);
+        if (day < 7) return day + 'd ago';
+        return then.toLocaleDateString();
+    }
+    cards.forEach(function (card) {
+        var t = card.querySelector('.news-time');
+        if (t) t.textContent = timeAgo(t.getAttribute('datetime')) || t.textContent;
+    });
+})();
+</script>
 {% endblock %}

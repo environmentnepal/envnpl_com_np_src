@@ -2,7 +2,7 @@
 Title: Nepal’s infrastructure risks wildlife habitats beyond protected areas, study warns
 Date: 2026-05-27
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/05/nepals-infrastructure-risks-wildlife-habitats-beyond-protected-areas-study-warns/
 Slug: nepals-infrastructure-risks-wildlife-habitats-beyond-protected-areas-study-warns
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/05/27132222/Ultramarine_flycatcher_in_Nepal_2019_in_Nepal_01-350x233.jpg

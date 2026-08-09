@@ -2,7 +2,7 @@
 Title: Invasives take over native plant spaces in Nepal’s cities
 Date: 2026-04-09
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/04/invasives-take-over-native-plant-spaces-in-nepals-cities/
 Slug: invasives-take-over-native-plant-spaces-in-nepals-cities
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2026/04/09131111/Ageratum_houstonianum_-_Humber_Arboretum-350x233.jpg

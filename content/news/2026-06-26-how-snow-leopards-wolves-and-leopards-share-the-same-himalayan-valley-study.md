@@ -2,7 +2,7 @@
 Title: How snow leopards, wolves and leopards share the same Himalayan valley, study
 Date: 2026-06-26
 Category: wildlife
-Source: Mongabay
+Source: Mongabay Nepal
 Source_URL: https://news.mongabay.com/2026/06/how-snow-leopards-wolves-and-leopards-share-the-same-himalayan-valley-study/
 Slug: how-snow-leopards-wolves-and-leopards-share-the-same-himalayan-valley-study
 Image: https://imgs.mongabay.com/wp-content/uploads/sites/20/2023/11/10052813/himalayan-wolf-350x233.jpg

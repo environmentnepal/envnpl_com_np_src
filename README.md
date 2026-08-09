@@ -2,7 +2,7 @@
 
 **Nepal-focused environmental news aggregator and static content site** — live at [environmentnepal.com.np](https://environmentnepal.com.np).
 
-Built with [Pelican](https://blog.getpelican.com/) (Python static site generator). Scrapes headlines from 8 Nepali news sources, deduplicates, and generates a clean static site with news, national parks guides, book reviews, an AQI dashboard, and podcast pages.
+Built with [Pelican](https://blog.getpelican.com/) (Python static site generator). The homepage is a Google-News-style feed of environment headlines from Nepali and international outlets. Each card shows a thumbnail, title, source, date, and category tag, and links **directly to the original publisher's article** (opens in a new tab). EnvironmentNEPAL never republishes full articles — only short summaries are stored as metadata.
 
 ## Getting Started
 
@@ -45,14 +45,13 @@ python scripts/scraper.py
 
 Fetches sources, deduplicates, writes new Markdown files to `content/news/`, and updates `.last_run.json`.
 
-### Post-Scrape Enrichment (optional)
-
-After scraping, enrich articles with full body text and images:
-
-```bash
-python scripts/fetch_content.py   # Adds ~2000 chars of article body
-python scripts/fetch_images.py    # Extracts og:image from source URLs
-```
+**How it works:**
+- Each new article is written as a **summary-only** Markdown file (title, date, category, source, source URL, image, and a short snippet in frontmatter) — no article body.
+- Full publish timestamps are parsed so the feed can sort by newest and show live "time ago".
+- Sources flagged `global: true` (international outlets) are kept **only** when the story mentions Nepal / South Asia — so the feed stays Nepal-focused even as the source list broadens.
+- Env-section sources (Kathmandu Post, The Himalayan Times, Nepalnews, OnlineKhabar, etc.) are pre-filtered by the publisher and are always environment-relevant.
+- Off-topic stories (politics, sports, film, crime) are dropped before writing.
+- `scripts/fetch_content.py` and `scripts/fetch_images.py` are legacy enrichment scripts — **do not run `fetch_content.py`**, it adds full article bodies, which we no longer store.
 
 ## Deployment
 
@@ -65,10 +64,15 @@ CI auto-deploys on push to `main` — no manual steps needed.
 ├── scripts/           # Scraper engine (runs locally)
 │   ├── scraper.py         # Main news ingestion
 │   ├── dedupe.py          # 3-stage deduplication
-│   ├── fetch_content.py   # Body text enrichment
-│   ├── fetch_images.py    # Image enrichment
-│   └── sources.yaml       # 8 news source configs
+│   ├── sources.yaml       # 14 source configs (national + international)
+│   └── trim_articles.sh   # Trims each batch to the best articles
 ├── themes/            # Pelican templates
 ├── pelicanconf.py     # Dev config
 └── publishconf.py     # Production config
 ```
+
+## News Sources
+
+**National:** Nepali Times, Mongabay Nepal, Ratopati English, Kathmandu Post, The Rising Nepal, Nepalnews, OnlineKhabar, MyRepublica, The Himalayan Times, RecordNepal, The Annapurna Express.
+
+**International (Nepal-tagged):** Dialogue Earth (publishes The Third Pole), The Guardian Environment, Carbon Brief.
