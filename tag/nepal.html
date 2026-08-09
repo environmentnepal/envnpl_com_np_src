@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://environmentnepal.com.np/theme/css/style.css?v=2" />
+    <link rel="stylesheet" href="https://environmentnepal.com.np/theme/css/style.css?v=3" />
     <link href="https://environmentnepal.com.np/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="EnvironmentNEPAL Atom Feed" />
 </head>
 <body>
@@ -32,144 +32,136 @@
     <main>
 
 
-<!-- Hero Section: 1 main + 2 sub -->
-<section class="hero">
-    <div class="hero-grid">
-        <!-- Main story (50% width) -->
-        <article class="hero-main">
-            <a href="https://environmentnepal.com.np/envnepal_gitactions.html">
-                <div class="hero-main-img hero-placeholder"></div>
-                <div class="hero-main-text">
-                    <h2>Git Actions Setup</h2>
-                    <p class="meta">Policy | News | 20 March 2025</p>
-                </div>
-            </a>
-        </article>
 
-        <!-- Sub-stories (25% each) -->
-        <div class="hero-sub">
-            <article class="hero-sub-card">
-                <a href="https://environmentnepal.com.np/revival-of-envnepal.html">
-                    <div class="hero-sub-img hero-placeholder"></div>
-                    <div class="hero-sub-text">
-                        <h3>A Journey Back from the Archives</h3>
-                        <p class="meta">Climate | News | 20 March 2025</p>
+
+<section class="feed-page">
+    <div class="feed-inner">
+        <h2 class="section-heading">Environment news</h2>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" id="filter-bar">
+            <div class="filter-cats">
+                <button class="filter-btn active" data-cat="all">All</button>
+                <button class="filter-btn" data-cat="climate">Climate</button>
+                <button class="filter-btn" data-cat="wildlife">Wildlife</button>
+                <button class="filter-btn" data-cat="forestry">Forestry</button>
+                <button class="filter-btn" data-cat="water">Water</button>
+                <button class="filter-btn" data-cat="pollution">Pollution</button>
+                <button class="filter-btn" data-cat="disaster">Disaster</button>
+                <button class="filter-btn" data-cat="policy">Policy</button>
+                <button class="filter-btn" data-cat="environment">Environment</button>
+            </div>
+            <div class="filter-source">
+                <label for="source-select">Source</label>
+                <select id="source-select">
+                    <option value="all">All sources</option>
+                </select>
+            </div>
+            <span class="filter-count" id="filter-count"></span>
+        </div>
+
+        <!-- Feed -->
+        <div class="news-feed" id="news-feed">
+            <article class="news-card" data-cat="policy" data-source="">
+                <a href="https://environmentnepal.com.np/envnepal_gitactions.html" target="_blank" rel="noopener nofollow" class="news-card-link">
+                    <div class="news-thumb">
+                        <div class="thumb-placeholder"></div>
+                    </div>
+                    <div class="news-body">
+                        <h3 class="news-title">Git Actions Setup</h3>
+                        <p class="news-snippet"><p>If you’re following along, expect more updates in the coming weeks. With this streamlined workflow, the road ahead looks promising for environmentnepal.com.np. Have ideas or suggestions? Let us know—we’d love to hear from you!</p></p>
+                        <p class="news-meta">
+                            <span class="news-source">EnvironmentNEPAL</span>
+                            <span class="news-dot">·</span>
+                            <span class="news-dot">·</span>
+                            <span class="news-cat">Policy</span>
+                            <span class="news-dot">·</span>
+                            <time class="news-time" datetime="2025-03-20T03:46:00+0100">20 March 2025</time>
+                        </p>
+                    </div>
+                </a>
+            </article>
+            <article class="news-card" data-cat="climate" data-source="">
+                <a href="https://environmentnepal.com.np/revival-of-envnepal.html" target="_blank" rel="noopener nofollow" class="news-card-link">
+                    <div class="news-thumb">
+                        <div class="thumb-placeholder"></div>
+                    </div>
+                    <div class="news-body">
+                        <h3 class="news-title">A Journey Back from the Archives</h3>
+                        <p class="news-snippet"><p>What might this rebirth look like? Perhaps a sleek, modern design to replace the dated frameworks of yesteryear. Maybe fresh content—articles, reports, or interactive tools—to engage</p></p>
+                        <p class="news-meta">
+                            <span class="news-source">EnvironmentNEPAL</span>
+                            <span class="news-dot">·</span>
+                            <span class="news-dot">·</span>
+                            <span class="news-cat">Climate</span>
+                            <span class="news-dot">·</span>
+                            <time class="news-time" datetime="2025-03-20T02:46:00+0100">20 March 2025</time>
+                        </p>
                     </div>
                 </a>
             </article>
 
-            <article class="hero-sub-card">
-                <div class="hero-sub-img hero-placeholder"></div>
-                <div class="hero-sub-text">
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </div>
-            </article>
         </div>
     </div>
 </section>
 
-<!-- Featured Section (black background, full width) -->
+<script>
+(function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.news-card'));
+    var countEl = document.getElementById('filter-count');
+    var activeCat = 'all';
+    var activeSrc = 'all';
 
-<!-- Current Coverage Section (white background) -->
-<section class="coverage-section">
-    <div class="coverage-inner">
-        <h2 class="section-heading">Current coverage</h2>
-        <div class="coverage-grid">
+    function applyFilter() {
+        var shown = 0;
+        cards.forEach(function (card) {
+            var cat = card.getAttribute('data-cat');
+            var src = card.getAttribute('data-source');
+            var show = (activeCat === 'all' || cat === activeCat) &&
+                       (activeSrc === 'all' || src === activeSrc);
+            card.style.display = show ? '' : 'none';
+            if (show) shown++;
+        });
+        countEl.textContent = shown + ' story' + (shown === 1 ? '' : 's');
+    }
 
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-                <article class="coverage-card coverage-placeholder-card">
-                    <div class="coverage-card-img coverage-placeholder"></div>
-                    <h3>More stories coming soon</h3>
-                    <p class="meta">Stay tuned</p>
-                </article>
-        </div>
-        <a href="https://environmentnepal.com.np/archives.html" class="section-link">All current coverage &rarr;</a>
-    </div>
-</section>
+    document.getElementById('filter-bar').addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        this.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        applyFilter();
+    });
 
-<!-- Podcast Section -->
-<section class="podcast-section">
-    <div class="podcast-inner">
-        <h2 class="section-heading">Latest podcasts</h2>
-        <div class="podcast-grid">
-            <article class="podcast-card">
-                <div class="podcast-cover">
-                    <span>Episode 1</span>
-                </div>
-                <p class="meta">EnvironmentNEPAL</p>
-                <h3>EnvironmentNEPAL Weekly &mdash; Episode 1</h3>
-            </article>
-            <article class="podcast-card">
-                <div class="podcast-cover">
-                    <span>Episode 2</span>
-                </div>
-                <p class="meta">EnvironmentNEPAL</p>
-                <h3>EnvironmentNEPAL Weekly &mdash; Episode 2</h3>
-            </article>
-            <article class="podcast-card">
-                <div class="podcast-cover">
-                    <span>Episode 3</span>
-                </div>
-                <p class="meta">EnvironmentNEPAL</p>
-                <h3>EnvironmentNEPAL Weekly &mdash; Episode 3</h3>
-            </article>
-            <article class="podcast-card">
-                <div class="podcast-cover">
-                    <span>Episode 4</span>
-                </div>
-                <p class="meta">EnvironmentNEPAL</p>
-                <h3>EnvironmentNEPAL Weekly &mdash; Episode 4</h3>
-            </article>
-        </div>
-        <a href="https://environmentnepal.com.np/pages/podcast.html" class="section-link">All podcasts &rarr;</a>
-    </div>
-</section>
+    document.getElementById('source-select').addEventListener('change', function () {
+        activeSrc = this.value;
+        applyFilter();
+    });
 
-<!-- Protected Areas Section -->
-<section class="protected-section">
-    <div class="protected-inner">
-        <h2 class="section-heading">Protected Areas</h2>
-        <div class="protected-grid">
-        </div>
-        <a href="https://environmentnepal.com.np/category/parks.html" class="section-link">All protected areas &rarr;</a>
-    </div>
-</section>
+    applyFilter();
 
+    // Live "time ago" for each card's date.
+    function timeAgo(iso) {
+        var then = new Date(iso);
+        var now = new Date();
+        var sec = Math.floor((now - then) / 1000);
+        if (isNaN(then.getTime()) || sec < 0) return '';
+        if (sec < 60) return 'just now';
+        var min = Math.floor(sec / 60);
+        if (min < 60) return min + 'm ago';
+        var hr = Math.floor(min / 60);
+        if (hr < 24) return hr + 'h ago';
+        var day = Math.floor(hr / 24);
+        if (day < 7) return day + 'd ago';
+        return then.toLocaleDateString();
+    }
+    cards.forEach(function (card) {
+        var t = card.querySelector('.news-time');
+        if (t) t.textContent = timeAgo(t.getAttribute('datetime')) || t.textContent;
+    });
+})();
+</script>
     </main>
 
     <!-- Footer -->
