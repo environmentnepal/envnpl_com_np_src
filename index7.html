@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EnvironmentNEPAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://environmentnepal.com.np/theme/css/style.css?v=3" />
+    <link href="https://environmentnepal.com.np/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="EnvironmentNEPAL Atom Feed" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="https://environmentnepal.com.np/" class="site-logo">EnvironmentNEPAL</a>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="https://environmentnepal.com.np/">Home</a></li>
+                    <li><a href="https://environmentnepal.com.np/archives.html">News</a></li>
+                    <li><a href="https://environmentnepal.com.np/category/parks.html">Parks</a></li>
+                    <li><a href="https://environmentnepal.com.np/category/books.html">Books</a></li>
+                    <li><a href="https://environmentnepal.com.np/pages/aqi.html">Data</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <main>
+
+
+
+
+<section class="feed-page">
+    <div class="feed-inner">
+        <h2 class="section-heading">Environment news</h2>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" id="filter-bar">
+            <div class="filter-cats">
+                <button class="filter-btn active" data-cat="all">All</button>
+                <button class="filter-btn" data-cat="climate">Climate</button>
+                <button class="filter-btn" data-cat="wildlife">Wildlife</button>
+                <button class="filter-btn" data-cat="forestry">Forestry</button>
+                <button class="filter-btn" data-cat="water">Water</button>
+                <button class="filter-btn" data-cat="pollution">Pollution</button>
+                <button class="filter-btn" data-cat="disaster">Disaster</button>
+                <button class="filter-btn" data-cat="policy">Policy</button>
+                <button class="filter-btn" data-cat="environment">Environment</button>
+            </div>
+            <div class="filter-source">
+                <label for="source-select">Source</label>
+                <select id="source-select">
+                    <option value="all">All sources</option>
+                    <option value="The Himalayan Times">The Himalayan Times</option>
+                    <option value="The Annapurna Express">The Annapurna Express</option>
+                    <option value="Ratopati English">Ratopati English</option>
+                    <option value="Mongabay Nepal">Mongabay Nepal</option>
+                    <option value="Dialogue Earth">Dialogue Earth</option>
+                    <option value="MyRepublica">MyRepublica</option>
+                    <option value="UNESCO">UNESCO</option>
+                    <option value="Stimson">Stimson</option>
+                    <option value="Kathmandu Post">Kathmandu Post</option>
+                    <option value="Nepali Times">Nepali Times</option>
+                </select>
+            </div>
+            <span class="filter-count" id="filter-count"></span>
+        </div>
+
+        <!-- Feed -->
+        <div class="news-feed" id="news-feed">
+
+            <p class="feed-empty">No news yet. Check back soon.</p>
+        </div>
+
+        <nav class="pagination">
+            <a href="https://environmentnepal.com.np/index6.html" class="pagination-prev">&larr; Newer</a>
+            <span class="pagination-info">Page 7 of 7</span>
+        </nav>
+    </div>
+</section>
+
+<script>
+(function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.news-card'));
+    var countEl = document.getElementById('filter-count');
+    var activeCat = 'all';
+    var activeSrc = 'all';
+
+    function applyFilter() {
+        var shown = 0;
+        cards.forEach(function (card) {
+            var cat = card.getAttribute('data-cat');
+            var src = card.getAttribute('data-source');
+            var show = (activeCat === 'all' || cat === activeCat) &&
+                       (activeSrc === 'all' || src === activeSrc);
+            card.style.display = show ? '' : 'none';
+            if (show) shown++;
+        });
+        countEl.textContent = shown + ' story' + (shown === 1 ? '' : 's');
+    }
+
+    document.getElementById('filter-bar').addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        this.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-cat');
+        applyFilter();
+    });
+
+    document.getElementById('source-select').addEventListener('change', function () {
+        activeSrc = this.value;
+        applyFilter();
+    });
+
+    applyFilter();
+
+    // Live "time ago" for each card's date.
+    function timeAgo(iso) {
+        var then = new Date(iso);
+        var now = new Date();
+        var sec = Math.floor((now - then) / 1000);
+        if (isNaN(then.getTime()) || sec < 0) return '';
+        if (sec < 60) return 'just now';
+        var min = Math.floor(sec / 60);
+        if (min < 60) return min + 'm ago';
+        var hr = Math.floor(min / 60);
+        if (hr < 24) return hr + 'h ago';
+        var day = Math.floor(hr / 24);
+        if (day < 7) return day + 'd ago';
+        return then.toLocaleDateString();
+    }
+    cards.forEach(function (card) {
+        var t = card.querySelector('.news-time');
+        if (t) t.textContent = timeAgo(t.getAttribute('datetime')) || t.textContent;
+    });
+})();
+</script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="https://environmentnepal.com.np/pages/about-us.html">About Us</a>
+                <a href="https://environmentnepal.com.np/pages/privacy.html">Privacy</a>
+                <a href="https://environmentnepal.com.np/pages/dmca.html">DMCA</a>
+                <a href="https://environmentnepal.com.np/pages/contact.html">Contact</a>
+                <a href="https://environmentnepal.com.np/pages/advertise.html">Advertise</a>
+            </div>
+            <p class="footer-copy">&copy; EnvironmentNEPAL. Independent coverage of Nepal's environment.</p>
+        </div>
+    </footer>
+</body>
+</html>
