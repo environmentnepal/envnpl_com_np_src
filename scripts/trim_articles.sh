@@ -5,6 +5,9 @@
 # 2. Kathmandu Post climate/environment — keep if room
 # 3. Ratopati — drop unless clearly environment-related
 #
+# NOTE: identifies new articles via git untracked files (NOT by filename date —
+# the scraper names files by PUBLISH date, which may be 1-2 days old).
+#
 # Usage: cd /path/to/repo && bash scripts/trim_articles.sh
 
 set -e
@@ -12,11 +15,10 @@ cd "$(dirname "$0")/.."
 
 echo "[TRIM] Checking for new articles..."
 
-# Find new (today's) articles
-TODAY=$(date +%Y-%m-%d)
-NEW_FILES=$(find content/news -name "${TODAY}-*.md" -type f | sort)
-NEW_COUNT=$(echo "$NEW_FILES" | wc -l | tr -d ' ')
-echo "[TRIM] Found ${NEW_COUNT} articles from today"
+# Find new (uncommitted/untracked) articles — works regardless of publish date
+NEW_FILES=$(git ls-files --others --exclude-standard content/news | sort)
+NEW_COUNT=$(echo "$NEW_FILES" | grep -c . || true)
+echo "[TRIM] Found ${NEW_COUNT} new articles"
 
 # Categorize
 MONGABAY_FILES=$(echo "$NEW_FILES" | xargs grep -l "Source: Mongabay" 2>/dev/null || echo)

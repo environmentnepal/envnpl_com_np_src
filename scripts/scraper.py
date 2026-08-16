@@ -87,7 +87,12 @@ def extract_category(title, snippet, mapping):
     text = f"{title} {snippet}".lower()
     for rule in mapping:
         for kw in rule["keywords"]:
-            if kw.lower() in text: return rule["category"]
+            k = kw.lower()
+            # Word-boundary match with optional plural 's' (e.g. "tigers" -> "tiger",
+            # but "parked" does NOT match "park"). Multi-word keywords work too.
+            pat = re.escape(k) + ("s?" if not k.endswith("s") else "")
+            if re.search(rf"(?<![a-z]){pat}(?![a-z])", text):
+                return rule["category"]
     # IMPORTANT: default must NOT be an environment category.
     # Articles that match no keyword are likely off-topic (politics,
     # sports, film, crime) — tag them "general" so trim_articles.sh drops them.
@@ -111,6 +116,24 @@ def _css_first(element, selector):
             if el: return el
     return None
 
+def _extract_image(element, selector="img@data-src, img@src, img@data-lazy-src"):
+    """Extract a thumbnail URL from a card element. Tries several img attrs,
+    resolves relative URLs, and skips tiny placeholders/logos."""
+    if not selector:
+        return ""
+    for sel in [s.strip() for s in selector.split(",")]:
+        tag, _, attr = sel.partition("@")
+        el = element.select_one(tag) if tag else None
+        if not el: continue
+        for a in ([attr] if attr else ["src", "data-src", "data-lazy-src"]):
+            val = el.get(a)
+            if val and val.startswith(("http", "/", "//")):
+                low = val.lower()
+                if any(x in low for x in ("logo", ".svg", ".gif", "icon_", "placeholder", "author", "avatar", "default")):
+                    continue
+                return val
+    return ""
+
 def scrape_css(source):
     url = source["url"]
     print(f"  Fetching: {url}")
@@ -130,7 +153,9 @@ def scrape_css(source):
         raw_date = dt_el if isinstance(dt_el, str) else (dt_el.get_text(strip=True) if hasattr(dt_el,'get_text') else "")
         if not title or not link: continue
         if not link.startswith("http"): link = urljoin(url, link)
-        articles.append({"title":title,"url":link,"snippet":snippet[:300],"date_raw":raw_date,"source_name":source["name"]})
+        img = _extract_image(element, fields.get("image"))
+        if img.startswith("/"): img = urljoin(url, img)
+        articles.append({"title":title,"url":link,"snippet":snippet[:300],"date_raw":raw_date,"source_name":source["name"],"image":img})
     print(f"    Found {len(articles)} articles")
     return articles
 
@@ -149,7 +174,18 @@ def scrape_rss(source):
         desc = BeautifulSoup(d.get_text(strip=True) if d else "", "html.parser").get_text(strip=True)
         date = p.get_text(strip=True) if p else ""
         if title and link:
-            articles.append({"title":title,"url":link,"snippet":desc[:300],"date_raw":date,"source_name":source["name"]})
+            # Image: media:content / enclosure / first <img> in description
+            img = ""
+            mc = item.find("media:content") or item.find("content")
+            if mc and mc.get("url"): img = mc["url"]
+            if not img:
+                enc = item.find("enclosure")
+                if enc and enc.get("url"): img = enc["url"]
+            if not img and d:
+                d_img = BeautifulSoup(d.get_text(strip=True), "html.parser").find("img")
+                if d_img: img = d_img.get("src") or d_img.get("data-src") or ""
+            if img.startswith("/"): img = urljoin(url, img)
+            articles.append({"title":title,"url":link,"snippet":desc[:300],"date_raw":date,"source_name":source["name"],"image":img})
     print(f"    Found {len(articles)} articles")
     return articles
 
@@ -172,7 +208,16 @@ def scrape_links(source):
         elif not href.startswith("http"): href = urljoin(url, href)
         dm = re.search(r"/(\d{4})/(\d{2})/(\d{2})/", href)
         ds = f"{dm.group(1)}-{dm.group(2)}-{dm.group(3)}" if dm else datetime.now().strftime("%Y-%m-%d")
-        articles.append({"title":title,"url":href,"snippet":title,"date_raw":ds,"source_name":source["name"]})
+        # Image: walk up parents looking for an <img> in the card/container
+        img = ""
+        node = link
+        for _ in range(5):
+            node = node.parent
+            if node is None: break
+            img = _extract_image(node)
+            if img: break
+        if img.startswith("/"): img = urljoin(base or url, img)
+        articles.append({"title":title,"url":href,"snippet":title,"date_raw":ds,"source_name":source["name"],"image":img})
     print(f"    Found {len(articles)} articles")
     return articles
 

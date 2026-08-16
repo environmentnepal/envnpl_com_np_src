@@ -11,7 +11,7 @@ sources:
     category_mapping:
       - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission", "glacier", "monsoon", "el nino"]
         category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity", "habitat", "conservation", "park"]
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "species", "bird", "biodiversity", "habitat", "conservation", "park", "wwf", "buffer zone"]
         category: wildlife
       - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation", "logging", "natural capital"]
         category: forestry
@@ -37,9 +37,9 @@ sources:
       snippet: ""
       date: ".date"
     category_mapping:
-      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "cop"]
         category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "biodiversity"]
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "species", "biodiversity", "wwf", "buffer zone"]
         category: wildlife
       - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation"]
         category: forestry
@@ -64,7 +64,7 @@ sources:
       snippet: "p"
       date: "time"
     category_mapping:
-      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "emission", "greenhouse"]
+      - keywords: ["climate", "temperature", "warming", "carbon", "emission", "greenhouse", "cop"]
         category: climate
       - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species", "bird", "biodiversity", "habitat", "park", "parsa", "chitwan", "conservation"]
         category: wildlife
@@ -180,9 +180,9 @@ sources:
       snippet: "p, .excerpt"
       date: "time, .date"
     category_mapping:
-      - keywords: ["climate", "weather", "temperature", "warming", "carbon"]
+      - keywords: ["climate", "weather", "temperature", "warming", "carbon", "cop"]
         category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "species"]
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "species", "wwf", "buffer zone"]
         category: wildlife
       - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
         category: forestry
@@ -216,18 +216,20 @@ sources:
     url: "https://thehimalayantimes.com/environment"
     type: dynamic
     check_frequency_hours: 12
-    env_section: true
+    # NOT env_section: the /environment page mixes sidebar/general stories (golf,
+    # telecom, politics). Keyword-gate everything; unmatched titles are dropped.
     extractor: css
-    selector: "article"
+    selector: "article.row"
     fields:
       title: "h2 a, h3 a, .title a"
       url: "h2 a@href, h3 a@href, .title a@href"
       snippet: "p, .summary, .excerpt"
-      date: "img@src, img@data-src, time, .date, .published"
+      date: "time, .date, .published"
+      image: "img@data-src, img@src, img@data-lazy-src"
     category_mapping:
-      - keywords: ["climate", "weather", "warming", "carbon", "emission", "monsoon"]
+      - keywords: ["climate", "warming", "carbon", "emission", "monsoon", "environment", "nature", "ecology", "sustainability", "renewable", "cop"]
         category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "bird", "biodiversity", "conservation", "park", "wwf", "buffer zone"]
         category: wildlife
       - keywords: ["forest", "deforestation", "tree", "timber", "jungle", "plantation"]
         category: forestry
@@ -245,7 +247,7 @@ sources:
     note: "Covers climate & mountaineering from Nepal"
     type: dynamic
     check_frequency_hours: 24
-    env_section: true
+    # NOT env_section: homepage link list mixes politics/business with climate.
     extractor: links
     link_pattern: "/trn/story"
     base_url: "https://www.recordnepal.com"
@@ -256,9 +258,9 @@ sources:
       snippet: ""
       date: ""
     category_mapping:
-      - keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "monsoon"]
+      - keywords: ["climate", "warming", "carbon", "emission", "glacier", "monsoon", "environment", "nature", "ecology", "sustainability", "renewable", "cop"]
         category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "bird", "biodiversity", "conservation", "park", "wwf", "buffer zone"]
         category: wildlife
       - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
         category: forestry
@@ -275,7 +277,8 @@ sources:
     url: "https://theannapurnaexpress.com/category/environment/"
     type: dynamic
     check_frequency_hours: 24
-    env_section: true
+    # NOT env_section: /category/environment/ page mixes sidebar/world stories
+    # (Iran-US, Japan PM, etc.). Keyword-gate everything.
     extractor: links
     link_pattern: "/story/"
     base_url: "https://theannapurnaexpress.com"
@@ -286,9 +289,9 @@ sources:
       snippet: ""
       date: ""
     category_mapping:
-      - keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "monsoon"]
+      - keywords: ["climate", "warming", "carbon", "emission", "glacier", "monsoon", "environment", "nature", "ecology", "sustainability", "renewable", "cop"]
         category: climate
-      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+      - keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "bird", "biodiversity", "conservation", "park", "wwf", "buffer zone"]
         category: wildlife
       - keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
         category: forestry
@@ -368,9 +371,9 @@ sources:
       date: ""
     category_mapping:
       - category: climate
-        keywords: ["climate", "weather", "warming", "carbon", "emission", "glacier", "monsoon"]
+        keywords: ["climate", "warming", "carbon", "emission", "glacier", "monsoon", "environment", "nature", "ecology", "sustainability", "renewable", "cop"]
       - category: wildlife
-        keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "bird", "biodiversity", "conservation", "park"]
+        keywords: ["tiger", "rhino", "elephant", "poaching", "wildlife", "wild animal", "bird", "biodiversity", "conservation", "park", "wwf", "buffer zone"]
       - category: forestry
         keywords: ["forest", "deforestation", "tree", "timber", "jungle"]
       - category: water
