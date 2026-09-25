@@ -16,7 +16,9 @@ cd "$(dirname "$0")/.."
 echo "[TRIM] Checking for new articles..."
 
 # Find new (uncommitted/untracked) articles — works regardless of publish date
-NEW_FILES=$(git ls-files --others --exclude-standard content/news | sort)
+# core.quotepath=false keeps non-ASCII filenames (e.g. "El Niño") literal instead
+# of C-quoted, which would otherwise break the grep/rm steps below.
+NEW_FILES=$(git -c core.quotepath=false ls-files --others --exclude-standard content/news | sort)
 NEW_COUNT=$(echo "$NEW_FILES" | grep -c . || true)
 echo "[TRIM] Found ${NEW_COUNT} new articles"
 
