@@ -259,12 +259,37 @@ def scrape_nepalitimes_api(source):
     print(f"    Found {len(articles)} articles")
     return articles
 
+def _fetch_meta_description(url):
+    """Fallback summary: pull og:description / meta description from the article page."""
+    try:
+        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=15)
+        if resp.status_code != 200:
+            return ""
+        soup = BeautifulSoup(resp.text, "html.parser")
+        for attr, val in (("property", "og:description"), ("name", "description"),
+                          ("name", "twitter:description")):
+            tag = soup.find("meta", attrs={attr: val})
+            if tag and tag.get("content"):
+                txt = re.sub(r"\s+", " ", tag["content"]).strip()
+                if len(txt) > 20:
+                    return txt
+    except Exception as e:
+        print(f"    [META-ERR] {e}")
+    return ""
+
+
 def create_markdown(article):
     parsed = article.get("_parsed_date") or parse_date(article.get("date_raw", ""))
     ds = parsed.strftime("%Y-%m-%d %H:%M")
     slug = slugify(article["title"])
     img_line = f"Image: {article['image']}\n" if article.get("image") else ""
     snippet = (article.get("snippet") or "").strip()[:200]
+    # Some feeds ship an empty description or just repeat the headline; fall back
+    # to the article page's meta description so cards are never blank.
+    if len(snippet) < 40 or snippet.lower() == article["title"].strip().lower():
+        meta = _fetch_meta_description(article["url"])
+        if meta:
+            snippet = meta[:200]
     fm = f"---\nTitle: {article['title']}\nDate: {ds}\nCategory: {article.get('category','climate')}\nSource: {article['source_name']}\nSource_URL: {article['url']}\nSlug: {slug}\n{img_line}Snippet: {snippet}\nSummary: {snippet}\n---\n"
     # Summary-only storage: never write the full article body.
     full = fm + "\n"
